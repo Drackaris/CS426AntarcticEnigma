@@ -10,7 +10,9 @@ public class SimpleMovement : MonoBehaviour
 	public float force = 700f;
 	public int PuzzlePieceDirection;
 	private CameraSwitch camswitch;
-
+	public GameObject PuzzleBlock;
+	private GameObject PuzzlePiece;
+	private Vector3 SpawnLocation;
 	Rigidbody rb;
 	Transform t;
 
@@ -26,6 +28,8 @@ public class SimpleMovement : MonoBehaviour
 		CanGoToComputer = false;
 		PuzzlePieceDirection = 1;
 		camswitch = GameObject.FindGameObjectWithTag("GameController").GetComponent<CameraSwitch>();
+		PuzzlePiece = GameObject.FindGameObjectWithTag("ComputerStartTag");
+	    SpawnLocation = new Vector3(PuzzlePiece.transform.position.x, PuzzlePiece.transform.position.y, PuzzlePiece.transform.position.z);
 	}
 
 	// Update is called once per frame
@@ -55,9 +59,8 @@ public class SimpleMovement : MonoBehaviour
 		}
 		else if (GameMode == 1)
 		{
-			GameObject PuzzlePiece = GameObject.FindGameObjectWithTag("ComputerStartTag");
-			
-			if(Input.GetKeyDown(KeyCode.W))
+			PuzzlePiece = GameObject.FindGameObjectWithTag("ComputerStartTag");
+			if (Input.GetKeyDown(KeyCode.W))
 			{	
 				if(PuzzlePieceDirection == 1 )
 				{
@@ -86,6 +89,13 @@ public class SimpleMovement : MonoBehaviour
 				PuzzlePiece.transform.Rotate(0, 90f, 0, Space.Self);
 				PuzzlePieceDirection = GetRotationValue(PuzzlePiece);
 			}
+			if(Input.GetKeyDown(KeyCode.Space))
+			{
+				Destroy(PuzzlePiece);
+				PuzzlePieceDirection = 1;
+				Instantiate(PuzzleBlock, SpawnLocation, Quaternion.identity);
+			}
+
 			if(Input.GetKey(KeyCode.Escape))
 			{
 				camswitch.GoToPlayerCamera();
