@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CameraSwitch.cs" />
      <Compile Include="Assets\SimpleMovement.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/Steve/CodingProjects/CS426AntarcticEnigma/CS426AntarcticEnigmaSWPrototype/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
