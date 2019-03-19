@@ -8,7 +8,7 @@ public class SimpleMovement : MonoBehaviour
 	public float speed = 25.0f;
 	public float rotationSpeed = 90;
 	public float force = 700f;
-
+	public int PuzzlePieceDirection;
 	private CameraSwitch camswitch;
 
 	Rigidbody rb;
@@ -24,6 +24,7 @@ public class SimpleMovement : MonoBehaviour
 		t = GetComponent<Transform>();
 		GameMode = 0;
 		CanGoToComputer = false;
+		PuzzlePieceDirection = 1;
 		camswitch = GameObject.FindGameObjectWithTag("GameController").GetComponent<CameraSwitch>();
 	}
 
@@ -54,6 +55,37 @@ public class SimpleMovement : MonoBehaviour
 		}
 		else if (GameMode == 1)
 		{
+			GameObject PuzzlePiece = GameObject.FindGameObjectWithTag("ComputerStartTag");
+			
+			if(Input.GetKeyDown(KeyCode.W))
+			{	
+				if(PuzzlePieceDirection == 1 )
+				{
+					PuzzlePiece.transform.position = new Vector3(PuzzlePiece.transform.position.x, PuzzlePiece.transform.position.y, PuzzlePiece.transform.position.z + 1);
+				}
+				else if(PuzzlePieceDirection == 2)
+				{
+					PuzzlePiece.transform.position = new Vector3(PuzzlePiece.transform.position.x + 1, PuzzlePiece.transform.position.y, PuzzlePiece.transform.position.z);
+				}
+				else if (PuzzlePieceDirection == 3)
+				{
+					PuzzlePiece.transform.position = new Vector3(PuzzlePiece.transform.position.x, PuzzlePiece.transform.position.y, PuzzlePiece.transform.position.z - 1);
+				}
+				else if (PuzzlePieceDirection == 4)
+				{
+					PuzzlePiece.transform.position = new Vector3(PuzzlePiece.transform.position.x - 1, PuzzlePiece.transform.position.y, PuzzlePiece.transform.position.z);
+				}
+			}
+			if(Input.GetKeyDown(KeyCode.A))
+			{
+				PuzzlePiece.transform.Rotate(0, -90f, 0, Space.Self);
+				PuzzlePieceDirection = GetRotationValue(PuzzlePiece);
+			}
+			if(Input.GetKeyDown(KeyCode.D))
+			{
+				PuzzlePiece.transform.Rotate(0, 90f, 0, Space.Self);
+				PuzzlePieceDirection = GetRotationValue(PuzzlePiece);
+			}
 			if(Input.GetKey(KeyCode.Escape))
 			{
 				camswitch.GoToPlayerCamera();
@@ -76,5 +108,27 @@ public class SimpleMovement : MonoBehaviour
 		{
 			CanGoToComputer = false;
 		}
+	}
+
+	public int GetRotationValue(GameObject PuzzlePiece)
+	{
+		int val = 0;
+		if(PuzzlePiece.transform.rotation.y == 0)
+		{
+			val = 1;
+		}
+		else if (PuzzlePiece.transform.rotation.eulerAngles.y > 89.00 && PuzzlePiece.transform.rotation.eulerAngles.y < 91 )
+		{
+			val = 2;
+		}
+		else if ( PuzzlePiece.transform.rotation.eulerAngles.y > 179 && PuzzlePiece.transform.rotation.eulerAngles.y < 181)
+		{
+			val = 3;
+		}
+		else
+		{
+			val = 4;
+		}
+		return val;
 	}
 }
