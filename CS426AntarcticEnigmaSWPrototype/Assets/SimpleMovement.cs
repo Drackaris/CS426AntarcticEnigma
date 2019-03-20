@@ -13,6 +13,7 @@ public class SimpleMovement : MonoBehaviour
 	public GameObject PuzzleBlock;
 	private GameObject PuzzlePiece;
 	private Vector3 SpawnLocation;
+	public List<string> LevelCommands;
 	Rigidbody rb;
 	Transform t;
 
@@ -30,6 +31,7 @@ public class SimpleMovement : MonoBehaviour
 		camswitch = GameObject.FindGameObjectWithTag("GameController").GetComponent<CameraSwitch>();
 		PuzzlePiece = GameObject.FindGameObjectWithTag("ComputerStartTag");
 	    SpawnLocation = new Vector3(PuzzlePiece.transform.position.x, PuzzlePiece.transform.position.y, PuzzlePiece.transform.position.z);
+		LevelCommands = new List<string>();
 	}
 
 	// Update is called once per frame
@@ -61,12 +63,45 @@ public class SimpleMovement : MonoBehaviour
 		{
 			PuzzlePiece = GameObject.FindGameObjectWithTag("ComputerStartTag");
 			if (Input.GetKeyDown(KeyCode.W))
-			{	
-				if(PuzzlePieceDirection == 1 )
+			{
+				LevelCommands.Add("F");
+			
+			}
+			if(Input.GetKeyDown(KeyCode.A))
+			{
+				LevelCommands.Add("RL");
+
+			}
+			if(Input.GetKeyDown(KeyCode.D))
+			{
+				LevelCommands.Add("RR");
+
+			}
+			if (Input.GetKeyDown(KeyCode.Tab))
+			{
+				AttemptSolvePuzzle();
+			}
+
+			if(Input.GetKey(KeyCode.Escape))
+			{
+				camswitch.GoToPlayerCamera();
+				GameMode = 0;
+			}
+		}
+	}
+
+	public void AttemptSolvePuzzle()
+	{
+		foreach (string str in LevelCommands)
+		{
+			StartCoroutine(WaitHalfSecond());
+			if (str == "F")
+			{
+				if (PuzzlePieceDirection == 1)
 				{
 					PuzzlePiece.transform.position = new Vector3(PuzzlePiece.transform.position.x, PuzzlePiece.transform.position.y, PuzzlePiece.transform.position.z + 1);
 				}
-				else if(PuzzlePieceDirection == 2)
+				else if (PuzzlePieceDirection == 2)
 				{
 					PuzzlePiece.transform.position = new Vector3(PuzzlePiece.transform.position.x + 1, PuzzlePiece.transform.position.y, PuzzlePiece.transform.position.z);
 				}
@@ -79,29 +114,35 @@ public class SimpleMovement : MonoBehaviour
 					PuzzlePiece.transform.position = new Vector3(PuzzlePiece.transform.position.x - 1, PuzzlePiece.transform.position.y, PuzzlePiece.transform.position.z);
 				}
 			}
-			if(Input.GetKeyDown(KeyCode.A))
+			else if(str == "RL")
 			{
 				PuzzlePiece.transform.Rotate(0, -90f, 0, Space.Self);
 				PuzzlePieceDirection = GetRotationValue(PuzzlePiece);
 			}
-			if(Input.GetKeyDown(KeyCode.D))
+			else if(str == "RR")
 			{
 				PuzzlePiece.transform.Rotate(0, 90f, 0, Space.Self);
 				PuzzlePieceDirection = GetRotationValue(PuzzlePiece);
 			}
-			if(Input.GetKeyDown(KeyCode.Space))
-			{
-				Destroy(PuzzlePiece);
-				PuzzlePieceDirection = 1;
-				Instantiate(PuzzleBlock, SpawnLocation, Quaternion.identity);
-			}
-
-			if(Input.GetKey(KeyCode.Escape))
-			{
-				camswitch.GoToPlayerCamera();
-				GameMode = 0;
-			}
 		}
+		if(GameMode==1)
+		{
+			//ResetPuzzlePiece();
+		}
+		LevelCommands.Clear();
+	}
+
+	IEnumerator WaitHalfSecond()
+	{
+		yield return new WaitForSeconds(1f);
+	}
+
+	public void ResetPuzzlePiece()
+	{
+		Destroy(PuzzlePiece);
+		PuzzlePieceDirection = 1;
+		Instantiate(PuzzleBlock, SpawnLocation, Quaternion.identity);
+		LevelCommands.Clear();
 	}
 
 	public void OnTriggerEnter(Collider other)

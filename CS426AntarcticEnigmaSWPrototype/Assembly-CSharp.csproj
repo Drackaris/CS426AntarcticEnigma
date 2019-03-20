@@ -54,7 +54,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CameraSwitch.cs" />
+     <Compile Include="Assets\CommandScript.cs" />
+     <Compile Include="Assets\ComputerPuzzleWin.cs" />
      <Compile Include="Assets\SimpleMovement.cs" />
+     <Compile Include="Assets\TriggerComputerDeath.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/Steve/CodingProjects/CS426AntarcticEnigma/CS426AntarcticEnigmaSWPrototype/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

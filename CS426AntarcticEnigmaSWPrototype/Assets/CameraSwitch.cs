@@ -6,6 +6,7 @@ public class CameraSwitch : MonoBehaviour
 {
 	public GameObject PlayerCamera;
 	public GameObject ComputerCamera;
+	public GameObject ComputerUI;
 
 	public int CamMode;
 	// Start is called before the first frame update
@@ -14,6 +15,7 @@ public class CameraSwitch : MonoBehaviour
 		CamMode = 0;
 		PlayerCamera.SetActive(true);
 		ComputerCamera.SetActive(false);
+		ComputerUI.SetActive(false);
 	}
 
 	// Update is called once per frame
@@ -26,6 +28,7 @@ public class CameraSwitch : MonoBehaviour
 	{
 		PlayerCamera.SetActive(true);
 		ComputerCamera.SetActive(false);
+		ComputerUI.SetActive(false);
 	}
 
 	//IEnumerator PlayerCamSwitch()
@@ -37,6 +40,7 @@ public class CameraSwitch : MonoBehaviour
 
 	public void GoToComputerCamera()
 	{
+		ComputerUI.SetActive(true);
 		PlayerCamera.SetActive(false);
 		ComputerCamera.SetActive(true);
 	}
