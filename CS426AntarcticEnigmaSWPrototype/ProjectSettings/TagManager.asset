@@ -10,9 +10,9 @@ TagManager:
   - ComputerDeathTag
   - Cache
   - CacheSpawnLocation
-  - Pizza
   - Serving
   - Bar
+  - pan
   layers:
   - Default
   - TransparentFX

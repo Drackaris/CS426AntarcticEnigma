@@ -21,6 +21,7 @@ public class SimpleMovement : MonoBehaviour
 
 	public int GameMode; //0 if player controled 1 for computer 2 for kitchen....etc.....
 	public bool CanGoToComputer;
+    public bool CanGoToKitchen;
 
 	// Use this for initialization
 	void Start()
@@ -29,6 +30,7 @@ public class SimpleMovement : MonoBehaviour
 		t = GetComponent<Transform>();
 		GameMode = 0;
 		CanGoToComputer = false;
+        CanGoToKitchen = false;
 		PuzzlePieceDirection = 1;
 		camswitch = GameObject.FindGameObjectWithTag("GameController").GetComponent<CameraSwitch>();
 		PuzzlePiece = GameObject.FindGameObjectWithTag("ComputerStartTag");
@@ -60,7 +62,14 @@ public class SimpleMovement : MonoBehaviour
                     camswitch.GoToComputerCamera();
                     GameMode = 1;
 				}
-			}
+
+                if (CanGoToKitchen)
+                {
+                    Debug.Log("Trying to switch camera.");
+                    camswitch.GoToKitchenCamera();
+                    GameMode = 2;
+                }
+            }
 
             if (Input.GetKeyDown(KeyCode.K))
             {
@@ -193,7 +202,13 @@ public class SimpleMovement : MonoBehaviour
 		{
 			CanGoToComputer = true;
 		}
-	}
+
+        if (other.tag == "pan")
+        {
+            CanGoToKitchen = true;
+        }
+
+    }
 
 	public void OnTriggerExit(Collider other)
 	{
@@ -201,7 +216,12 @@ public class SimpleMovement : MonoBehaviour
 		{
 			CanGoToComputer = false;
 		}
-	}
+
+        if (other.tag == "pan")
+        {
+            CanGoToKitchen = false;
+        }
+    }
 
 	public int GetRotationValue(GameObject PuzzlePiece)
 	{
