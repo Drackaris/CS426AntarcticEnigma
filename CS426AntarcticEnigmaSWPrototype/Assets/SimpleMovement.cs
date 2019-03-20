@@ -169,7 +169,7 @@ public class SimpleMovement : MonoBehaviour
 		}
 		if(GameMode==1)
 		{
-			//ResetPuzzlePiece();
+			ResetPuzzlePiece();
 		}
 		LevelCommands.Clear();
 	}
