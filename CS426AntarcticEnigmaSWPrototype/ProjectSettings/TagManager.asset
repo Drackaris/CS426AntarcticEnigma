@@ -8,6 +8,11 @@ TagManager:
   - ComputerEndTag
   - ComputerStartTag
   - ComputerDeathTag
+  - Cache
+  - CacheSpawnLocation
+  - Pizza
+  - Serving
+  - Bar
   layers:
   - Default
   - TransparentFX

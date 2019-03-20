@@ -8,11 +8,13 @@ public class SimpleMovement : MonoBehaviour
 	public float speed = 25.0f;
 	public float rotationSpeed = 90;
 	public float force = 700f;
-	public int PuzzlePieceDirection;
+    private float barSpeed = 15;
+    public int PuzzlePieceDirection;
 	private CameraSwitch camswitch;
 	public GameObject PuzzleBlock;
 	private GameObject PuzzlePiece;
-	private Vector3 SpawnLocation;
+    private GameObject Bar;
+    private Vector3 SpawnLocation;
 	public List<string> LevelCommands;
 	Rigidbody rb;
 	Transform t;
@@ -30,7 +32,8 @@ public class SimpleMovement : MonoBehaviour
 		PuzzlePieceDirection = 1;
 		camswitch = GameObject.FindGameObjectWithTag("GameController").GetComponent<CameraSwitch>();
 		PuzzlePiece = GameObject.FindGameObjectWithTag("ComputerStartTag");
-	    SpawnLocation = new Vector3(PuzzlePiece.transform.position.x, PuzzlePiece.transform.position.y, PuzzlePiece.transform.position.z);
+        Bar = GameObject.FindGameObjectWithTag("Bar");
+        SpawnLocation = new Vector3(PuzzlePiece.transform.position.x, PuzzlePiece.transform.position.y, PuzzlePiece.transform.position.z);
 		LevelCommands = new List<string>();
 	}
 
@@ -54,11 +57,17 @@ public class SimpleMovement : MonoBehaviour
 				if (CanGoToComputer)
 				{
 					Debug.Log("Trying to switch camera.");
-					camswitch.GoToComputerCamera();
-					GameMode = 1;
+                    camswitch.GoToComputerCamera();
+                    GameMode = 1;
 				}
 			}
-		}
+
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                GameMode = 2;
+            }
+
+        }
 		else if (GameMode == 1)
 		{
 			PuzzlePiece = GameObject.FindGameObjectWithTag("ComputerStartTag");
@@ -88,7 +97,40 @@ public class SimpleMovement : MonoBehaviour
 				GameMode = 0;
 			}
 		}
-	}
+        else if (GameMode == 2)
+        {
+            camswitch.GoToKitchenCamera();
+            float pos = Bar.transform.localPosition.z;
+            if (pos > 8 || pos < 1)
+                barSpeed = -1 * barSpeed;
+            Bar.transform.Translate(0, 0, barSpeed * Time.deltaTime);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (pos >= 4.1 && pos <= 4.8)
+                {
+                    Bar.transform.Translate(0, 0, 0);
+                    camswitch.GoToPlayerCamera();
+                    barSpeed = 15;
+                    GameMode = 0;
+                }
+                else
+                {
+                    if (barSpeed > 0)
+                        barSpeed = barSpeed - 2;
+                    else
+                        barSpeed = barSpeed + 2;
+                }
+            }
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                Bar.transform.Translate(0, 0, 0);
+                camswitch.GoToPlayerCamera();
+                barSpeed = 15;
+                GameMode = 0;
+            }
+        }
+
+    }
 
 	public void AttemptSolvePuzzle()
 	{
