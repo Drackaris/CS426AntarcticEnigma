@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657856, g: 0.49641234, b: 0.57481724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1293,6 +1293,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321095620}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &321704762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 167236, guid: 19599c93f59c1184abd18ccc4cbd4a2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 252520029}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &332672159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,6 +1390,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 332672159}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &364789252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 167236, guid: 19599c93f59c1184abd18ccc4cbd4a2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1011054174}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &368409856
 GameObject:
   m_ObjectHideFlags: 0
@@ -1607,11 +1619,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1252153979}
     m_Modifications:
-    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
-        type: 3}
-      propertyPath: m_Name
-      value: WallSegment (25)
-      objectReference: {fileID: 0}
     - target: {fileID: 4610389859128179544, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
         type: 3}
       propertyPath: m_RootOrder
@@ -1646,6 +1653,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
+        type: 3}
+      propertyPath: m_Name
+      value: WallSegment (25)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fae07d95770f5d40ae5b1fb69f0297b, type: 3}
@@ -2445,6 +2457,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668591121}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &709789820 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 169718, guid: 9e1ee6f41e17f704db3e1282cd1db0ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1596934033}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &711025889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 169718, guid: 9e1ee6f41e17f704db3e1282cd1db0ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1054508332}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &718266780
 GameObject:
   m_ObjectHideFlags: 0
@@ -2650,7 +2674,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1437521575734150, guid: 0fa9867c4bccfc843be51e91e55f7228, type: 3}
       propertyPath: m_Name
-      value: TFYK_saucepan_big_high_poly
+      value: pan2
       objectReference: {fileID: 0}
     - target: {fileID: 4730193875835458, guid: 0fa9867c4bccfc843be51e91e55f7228, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2801,6 +2825,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832558301}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &837367746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 167236, guid: 19599c93f59c1184abd18ccc4cbd4a2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1186050000}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &871687333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3772,11 +3802,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1252153979}
     m_Modifications:
-    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
-        type: 3}
-      propertyPath: m_Name
-      value: WallSegment (23)
-      objectReference: {fileID: 0}
     - target: {fileID: 4610389859128179544, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
         type: 3}
       propertyPath: m_RootOrder
@@ -3811,6 +3836,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
+        type: 3}
+      propertyPath: m_Name
+      value: WallSegment (23)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fae07d95770f5d40ae5b1fb69f0297b, type: 3}
@@ -4225,6 +4255,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19599c93f59c1184abd18ccc4cbd4a2a, type: 3}
+--- !u!1 &1159423688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 167236, guid: 19599c93f59c1184abd18ccc4cbd4a2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1094277815}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1171378040
 GameObject:
   m_ObjectHideFlags: 0
@@ -4316,6 +4352,34 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171378040}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1184265330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1437521575734150, guid: 0fa9867c4bccfc843be51e91e55f7228,
+    type: 3}
+  m_PrefabInstance: {fileID: 791881328}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1184265331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184265330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d7610663db704ffda3f7b8386719325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMat: {fileID: 2100000, guid: c68e6ee84c5f44b7491ea02187d4ab23, type: 2}
+  normalMat: {fileID: 2100000, guid: ba30aed8798dbb64c8c2c90ab98f2d9c, type: 2}
+  pan1: {fileID: 1542352012}
+  pan2: {fileID: 1184265330}
+  pan3: {fileID: 1592506303}
+  smoke: {fileID: 1723411869}
+  lightt: {fileID: 1297002197}
+  burning: {fileID: 1159423688}
+  MyObjects: []
+  particalSys: []
 --- !u!1001 &1186050000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4628,6 +4692,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sm: {fileID: 0}
+--- !u!1 &1297002197 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 167236, guid: 19599c93f59c1184abd18ccc4cbd4a2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1676153380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1315297515
 GameObject:
   m_ObjectHideFlags: 0
@@ -5059,11 +5129,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1252153979}
     m_Modifications:
-    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
-        type: 3}
-      propertyPath: m_Name
-      value: WallSegment (24)
-      objectReference: {fileID: 0}
     - target: {fileID: 4610389859128179544, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
         type: 3}
       propertyPath: m_RootOrder
@@ -5098,6 +5163,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
+        type: 3}
+      propertyPath: m_Name
+      value: WallSegment (24)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fae07d95770f5d40ae5b1fb69f0297b, type: 3}
@@ -5201,7 +5271,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1407813944820008, guid: ad48b7b7e0322e943812a305beccb55e, type: 3}
       propertyPath: m_Name
-      value: TFYK_pan
+      value: pan3
       objectReference: {fileID: 0}
     - target: {fileID: 4976168734680326, guid: ad48b7b7e0322e943812a305beccb55e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5270,7 +5340,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1117988603864800, guid: 0cdfe29755d6cbb4ea546f0f48df814c, type: 3}
       propertyPath: m_Name
-      value: TFYK_deep_pan_high_poly
+      value: pan1
       objectReference: {fileID: 0}
     - target: {fileID: 4541331798932054, guid: 0cdfe29755d6cbb4ea546f0f48df814c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5526,6 +5596,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1449522719}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1542352014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542352012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d7610663db704ffda3f7b8386719325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMat: {fileID: 2100000, guid: c68e6ee84c5f44b7491ea02187d4ab23, type: 2}
+  normalMat: {fileID: 2100000, guid: ba30aed8798dbb64c8c2c90ab98f2d9c, type: 2}
+  pan1: {fileID: 1542352012}
+  pan2: {fileID: 1184265330}
+  pan3: {fileID: 1592506303}
+  smoke: {fileID: 709789820}
+  lightt: {fileID: 321704762}
+  burning: {fileID: 364789252}
+  MyObjects: []
+  particalSys: []
 --- !u!111 &1542352017
 Animation:
   m_ObjectHideFlags: 0
@@ -5541,6 +5633,34 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!1 &1592506303 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1407813944820008, guid: ad48b7b7e0322e943812a305beccb55e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1432549435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1592506304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592506303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d7610663db704ffda3f7b8386719325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMat: {fileID: 2100000, guid: c68e6ee84c5f44b7491ea02187d4ab23, type: 2}
+  normalMat: {fileID: 2100000, guid: ba30aed8798dbb64c8c2c90ab98f2d9c, type: 2}
+  pan1: {fileID: 1542352012}
+  pan2: {fileID: 1184265330}
+  pan3: {fileID: 1592506303}
+  smoke: {fileID: 711025889}
+  lightt: {fileID: 837367746}
+  burning: {fileID: 2006140488}
+  MyObjects: []
+  particalSys: []
 --- !u!1001 &1596934033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6193,6 +6313,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718097027}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1723411869 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 169718, guid: 9e1ee6f41e17f704db3e1282cd1db0ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 114274622}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1771782578
 GameObject:
   m_ObjectHideFlags: 0
@@ -7117,6 +7243,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001332853}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2006140488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 167236, guid: 19599c93f59c1184abd18ccc4cbd4a2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 922025015}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2011095432
 GameObject:
   m_ObjectHideFlags: 0

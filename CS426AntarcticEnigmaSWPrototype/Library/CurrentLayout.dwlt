@@ -15,7 +15,7 @@ MonoBehaviour:
   m_PixelRect:
     serializedVersion: 2
     x: 0
-    y: 43
+    y: 44
     width: 1920
     height: 1037
   m_ShowMode: 4
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_MinSize: {x: 911, y: 448}
   m_MaxSize: {x: 22006, y: 10024}
   vertical: 0
-  controlID: 545
+  controlID: 1294
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 448}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
-  controlID: 524
+  controlID: 1295
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 566
+    y: 568
     width: 468
     height: 474
   m_PersistentViewDataDictionary: {fileID: 0}
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 73
+    y: 75
     width: 468
     height: 473
   m_PersistentViewDataDictionary: {fileID: 0}
@@ -385,9 +385,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 50.7612, y: 11.102036, z: 3.2670403}
+    m_Target: {x: 91.6484, y: -20.056152, z: 51.884895}
     speed: 2
-    m_Value: {x: 50.7612, y: 11.102036, z: 3.2670403}
+    m_Value: {x: 91.6484, y: -20.056152, z: 51.884895}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -415,13 +415,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.056667987, y: 0.15184386, z: -0.008719058, w: 0.9867402}
+    m_Target: {x: 0.20565112, y: 0.047815047, z: -0.01005895, w: 0.97740483}
     speed: 2
-    m_Value: {x: 0.056667987, y: 0.15184386, z: -0.008719058, w: 0.9867402}
+    m_Value: {x: 0.20565112, y: 0.047815047, z: -0.01005895, w: 0.97740483}
   m_Size:
-    m_Target: 27.29177
+    m_Target: 70.5917
     speed: 2
-    m_Value: 27.29177
+    m_Value: 70.5917
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -455,16 +455,16 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 470
-    y: 73
+    y: 75
     width: 410
     height: 967
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 60090000
-      m_LastClickedID: 0
-      m_ExpandedIDs: e8deffff
+      m_SelectedIDs: ccceffff
+      m_LastClickedID: -12596
+      m_ExpandedIDs: ccceffffced2ffff0ed3ffff8cd3ffffa6410000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -510,7 +510,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 884
-    y: 73
+    y: 75
     width: 470
     height: 967
   m_PersistentViewDataDictionary: {fileID: 0}
@@ -526,20 +526,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Materials
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/Materials
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: C:\Users\Steve\CodingProjects\CS426AntarcticEnigma\CS426AntarcticEnigmaSWPrototype
+  m_LastProjectPath: /Users/Moe/Desktop/CS426_FinalProj/CS426AntarcticEnigma/CS426AntarcticEnigmaSWPrototype
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 0e380000
-    m_LastClickedID: 14350
-    m_ExpandedIDs: 000000000e38000038380000bc380000343a0000163b0000dc3b0000e042000000ca9a3b
+    m_SelectedIDs: 563f0000
+    m_LastClickedID: 16214
+    m_ExpandedIDs: 00000000e03c0000063d00005e3d0000723e0000023f0000963f00009247000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -567,7 +567,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000000e38000038380000bc380000343a0000163b0000dc3b0000e042000000ca9a3b
+    m_ExpandedIDs: 00000000e03c0000063d00005e3d0000723e0000023f0000963f00009247000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -670,7 +670,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 1358
-    y: 73
+    y: 75
     width: 560
     height: 967
   m_PersistentViewDataDictionary: {fileID: 0}
