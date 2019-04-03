@@ -13,6 +13,7 @@ TagManager:
   - Serving
   - Bar
   - pan
+  - SlideDoor
   layers:
   - Default
   - TransparentFX
