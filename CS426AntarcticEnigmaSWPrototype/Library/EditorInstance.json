@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
 	"process_id" : 11892,
+=======
+	"process_id" : 1567,
+>>>>>>> Stashed changes
 	"version" : "2018.3.5f1",
 	"app_path" : "C:/Program Files/Unity/Editor/Unity.exe",
 	"app_contents_path" : "C:/Program Files/Unity/Editor/Data"
