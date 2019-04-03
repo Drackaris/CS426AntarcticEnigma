@@ -63,8 +63,12 @@
     <Compile Include="Assets\CameraSwitch.cs" />
     <Compile Include="Assets\CommandScript.cs" />
     <Compile Include="Assets\ComputerPuzzleWin.cs" />
+    <Compile Include="Assets\LightFireAudio.cs" />
+    <Compile Include="Assets\OrangeAudio.cs" />
+    <Compile Include="Assets\OrangeHelperAudio.cs" />
     <Compile Include="Assets\panSelector.cs" />
     <Compile Include="Assets\SimpleMovement.cs" />
+    <Compile Include="Assets\SmokeAudio.cs" />
     <Compile Include="Assets\TriggerComputerDeath.cs" />
     <None Include="Assets\Tableware_For_Your_Kitchen\Pref\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Tableware_For_Your_Kitchen\Pref\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
