@@ -1,0 +1,180 @@
+[33mcommit 7ebda70f0485554d78b75f97c521e26ed03a40f3[m
+Author: Steve Stranczek <stevestranczek@gmail.com>
+Date:   Tue Apr 2 20:42:53 2019 -0500
+
+    Added Doors and door that opens
+
+[33mcommit ecd43912e1136466f9851aadb4bc1fb3014dcde0[m
+Author: Mohmed Hira <mhira2@uic.edu>
+Date:   Tue Apr 2 19:52:59 2019 -0500
+
+    Partical Systems key
+    
+    Pressing O and P toggle partical system on/off. Temp Test until it is tied with the slider bar
+
+[33mcommit 6448fd3e0724bdc39e0d0d8a30d14fb898eb4776[m
+Author: Mohmed Hira <mhira2@uic.edu>
+Date:   Tue Apr 2 19:18:07 2019 -0500
+
+    Added in "A" and "D"
+    
+    Press A or D to move back and fourth between the pans in the kitchen
+
+[33mcommit 2d1e54df97b10cd421caa948010d4abbe4adbe9a[m
+Author: Steve Stranczek <stevestranczek@gmail.com>
+Date:   Tue Apr 2 18:29:00 2019 -0500
+
+    Added a single door and character model
+
+[33mcommit 7fafaf21fb0e5e371f5ce03b4f8a97d9816f8f81[m
+Author: Mohmed Hira <mhira2@uic.edu>
+Date:   Tue Apr 2 17:22:30 2019 -0500
+
+    Added script to select pans
+
+[33mcommit 19e7cdc3ab753429c31c9f5f294d495a0ea38f5b[m
+Author: Steve Stranczek <stevestranczek@gmail.com>
+Date:   Tue Apr 2 17:08:04 2019 -0500
+
+    Trying to push my last push again
+
+[33mcommit 3c0f5f6cd9bd6346d823f62698af4eadf4605e67[m
+Author: Steve Stranczek <stevestranczek@gmail.com>
+Date:   Tue Apr 2 16:58:03 2019 -0500
+
+    trying to get back to my last push
+
+[33mcommit fca2e996f85eec61e693d1959fffc37a7b9217f3[m
+Author: Steve Stranczek <stevestranczek@gmail.com>
+Date:   Tue Apr 2 16:57:09 2019 -0500
+
+    Trying to get back to the last push
+
+[33mcommit 535ae5e5b8c2988fd8277d65fafb9afc83804812[m
+Author: Steve Stranczek <stevestranczek@gmail.com>
+Date:   Tue Apr 2 16:09:18 2019 -0500
+
+    changed the basic scene
+
+[33mcommit 4be4549e48fe8391783786b6d879cec3c89bc7c5[m
+Author: Mohmed Hira <mhira2@uic.edu>
+Date:   Wed Mar 20 10:31:34 2019 -0500
+
+    Commits left out
+
+[33mcommit 1ad5666738de24a90767a69a47a6f944a2671a68[m
+Author: Mohmed Hira <mhira2@uic.edu>
+Date:   Wed Mar 20 10:29:53 2019 -0500
+
+    Added in a pan and edited the code to go to kitchen view from hitting space from pan
+
+[33mcommit 955268b9b82462c5d067d58c9800b824db51e668[m
+Author: Steve Stranczek <stevestranczek@gmail.com>
+Date:   Wed Mar 20 09:06:34 2019 -0500
+
+    Uncommented that line
+
+[33mcommit 6eaffd0479e2b87af86c4d6b731b4819dde97bc5[m
+Author: Nguyen2111 <35849249+Nguyen2111@users.noreply.github.com>
+Date:   Wed Mar 20 06:24:46 2019 -0500
+
+    Added final version
+
+[33mcommit a26399fa7fbbaefe6c1a0cee60c4a9eb3f15cacf[m
+Author: Mohmed Hira <mhira2@uic.edu>
+Date:   Tue Mar 19 22:17:38 2019 -0500
+
+    Movement changes to the fire particles
+
+[33mcommit 02e62976a06a9b710cf49efabcf6b4b23586adc9[m
+Author: Mohmed Hira <mhira2@uic.edu>
+Date:   Tue Mar 19 21:46:31 2019 -0500
+
+    All the new files added
+
+[33mcommit 9fa891c451adccdd981ad3b180e2e1ae978ad264[m
+Author: Mohmed Hira <mhira2@uic.edu>
+Date:   Tue Mar 19 21:45:33 2019 -0500
+
+    Made Kitchen, also added particle system for smokey, white fire, and then burning orange fire
+
+[33mcommit 9c6b35810c9808c15a82f4c535b0c3425b032faa[m
+Author: Steve Stranczek <stevestranczek@gmail.com>
+Date:   Tue Mar 19 19:25:48 2019 -0500
+
+    Finished computer puzzle
+
+[33mcommit 5d8e1b1cd93ea6a0e3ad2c097be027e139d85972[m
+Author: Steve Stranczek <stevestranczek@gmail.com>
+Date:   Tue Mar 19 18:10:11 2019 -0500
+
+    Made some more changes to computer puzzle
+
+[33mcommit 8ced0a714f0af160839e2dec5b1213c21ef51af6[m
+Author: Steve Stranczek <stevestranczek@gmail.com>
+Date:   Tue Mar 19 17:31:08 2019 -0500
+
+    Made some changes to computer puzzle
+
+[33mcommit cbcc9ebfeb07ffe88f3666777ca9bc87eca5675a[m
+Author: Steve Stranczek <stevestranczek@gmail.com>
+Date:   Tue Mar 19 16:35:24 2019 -0500
+
+    Added a few things to computer puzzle
+
+[33mcommit f732a785880a0f94606a04a884d2ab8ebf1fa041[m
+Author: Steve Stranczek <stevestranczek@gmail.com>
+Date:   Tue Mar 19 14:55:50 2019 -0500
+
+    Added a camera switch function
+
+[33mcommit 96c287f94dbbbac1159a144e00fd3a4ad3533730[m
+Author: Steve Stranczek <stevestranczek@gmail.com>
+Date:   Tue Mar 19 11:46:21 2019 -0500
+
+    Added basic scene with two tables and a computer, the player has simple movement and walks around
+
+[33mcommit 7b480ce5136b1c8c60c557b04753c78ff244d2d8[m
+Author: Steve Stranczek <stevestranczek@gmail.com>
+Date:   Tue Mar 19 11:09:01 2019 -0500
+
+    Created Repo for Unity project
+
+[33mcommit 6eb30cf88d8af39c808a5621784ab1377e7f82a6[m
+Author: Nguyen2111 <35849249+Nguyen2111@users.noreply.github.com>
+Date:   Mon Mar 18 22:21:50 2019 -0500
+
+    Added NguyenOKR
+
+[33mcommit e0744291a409ef337b306c6a84e1386d58cbd045[m
+Merge: 7e3a0ed 603d8df
+Author: Steve Stranczek <stevestranczek@gmail.com>
+Date:   Mon Mar 18 21:16:49 2019 -0500
+
+    Merge branch 'master' of https://github.com/Drackaris/CS426AntarcticEnigma
+
+[33mcommit 7e3a0eda68603a4c84195e709b5e6ca22ed5f093[m
+Author: Steve Stranczek <stevestranczek@gmail.com>
+Date:   Mon Mar 18 21:16:10 2019 -0500
+
+    Added gitignore
+
+[33mcommit 603d8dfdcfc94a2db052422da9db00c11af87427[m
+Author: MohmedH <mohmedhira@yahoo.com>
+Date:   Mon Mar 18 21:13:40 2019 -0500
+
+    Adding in MohmedOKR
+    
+    Adding in MohmedOKR per Assignment 7
+
+[33mcommit 40f2a26e2f195a40c104daa9b2b91a771e4b6335[m
+Author: Steve Stranczek <stevestranczek@gmail.com>
+Date:   Mon Mar 18 20:55:44 2019 -0500
+
+    Added coding repo and my OKR
+
+[33mcommit 930746bd7c63438d0db39c9e436a1d95aeb4b959[m
+Author: Drackaris <stevestranczek@gmail.com>
+Date:   Mon Mar 18 20:28:33 2019 -0500
+
+    Initial commit
