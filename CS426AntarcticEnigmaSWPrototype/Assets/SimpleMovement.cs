@@ -202,7 +202,11 @@ public class SimpleMovement : MonoBehaviour
 		{
 			CanGoToComputer = true;
 		}
-
+		if(other.tag == "SlideDoor")
+		{
+			Animator animator = other.GetComponent<Animator>();
+			animator.SetTrigger("DoorOpen");
+		}
         if (other.tag == "pan")
         {
             CanGoToKitchen = true;
