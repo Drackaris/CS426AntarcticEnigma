@@ -366,6 +366,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.24999996
       objectReference: {fileID: 0}
+    - target: {fileID: 19809366, guid: 9e1ee6f41e17f704db3e1282cd1db0ec, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e1ee6f41e17f704db3e1282cd1db0ec, type: 3}
 --- !u!1 &138047727
@@ -998,6 +1002,10 @@ PrefabInstance:
     - target: {fileID: 19860728, guid: 19599c93f59c1184abd18ccc4cbd4a2a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.ctime0
       value: 9638
+      objectReference: {fileID: 0}
+    - target: {fileID: 19860728, guid: 19599c93f59c1184abd18ccc4cbd4a2a, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19599c93f59c1184abd18ccc4cbd4a2a, type: 3}
@@ -3249,6 +3257,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.14285728
       objectReference: {fileID: 0}
+    - target: {fileID: 19860728, guid: 19599c93f59c1184abd18ccc4cbd4a2a, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19599c93f59c1184abd18ccc4cbd4a2a, type: 3}
 --- !u!1 &936969322
@@ -3984,6 +3996,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.1428572
       objectReference: {fileID: 0}
+    - target: {fileID: 19860728, guid: 19599c93f59c1184abd18ccc4cbd4a2a, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19599c93f59c1184abd18ccc4cbd4a2a, type: 3}
 --- !u!1 &1048877447
@@ -4192,6 +4208,10 @@ PrefabInstance:
     - target: {fileID: 405212, guid: 9e1ee6f41e17f704db3e1282cd1db0ec, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.14285709
+      objectReference: {fileID: 0}
+    - target: {fileID: 19809366, guid: 9e1ee6f41e17f704db3e1282cd1db0ec, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e1ee6f41e17f704db3e1282cd1db0ec, type: 3}
@@ -4604,6 +4624,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.25000018
       objectReference: {fileID: 0}
+    - target: {fileID: 19860728, guid: 19599c93f59c1184abd18ccc4cbd4a2a, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19599c93f59c1184abd18ccc4cbd4a2a, type: 3}
 --- !u!198 &1159423690 stripped
@@ -4731,6 +4755,10 @@ MonoBehaviour:
   burning: {fileID: 1159423690}
   MyObjects: []
   particalSys: []
+  sA: {fileID: 0}
+  oA: {fileID: 0}
+  ohA: {fileID: 0}
+  lfA: {fileID: 0}
 --- !u!1001 &1186050000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4841,6 +4869,10 @@ PrefabInstance:
     - target: {fileID: 19860728, guid: 19599c93f59c1184abd18ccc4cbd4a2a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.ctime0
       value: 9638
+      objectReference: {fileID: 0}
+    - target: {fileID: 19860728, guid: 19599c93f59c1184abd18ccc4cbd4a2a, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19599c93f59c1184abd18ccc4cbd4a2a, type: 3}
@@ -6271,6 +6303,10 @@ MonoBehaviour:
   burning: {fileID: 364789254}
   MyObjects: []
   particalSys: []
+  sA: {fileID: 1476101781}
+  oA: {fileID: 168010552}
+  ohA: {fileID: 729833777}
+  lfA: {fileID: 1794448205}
 --- !u!111 &1542352017
 Animation:
   m_ObjectHideFlags: 0
@@ -6314,6 +6350,10 @@ MonoBehaviour:
   burning: {fileID: 2006140491}
   MyObjects: []
   particalSys: []
+  sA: {fileID: 0}
+  oA: {fileID: 0}
+  ohA: {fileID: 0}
+  lfA: {fileID: 0}
 --- !u!1001 &1596934033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6380,6 +6420,10 @@ PrefabInstance:
     - target: {fileID: 405212, guid: 9e1ee6f41e17f704db3e1282cd1db0ec, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.14285709
+      objectReference: {fileID: 0}
+    - target: {fileID: 19809366, guid: 9e1ee6f41e17f704db3e1282cd1db0ec, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e1ee6f41e17f704db3e1282cd1db0ec, type: 3}
@@ -6675,6 +6719,10 @@ PrefabInstance:
     - target: {fileID: 19860728, guid: 19599c93f59c1184abd18ccc4cbd4a2a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.ctime0
       value: 9638
+      objectReference: {fileID: 0}
+    - target: {fileID: 19860728, guid: 19599c93f59c1184abd18ccc4cbd4a2a, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19599c93f59c1184abd18ccc4cbd4a2a, type: 3}
