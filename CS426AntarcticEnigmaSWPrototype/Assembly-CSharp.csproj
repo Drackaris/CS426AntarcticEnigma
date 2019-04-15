@@ -59,6 +59,7 @@
      <Compile Include="Assets\ComputerPuzzleWin.cs" />
      <Compile Include="Assets\Day_TimeScript.cs" />
      <Compile Include="Assets\LightFireAudio.cs" />
+     <Compile Include="Assets\NpcMovementScript.cs" />
      <Compile Include="Assets\OrangeAudio.cs" />
      <Compile Include="Assets\OrangeHelperAudio.cs" />
      <Compile Include="Assets\panSelector.cs" />
