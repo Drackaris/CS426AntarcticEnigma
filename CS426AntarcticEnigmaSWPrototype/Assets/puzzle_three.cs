@@ -13,6 +13,7 @@ public class puzzle_three : MonoBehaviour
     public GameObject[] MyObjects;
     public int level = 1;
     public int counter = 0;
+    public int[] Nums;
 
 
 
@@ -30,6 +31,8 @@ public class puzzle_three : MonoBehaviour
         cube1.GetComponentInChildren<Renderer>().material = normalMat;
         cube2.GetComponentInChildren<Renderer>().material = normalMat;
         cube3.GetComponentInChildren<Renderer>().material = normalMat;
+
+        Nums = new int[15];
 
         ChangeCol();
     }
@@ -50,17 +53,57 @@ public class puzzle_three : MonoBehaviour
 
     public void ChangeCol()
     {
-        if(counter < 6)
+        if(level == 1)
         {
-            System.Random random = new Random();
-            int randomNumber = random.Next(0, 4);
-
-            GameObject o = MyObjects[randomNumber];
+            if(counter > 5)
+            {
+                counter = 0;
+                level = 2;
+            }
+            popUArr(5);
+            int num = Nums[counter];
+            GameObject o = MyObjects[num];
             o.GetComponentInChildren<Renderer>().material = highlightMat;
 
             Invoke("ChangeBack", 3f);
             counter += 1;
 
+        }
+        else if(level == 2)
+        {
+            if (counter > 6)
+            {
+                counter = 0;
+                level = 3;
+            }
+            popUArr(7);
+            int num = Nums[counter];
+            GameObject o = MyObjects[num];
+            o.GetComponentInChildren<Renderer>().material = highlightMat;
+
+            Invoke("ChangeBack", 3f);
+            counter += 1;
+
+        }
+        else if(level == 3)
+        {
+            if (counter > 6)
+            {
+                counter = 0;
+                level = 10;
+            }
+            popUArr(7);
+            int num = Nums[counter];
+            GameObject o = MyObjects[num];
+            o.GetComponentInChildren<Renderer>().material = highlightMat;
+
+            Invoke("ChangeBack", 1f);
+            counter += 1;
+
+        }
+        else
+        {
+            level = 10;
         }
 
     }
@@ -75,6 +118,19 @@ public class puzzle_three : MonoBehaviour
 
         Invoke("ChangeCol", 3f);
 
+
+    }
+
+    public void popUArr(int num)
+    {
+        for(int i = 0; i < num; ++i)
+        {
+            System.Random random = new Random();
+            int randomNumber = random.Next(0, 4);
+
+            Nums[i] = randomNumber;
+
+        }
 
     }
 
