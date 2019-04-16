@@ -15,6 +15,7 @@ TagManager:
   - pan
   - SlideDoor
   - NPC
+  - Bed
   layers:
   - Default
   - TransparentFX
