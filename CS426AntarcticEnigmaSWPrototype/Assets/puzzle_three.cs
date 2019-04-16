@@ -12,6 +12,7 @@ public class puzzle_three : MonoBehaviour
     public GameObject cube,cube1,cube2,cube3;
     public GameObject[] MyObjects;
     public int level = 1;
+    public int counter = 0;
 
 
 
@@ -29,42 +30,53 @@ public class puzzle_three : MonoBehaviour
         cube1.GetComponentInChildren<Renderer>().material = normalMat;
         cube2.GetComponentInChildren<Renderer>().material = normalMat;
         cube3.GetComponentInChildren<Renderer>().material = normalMat;
+
+        ChangeCol();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        //for(int i = 0; i < 4; ++i)
-       // {
-        //    GameObject o = MyObjects[i];
-       //     o.GetComponentInChildren<Renderer>().material = normalMat;
-       // }
 
-        GameObject o = ChangeCol();
-        if(o != null)
-        {
-            o.GetComponentInChildren<Renderer>().material = normalMat;
-        }
+
+
+
+
+
 
 
     }
 
-    public GameObject ChangeCol()
+    public void ChangeCol()
     {
-        if (level == 1)
+        if(counter < 6)
         {
-
             System.Random random = new Random();
             int randomNumber = random.Next(0, 4);
 
             GameObject o = MyObjects[randomNumber];
             o.GetComponentInChildren<Renderer>().material = highlightMat;
 
-            return o;
+            Invoke("ChangeBack", 3f);
+            counter += 1;
 
         }
 
-        return null;
     }
+
+    public void ChangeBack()
+    {
+        for (int i = 0; i < 4; ++i)
+        {
+            GameObject o = MyObjects[i];
+            o.GetComponentInChildren<Renderer>().material = normalMat;
+        }
+
+        Invoke("ChangeCol", 3f);
+
+
+    }
+
+
 }

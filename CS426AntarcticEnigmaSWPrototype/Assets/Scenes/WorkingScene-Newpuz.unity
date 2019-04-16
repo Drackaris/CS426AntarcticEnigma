@@ -5147,6 +5147,7 @@ MonoBehaviour:
   ComputerCamera: {fileID: 1373580844}
   ComputerUI: {fileID: 982649641}
   KitchenCamera: {fileID: 975420574}
+  PuzzleThreeCamera: {fileID: 674184721}
   CamMode: 0
 --- !u!4 &1233638529
 Transform:
@@ -7120,6 +7121,7 @@ GameObject:
   - component: {fileID: 1685311332}
   - component: {fileID: 1685311331}
   - component: {fileID: 1685311330}
+  - component: {fileID: 1685311333}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -7199,6 +7201,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1685311328}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1685311333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685311328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c86a14d8d444e5cb45c595a0d570be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMat: {fileID: 2100000, guid: eccc5fe9fc8219d4f926b49d256bb4a4, type: 2}
+  normalMat: {fileID: 2100000, guid: 2d3dbb5eef072d64f9473cc0f132dbe9, type: 2}
+  cube: {fileID: 1685311328}
+  cube1: {fileID: 386537311}
+  cube2: {fileID: 895617739}
+  cube3: {fileID: 1486363750}
+  MyObjects: []
+  level: 1
+  counter: 0
 --- !u!1 &1696240335
 GameObject:
   m_ObjectHideFlags: 0

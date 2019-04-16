@@ -8,6 +8,7 @@ public class CameraSwitch : MonoBehaviour
 	public GameObject ComputerCamera;
 	public GameObject ComputerUI;
     public GameObject KitchenCamera;
+    public GameObject PuzzleThreeCamera;
 
     public int CamMode;
 	// Start is called before the first frame update
@@ -18,6 +19,7 @@ public class CameraSwitch : MonoBehaviour
 		ComputerCamera.SetActive(false);
 		ComputerUI.SetActive(false);
         KitchenCamera.SetActive(false);
+        PuzzleThreeCamera.SetActive(false);
     }
 
 	// Update is called once per frame
@@ -32,6 +34,7 @@ public class CameraSwitch : MonoBehaviour
 		ComputerCamera.SetActive(false);
 		ComputerUI.SetActive(false);
         KitchenCamera.SetActive(false);
+        PuzzleThreeCamera.SetActive(false);
     }
 
 	//IEnumerator PlayerCamSwitch()
@@ -47,6 +50,7 @@ public class CameraSwitch : MonoBehaviour
 		PlayerCamera.SetActive(false);
 		ComputerCamera.SetActive(true);
         KitchenCamera.SetActive(false);
+        PuzzleThreeCamera.SetActive(false);
     }
 
     //IEnumerator ComputerCamSwitch()
@@ -61,6 +65,18 @@ public class CameraSwitch : MonoBehaviour
         ComputerUI.SetActive(false);
         PlayerCamera.SetActive(false);
         ComputerCamera.SetActive(false);
+        PuzzleThreeCamera.SetActive(false);
         KitchenCamera.SetActive(true);
+
+    }
+
+    public void GoToPuzzleThree()
+    {
+        ComputerUI.SetActive(false);
+        PlayerCamera.SetActive(false);
+        ComputerCamera.SetActive(false);
+        KitchenCamera.SetActive(false);
+        PuzzleThreeCamera.SetActive(true);
+
     }
 }

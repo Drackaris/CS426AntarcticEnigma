@@ -76,6 +76,11 @@ public class SimpleMovement : MonoBehaviour
                 GameMode = 2;
             }
 
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                camswitch.GoToPuzzleThree();
+            }
+
         }
 		else if (GameMode == 1)
 		{
