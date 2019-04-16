@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657856, g: 0.49641234, b: 0.57481724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1366,6 +1366,9 @@ MonoBehaviour:
   CanGoToKitchen: 0
   CanGetTaskList: 0
   ComputerPuzzleAttempts: 0
+  chances: 0
+  onGreen: 0
+  kDone: 0
 --- !u!54 &319230005
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3190,12 +3193,6 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 19809366, guid: 9e1ee6f41e17f704db3e1282cd1db0ec,
     type: 3}
   m_PrefabInstance: {fileID: 1596934033}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &711025892 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 19809366, guid: 9e1ee6f41e17f704db3e1282cd1db0ec,
-    type: 3}
-  m_PrefabInstance: {fileID: 1054508332}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &718266780
 GameObject:
@@ -5586,18 +5583,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightMat: {fileID: 2100000, guid: c68e6ee84c5f44b7491ea02187d4ab23, type: 2}
   normalMat: {fileID: 2100000, guid: ba30aed8798dbb64c8c2c90ab98f2d9c, type: 2}
+  highlighted: 0
   pan1: {fileID: 1542352012}
   pan2: {fileID: 1184265330}
   pan3: {fileID: 1592506303}
-  smoke: {fileID: 1723411871}
-  lightt: {fileID: 1297002199}
-  burning: {fileID: 1159423690}
+  smoke: {fileID: 0}
+  lightt: {fileID: 321704764}
+  burning: {fileID: 364789254}
+  lighttt: {fileID: 1297002199}
+  lightttt: {fileID: 837367749}
+  burningg: {fileID: 1159423690}
+  burninggg: {fileID: 2006140491}
   MyObjects: []
+  parT2: []
+  parT3: []
   particalSys: []
   sA: {fileID: 1518993061}
-  oA: {fileID: 0}
-  ohA: {fileID: 0}
-  lfA: {fileID: 0}
+  oA: {fileID: 168010552}
+  ohA: {fileID: 1341254299}
+  lfA: {fileID: 1794448205}
+  onGreen: 0
+  s: {fileID: 319230004}
+  counter: 0
 --- !u!1001 &1186050000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7658,18 +7665,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightMat: {fileID: 2100000, guid: c68e6ee84c5f44b7491ea02187d4ab23, type: 2}
   normalMat: {fileID: 2100000, guid: ba30aed8798dbb64c8c2c90ab98f2d9c, type: 2}
+  highlighted: 0
   pan1: {fileID: 1542352012}
   pan2: {fileID: 1184265330}
   pan3: {fileID: 1592506303}
   smoke: {fileID: 709789822}
   lightt: {fileID: 321704764}
   burning: {fileID: 364789254}
+  lighttt: {fileID: 1297002199}
+  lightttt: {fileID: 837367749}
+  burningg: {fileID: 1159423690}
+  burninggg: {fileID: 2006140491}
   MyObjects: []
+  parT2: []
+  parT3: []
   particalSys: []
   sA: {fileID: 1518993061}
   oA: {fileID: 168010552}
   ohA: {fileID: 1341254299}
   lfA: {fileID: 1794448205}
+  onGreen: 0
+  s: {fileID: 319230004}
+  counter: 0
 --- !u!111 &1542352017
 Animation:
   m_ObjectHideFlags: 0
@@ -7875,18 +7892,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightMat: {fileID: 2100000, guid: c68e6ee84c5f44b7491ea02187d4ab23, type: 2}
   normalMat: {fileID: 2100000, guid: ba30aed8798dbb64c8c2c90ab98f2d9c, type: 2}
+  highlighted: 0
   pan1: {fileID: 1542352012}
   pan2: {fileID: 1184265330}
   pan3: {fileID: 1592506303}
-  smoke: {fileID: 711025892}
-  lightt: {fileID: 837367749}
-  burning: {fileID: 2006140491}
+  smoke: {fileID: 0}
+  lightt: {fileID: 321704764}
+  burning: {fileID: 364789254}
+  lighttt: {fileID: 1297002199}
+  lightttt: {fileID: 837367749}
+  burningg: {fileID: 1159423690}
+  burninggg: {fileID: 2006140491}
   MyObjects: []
+  parT2: []
+  parT3: []
   particalSys: []
-  sA: {fileID: 0}
-  oA: {fileID: 0}
-  ohA: {fileID: 0}
-  lfA: {fileID: 0}
+  sA: {fileID: 1518993061}
+  oA: {fileID: 168010552}
+  ohA: {fileID: 1341254299}
+  lfA: {fileID: 1794448205}
+  onGreen: 0
+  s: {fileID: 319230004}
+  counter: 0
 --- !u!1001 &1596934033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8772,12 +8799,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718097027}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!198 &1723411871 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 19809366, guid: 9e1ee6f41e17f704db3e1282cd1db0ec,
-    type: 3}
-  m_PrefabInstance: {fileID: 114274622}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1746464640
 GameObject:
   m_ObjectHideFlags: 0

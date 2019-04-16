@@ -5,10 +5,10 @@ using UnityEngine;
 public class SimpleMovement : MonoBehaviour
 {
 
-	public float speed = 25.0f;
+    public float speed = 25.0f;
 	public float rotationSpeed = 90;
 	public float force = 700f;
-    private float barSpeed = 15;
+    private float barSpeed = 10;
     public int PuzzlePieceDirection;
 	private CameraSwitch camswitch;
 	public GameObject PuzzleBlock;
@@ -24,6 +24,11 @@ public class SimpleMovement : MonoBehaviour
     public bool CanGoToKitchen;
 	public bool CanGetTaskList;
 	public int ComputerPuzzleAttempts;
+
+    public int chances = 0;
+    public int onGreen = 0;
+    public bool kDone = false;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -132,9 +137,18 @@ public class SimpleMovement : MonoBehaviour
                 if (pos >= 4.1 && pos <= 4.8)
                 {
                     Bar.transform.Translate(0, 0, 0);
-                    camswitch.GoToPlayerCamera();
+
                     barSpeed = 15;
-                    GameMode = 0;
+                    chances  = 0;
+                    onGreen = 1;
+
+                    if(kDone)
+                    {
+                        GameMode = 0;
+                        camswitch.GoToPlayerCamera();
+
+                    }
+
                 }
                 else
                 {
@@ -142,6 +156,8 @@ public class SimpleMovement : MonoBehaviour
                         barSpeed = barSpeed - 2;
                     else
                         barSpeed = barSpeed + 2;
+
+                    chances += 1;
                 }
             }
             if (Input.GetKey(KeyCode.Escape))
