@@ -31,9 +31,7 @@ public class NpcMovementScript : MonoBehaviour
 		{
 			if(Sleep == true)
 			{
-				this.GetComponent<NavMeshAgent>().enabled = false;
-				this.GetComponent<Rigidbody>().isKinematic = true;
-				this.GetComponent<Rigidbody>().useGravity = false;
+				SetSleepVariables();
 				this.transform.position = new Vector3(15.405f, 2.027f, -26.66f);
 				this.transform.Rotate(90, 270, 0, Space.World);
 				Sleeping = true;
@@ -41,6 +39,21 @@ public class NpcMovementScript : MonoBehaviour
 		}
 	}
 
+	void SetSleepVariables ()
+	{
+		this.GetComponent<NavMeshAgent>().enabled = false;
+		this.GetComponent<Rigidbody>().isKinematic = true;
+		this.GetComponent<Rigidbody>().useGravity = false;
+	}
+
+	void WakeUp()
+	{
+		this.GetComponent<NavMeshAgent>().enabled = true;
+		this.GetComponent<Rigidbody>().isKinematic = false;
+		this.GetComponent<Rigidbody>().useGravity = true;
+		Sleep = false;
+		Sleeping = false;
+	}
     // Update is called once per frame
     void Update()
     {
@@ -52,18 +65,17 @@ public class NpcMovementScript : MonoBehaviour
 				agent.SetDestination(Bed.position);
 			}
 		}
-		if (DTScript.minutes >= 1 &&  DTScript.minutes < 4)
+		if (DTScript.minutes  >= 1 &&  DTScript.minutes < 4)
 		{
-			Sleep = false;
-			Sleeping = false;
-			this.GetComponent<NavMeshAgent>().enabled = true;
-			this.GetComponent<Rigidbody>().isKinematic = false;
-			this.GetComponent<Rigidbody>().useGravity = true;
-			agent.SetDestination(new Vector3(Computer.position.x,Computer.position.y,Computer.position.z - 2f));
+			if (Sleep == true)
+			{
+				WakeUp();
+			}
+			agent.SetDestination(new Vector3(Computer.position.x,Computer.position.y,Computer.position.z - 2.5f));
 		}
 		else if (DTScript.minutes >= 3)
 		{
-			agent.SetDestination(new Vector3(Kitchen.position.x, Kitchen.position.y, Kitchen.position.z - 2f));
+			agent.SetDestination(new Vector3(Kitchen.position.x, Kitchen.position.y, Kitchen.position.z - 2.5f));
 		}
     }
 }
