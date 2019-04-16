@@ -28,6 +28,7 @@ public class SimpleMovement : MonoBehaviour
     public int chances = 0;
     public int onGreen = 0;
     public bool kDone = false;
+    public int inK = 0;
 
 	// Use this for initialization
 	void Start()
@@ -127,6 +128,7 @@ public class SimpleMovement : MonoBehaviour
 		}
         else if (GameMode == 2)
         {
+            inK = 1;
             camswitch.GoToKitchenCamera();
             float pos = Bar.transform.localPosition.z;
             if (pos > 8 || pos < 1)
@@ -144,8 +146,10 @@ public class SimpleMovement : MonoBehaviour
 
                     if(kDone)
                     {
+                        inK = 0;
                         GameMode = 0;
                         camswitch.GoToPlayerCamera();
+
 
                     }
 
@@ -166,6 +170,7 @@ public class SimpleMovement : MonoBehaviour
                 camswitch.GoToPlayerCamera();
                 barSpeed = 15;
                 GameMode = 0;
+                inK = 0;
             }
         }
 
