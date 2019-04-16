@@ -7,6 +7,7 @@ public class CameraSwitch : MonoBehaviour
 	public GameObject PlayerCamera;
 	public GameObject ComputerCamera;
 	public GameObject ComputerUI;
+	public GameObject PlayerUI;
     public GameObject KitchenCamera;
     public GameObject PuzzleThreeCamera;
 
@@ -16,6 +17,7 @@ public class CameraSwitch : MonoBehaviour
 	{
 		CamMode = 0;
 		PlayerCamera.SetActive(true);
+		PlayerUI.SetActive(true);
 		ComputerCamera.SetActive(false);
 		ComputerUI.SetActive(false);
         KitchenCamera.SetActive(false);
@@ -31,6 +33,7 @@ public class CameraSwitch : MonoBehaviour
 	public void GoToPlayerCamera()
 	{
 		PlayerCamera.SetActive(true);
+		PlayerUI.SetActive(true);
 		ComputerCamera.SetActive(false);
 		ComputerUI.SetActive(false);
         KitchenCamera.SetActive(false);
@@ -47,6 +50,7 @@ public class CameraSwitch : MonoBehaviour
 	public void GoToComputerCamera()
 	{
 		ComputerUI.SetActive(true);
+		PlayerUI.SetActive(false);
 		PlayerCamera.SetActive(false);
 		ComputerCamera.SetActive(true);
         KitchenCamera.SetActive(false);
@@ -63,7 +67,8 @@ public class CameraSwitch : MonoBehaviour
     public void GoToKitchenCamera()
     {
         ComputerUI.SetActive(false);
-        PlayerCamera.SetActive(false);
+		PlayerUI.SetActive(false);
+		PlayerCamera.SetActive(false);
         ComputerCamera.SetActive(false);
         PuzzleThreeCamera.SetActive(false);
         KitchenCamera.SetActive(true);
@@ -73,7 +78,8 @@ public class CameraSwitch : MonoBehaviour
     public void GoToPuzzleThree()
     {
         ComputerUI.SetActive(false);
-        PlayerCamera.SetActive(false);
+		PlayerUI.SetActive(false);
+		PlayerCamera.SetActive(false);
         ComputerCamera.SetActive(false);
         KitchenCamera.SetActive(false);
         PuzzleThreeCamera.SetActive(true);
