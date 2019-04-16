@@ -16,6 +16,7 @@ public class SimpleMovement : MonoBehaviour
     private GameObject Bar;
     private Vector3 SpawnLocation;
 	public List<string> LevelCommands;
+	public List<string> TaskList;
 	Rigidbody rb;
 	Transform t;
 
@@ -45,6 +46,7 @@ public class SimpleMovement : MonoBehaviour
         Bar = GameObject.FindGameObjectWithTag("Bar");
         SpawnLocation = new Vector3(PuzzlePiece.transform.position.x, PuzzlePiece.transform.position.y, PuzzlePiece.transform.position.z);
 		LevelCommands = new List<string>();
+		TaskList = new List<string>();
 		ComputerPuzzleAttempts = 1;
 	}
 
@@ -67,9 +69,12 @@ public class SimpleMovement : MonoBehaviour
 			{
 				if (CanGoToComputer)
 				{
-					Debug.Log("Trying to switch camera.");
-                    camswitch.GoToComputerCamera();
-                    GameMode = 1;
+					if (TaskList.Contains("Store Data In The Computer"))
+					{
+						Debug.Log("Trying to switch camera.");
+						camswitch.GoToComputerCamera();
+						GameMode = 1;
+					}
 				}
 
                 if (CanGoToKitchen)
@@ -81,7 +86,11 @@ public class SimpleMovement : MonoBehaviour
 
 				if(CanGetTaskList)
 				{
-					//TODO: add this code
+					if (TaskList.Count == 0)
+					{
+						TaskList.Add("Store Data In The Computer");
+						TaskList.Add("Cook Food In The Kitchen");
+					}
 				}
             }
 

@@ -24,6 +24,7 @@ public class ComputerPuzzleWin : MonoBehaviour
 		if(other.tag == "ComputerStartTag")
 		{
 			cs.GoToPlayerCamera();
+		    sm.TaskList.Remove("Store Data In The Computer");
 			sm.GameMode = 0;
 		}
 	}

@@ -75,7 +75,7 @@ public class NpcMovementScript : MonoBehaviour
 		}
 		else if (DTScript.hour >= 7 && DTScript.hour < 14)
 		{
-			agent.SetDestination(new Vector3(Kitchen.position.x, Kitchen.position.y, Kitchen.position.z - 2.5f));
+			agent.SetDestination(new Vector3(Kitchen.position.x, Kitchen.position.y, Kitchen.position.z - 3f));
 		}
     }
 }
