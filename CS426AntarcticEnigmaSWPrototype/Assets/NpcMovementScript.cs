@@ -57,7 +57,7 @@ public class NpcMovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (DTScript.minutes == 0)
+		if (DTScript.hour < 6)
 		{
 			Sleep = true;
 			if (Sleeping == false)
@@ -65,7 +65,7 @@ public class NpcMovementScript : MonoBehaviour
 				agent.SetDestination(Bed.position);
 			}
 		}
-		if (DTScript.minutes  >= 1 &&  DTScript.minutes < 4)
+		if (DTScript.hour >= 6 && DTScript.hour < 7)
 		{
 			if (Sleep == true)
 			{
@@ -73,7 +73,7 @@ public class NpcMovementScript : MonoBehaviour
 			}
 			agent.SetDestination(new Vector3(Computer.position.x,Computer.position.y,Computer.position.z - 2.5f));
 		}
-		else if (DTScript.minutes >= 3)
+		else if (DTScript.hour >= 7 && DTScript.hour < 14)
 		{
 			agent.SetDestination(new Vector3(Kitchen.position.x, Kitchen.position.y, Kitchen.position.z - 2.5f));
 		}
