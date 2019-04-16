@@ -102,7 +102,7 @@ public class SimpleMovement : MonoBehaviour
 			}
 			if (Input.GetKeyDown(KeyCode.Tab))
 			{
-				AttemptSolvePuzzle();
+				StartCoroutine(AttemptSolvePuzzle());
 			}
 
 			if(Input.GetKey(KeyCode.Escape))
@@ -146,11 +146,11 @@ public class SimpleMovement : MonoBehaviour
 
     }
 
-	public void AttemptSolvePuzzle()
+	public IEnumerator AttemptSolvePuzzle()
 	{
 		foreach (string str in LevelCommands)
 		{
-			StartCoroutine(WaitHalfSecond());
+			yield return new WaitForSeconds(0.5f);
 			if (str == "F")
 			{
 				if (PuzzlePieceDirection == 1)
@@ -186,11 +186,6 @@ public class SimpleMovement : MonoBehaviour
 			ResetPuzzlePiece();
 		}
 		LevelCommands.Clear();
-	}
-
-	IEnumerator WaitHalfSecond()
-	{
-		yield return new WaitForSeconds(1f);
 	}
 
 	public void ResetPuzzlePiece()
