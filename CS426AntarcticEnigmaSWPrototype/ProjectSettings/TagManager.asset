@@ -16,6 +16,7 @@ TagManager:
   - SlideDoor
   - NPC
   - Bed
+  - Task
   layers:
   - Default
   - TransparentFX

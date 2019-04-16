@@ -22,7 +22,7 @@ public class SimpleMovement : MonoBehaviour
 	public int GameMode; //0 if player controled 1 for computer 2 for kitchen....etc.....
 	public bool CanGoToComputer;
     public bool CanGoToKitchen;
-
+	public bool CanGetTaskList;
 	// Use this for initialization
 	void Start()
 	{
@@ -31,6 +31,7 @@ public class SimpleMovement : MonoBehaviour
 		GameMode = 0;
 		CanGoToComputer = false;
         CanGoToKitchen = false;
+		CanGetTaskList = false;
 		PuzzlePieceDirection = 1;
 		camswitch = GameObject.FindGameObjectWithTag("GameController").GetComponent<CameraSwitch>();
 		PuzzlePiece = GameObject.FindGameObjectWithTag("ComputerStartTag");
@@ -69,6 +70,11 @@ public class SimpleMovement : MonoBehaviour
                     camswitch.GoToKitchenCamera();
                     GameMode = 2;
                 }
+
+				if(CanGetTaskList)
+				{
+					//TODO: add this code
+				}
             }
 
             if (Input.GetKeyDown(KeyCode.K))
@@ -211,6 +217,10 @@ public class SimpleMovement : MonoBehaviour
         {
             CanGoToKitchen = true;
         }
+		if(other.tag == "Task")
+		{
+			CanGetTaskList = true;
+		}
 
     }
 
@@ -225,6 +235,11 @@ public class SimpleMovement : MonoBehaviour
         {
             CanGoToKitchen = false;
         }
+
+		if(other.tag == "Task")
+		{
+			CanGetTaskList = false;
+		}
     }
 
 	public int GetRotationValue(GameObject PuzzlePiece)
