@@ -52,7 +52,7 @@ public class NpcMovementScript : MonoBehaviour
 				agent.SetDestination(Bed.position);
 			}
 		}
-		if (DTScript.minutes >= 1)
+		if (DTScript.minutes >= 1 &&  DTScript.minutes < 4)
 		{
 			Sleep = false;
 			Sleeping = false;
