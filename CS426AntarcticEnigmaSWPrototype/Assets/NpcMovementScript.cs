@@ -31,11 +31,11 @@ public class NpcMovementScript : MonoBehaviour
     {
 		if (DTScript.minutes < 1)
 		{
-			agent.SetDestination(Computer.position);
+			agent.SetDestination(new Vector3(Computer.position.x,Computer.position.y,Computer.position.z - 2f));
 		}
 		else if (DTScript.minutes >= 2)
 		{
-			agent.SetDestination(Kitchen.position);
+			agent.SetDestination(new Vector3(Kitchen.position.x, Kitchen.position.y, Kitchen.position.z - 2f));
 		}
     }
 }
