@@ -23,6 +23,7 @@ public class SimpleMovement : MonoBehaviour
 	public bool CanGoToComputer;
     public bool CanGoToKitchen;
 	public bool CanGetTaskList;
+	public int ComputerPuzzleAttempts;
 	// Use this for initialization
 	void Start()
 	{
@@ -38,6 +39,7 @@ public class SimpleMovement : MonoBehaviour
         Bar = GameObject.FindGameObjectWithTag("Bar");
         SpawnLocation = new Vector3(PuzzlePiece.transform.position.x, PuzzlePiece.transform.position.y, PuzzlePiece.transform.position.z);
 		LevelCommands = new List<string>();
+		ComputerPuzzleAttempts = 1;
 	}
 
 	// Update is called once per frame
@@ -108,7 +110,8 @@ public class SimpleMovement : MonoBehaviour
 			}
 			if (Input.GetKeyDown(KeyCode.Tab))
 			{
-				StartCoroutine(AttemptSolvePuzzle());
+				ComputerPuzzleAttempts++;
+				StartCoroutine(AttemptSolvePuzzle());		
 			}
 
 			if(Input.GetKey(KeyCode.Escape))
@@ -189,7 +192,11 @@ public class SimpleMovement : MonoBehaviour
 		}
 		if(GameMode==1)
 		{
-			ResetPuzzlePiece();
+			if (ComputerPuzzleAttempts > 3)
+			{
+				ResetPuzzlePiece();
+				ComputerPuzzleAttempts = 1;
+			}
 		}
 		LevelCommands.Clear();
 	}

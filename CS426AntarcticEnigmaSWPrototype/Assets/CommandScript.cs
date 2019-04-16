@@ -6,13 +6,17 @@ using UnityEngine;
 public class CommandScript : MonoBehaviour
 {
 	public Text CommandList;
+	public Text Attempts;
 	public SimpleMovement sm;
 	public List<string> StringList;
+	public int NumAttempts;
     // Start is called before the first frame update
     void Start()
     {
 		sm = GameObject.FindGameObjectWithTag("Player").GetComponent<SimpleMovement>();
 		StringList = sm.LevelCommands;
+		NumAttempts = sm.ComputerPuzzleAttempts;
+		
 	}
 
     // Update is called once per frame
@@ -24,5 +28,7 @@ public class CommandScript : MonoBehaviour
 		{
 			CommandList.text += str +",";
 		}
+		NumAttempts = sm.ComputerPuzzleAttempts;
+		Attempts.text = "Attempts: " + NumAttempts + "/3";
     }
 }
