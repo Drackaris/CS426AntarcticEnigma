@@ -34,8 +34,12 @@ public class SimpleMovement : MonoBehaviour
     public AcceptSound acceptS;
     public MissSound missS;
 
-	// Use this for initialization
-	void Start()
+    public TMPro.TextMeshProUGUI canvasText;     public Canvas canvas;     public GameObject panel;      public int StartOfGame;     public int StartOfKitchen;
+    public int StartOfComp;
+    public int StartOfPuzzT;
+
+    // Use this for initialization
+    void Start()
 	{
 		rb = GetComponent<Rigidbody>();
 		t = GetComponent<Transform>();
@@ -51,14 +55,22 @@ public class SimpleMovement : MonoBehaviour
 		LevelCommands = new List<string>();
 		TaskList = new List<string>();
 		ComputerPuzzleAttempts = 1;
-	}
+
+        canvasText = canvas.GetComponentInChildren<TMPro.TextMeshProUGUI>();         StartOfGame = 1;         StartOfKitchen = 0;
+        StartOfComp = 0;
+        StartOfPuzzT = 0;
+    }
 
 	// Update is called once per frame
 	void Update()
 	{
 		if (GameMode == 0)
-		{ 
-			if (Input.GetKey(KeyCode.W))
+		{
+            if (StartOfGame == 1)             {                 canvasText.SetText("This is your fist day working at the Antarctic research base, your first goal is to read the task list. (Going up to it and pressing space).  " +                    "After that you should feel free to explore the base and do the tasks you are asked of. If you understand press 'c', and good luck!");                  StartOfGame = 0;                 panel.SetActive(true);             }
+
+            if (Input.GetKey(KeyCode.C))             {                 panel.SetActive(false);                 canvasText.SetText("");             }
+
+            if (Input.GetKey(KeyCode.W))
 				rb.velocity += this.transform.forward * speed * Time.deltaTime;
 			else if (Input.GetKey(KeyCode.S))
 				rb.velocity -= this.transform.forward * speed * Time.deltaTime;
@@ -105,15 +117,46 @@ public class SimpleMovement : MonoBehaviour
                 GameMode = 2;
             }
 
+            //THIS NEEDS TO BE PUT INTO A GAMEMODE 3
             if (Input.GetKeyDown(KeyCode.J))
             {
                 camswitch.GoToPuzzleThree();
+
+                if (StartOfPuzzT == 0)
+                {
+                    canvasText.SetText("In this puzzle you will use 'A' and 'D' to move between pots. Use the space-bar to get the slider on the green, and the selected pot will stop burning. If you understand press 'c', and good luck!");
+                    panel.SetActive(true);
+                    StartOfPuzzT = 1;
+                }
+
+                if (Input.GetKey(KeyCode.C))
+                {
+                    panel.SetActive(false);
+                    canvasText.SetText("");
+                }
+
+
+
             }
 
         }
 		else if (GameMode == 1)
 		{
-			PuzzlePiece = GameObject.FindGameObjectWithTag("ComputerStartTag");
+
+            if (StartOfComp == 0)
+            {
+                canvasText.SetText("In this puzzle you will use 'A' and 'D' to move between pots. Use the space-bar to get the slider on the green, and the selected pot will stop burning. If you understand press 'c', and good luck!");
+                panel.SetActive(true);
+                StartOfComp = 1;
+            }
+
+            if (Input.GetKey(KeyCode.C))
+            {
+                panel.SetActive(false);
+                canvasText.SetText("");
+            }
+
+            PuzzlePiece = GameObject.FindGameObjectWithTag("ComputerStartTag");
 			if (Input.GetKeyDown(KeyCode.W))
 			{
 				LevelCommands.Add("F");
@@ -140,10 +183,12 @@ public class SimpleMovement : MonoBehaviour
 				camswitch.GoToPlayerCamera();
 				ComputerPuzzleAttempts = 1;
 				GameMode = 0;
+                StartOfComp = 0;
 			}
 		}
         else if (GameMode == 2)
         {
+            if (StartOfKitchen == 0)             {                 canvasText.SetText("In this puzzle you will use 'A' and 'D' to move between pots. Use the space-bar to get the slider on the green, and the selected pot will stop burning. If you understand press 'c', and good luck!");                 panel.SetActive(true);                 StartOfKitchen = 1;             }              if (Input.GetKey(KeyCode.C))             {                 panel.SetActive(false);                 canvasText.SetText("");             } 
             inK = 1;
             camswitch.GoToKitchenCamera();
             float pos = Bar.transform.localPosition.z;
@@ -166,6 +211,7 @@ public class SimpleMovement : MonoBehaviour
                         GameMode = 0;
                         camswitch.GoToPlayerCamera();
                         kDone = false;
+                        StartOfKitchen = 0;
 
 
                     }
@@ -191,6 +237,7 @@ public class SimpleMovement : MonoBehaviour
                 barSpeed = 15;
                 GameMode = 0;
                 inK = 0;
+                StartOfKitchen = 0;
             }
         }
 
