@@ -112,8 +112,11 @@ public class puzzle_three : MonoBehaviour
 
         if(level == 10)
         {
+            panel.SetActive(false);
+            canvasText.SetText("");
             s.securityDone = true;
-            level = 1;
+
+            //level = 1;
         }
 
 
