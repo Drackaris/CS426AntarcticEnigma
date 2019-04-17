@@ -31,6 +31,9 @@ public class SimpleMovement : MonoBehaviour
     public bool kDone = false;
     public int inK = 0;
 
+    public AcceptSound acceptS;
+    public MissSound missS;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -163,6 +166,8 @@ public class SimpleMovement : MonoBehaviour
 
                     }
 
+                    acceptS.audioSource.Play();
+
                 }
                 else
                 {
@@ -172,6 +177,7 @@ public class SimpleMovement : MonoBehaviour
                         barSpeed = barSpeed + 2;
 
                     chances += 1;
+                    missS.audioSource.Play();
                 }
             }
             if (Input.GetKey(KeyCode.Escape))
