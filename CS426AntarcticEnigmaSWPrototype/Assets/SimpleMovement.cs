@@ -118,12 +118,12 @@ public class SimpleMovement : MonoBehaviour
 			}
 			if(Input.GetKeyDown(KeyCode.A))
 			{
-				LevelCommands.Add("RL");
+				LevelCommands.Add("L");
 
 			}
 			if(Input.GetKeyDown(KeyCode.D))
 			{
-				LevelCommands.Add("RR");
+				LevelCommands.Add("R");
 
 			}
 			if (Input.GetKeyDown(KeyCode.Tab))
@@ -135,6 +135,7 @@ public class SimpleMovement : MonoBehaviour
 			if(Input.GetKey(KeyCode.Escape))
 			{
 				camswitch.GoToPlayerCamera();
+				ComputerPuzzleAttempts = 1;
 				GameMode = 0;
 			}
 		}
@@ -216,12 +217,12 @@ public class SimpleMovement : MonoBehaviour
 					PuzzlePiece.transform.position = new Vector3(PuzzlePiece.transform.position.x - 1, PuzzlePiece.transform.position.y, PuzzlePiece.transform.position.z);
 				}
 			}
-			else if(str == "RL")
+			else if(str == "L")
 			{
 				PuzzlePiece.transform.Rotate(0, -90f, 0, Space.Self);
 				PuzzlePieceDirection = GetRotationValue(PuzzlePiece);
 			}
-			else if(str == "RR")
+			else if(str == "R")
 			{
 				PuzzlePiece.transform.Rotate(0, 90f, 0, Space.Self);
 				PuzzlePieceDirection = GetRotationValue(PuzzlePiece);
