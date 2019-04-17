@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = System.Random;
 
 public class puzzle_three : MonoBehaviour
@@ -15,7 +16,13 @@ public class puzzle_three : MonoBehaviour
     public int counter = 0;
     public int[] Nums;
 
+    public string[] UserInput;
 
+    public GameObject canva;
+    public SimpleMovement s;
+    public int repeatS = 1;
+
+    public InputField inp;
 
 
     // Start is called before the first frame update
@@ -33,31 +40,72 @@ public class puzzle_three : MonoBehaviour
         cube3.GetComponentInChildren<Renderer>().material = normalMat;
 
         Nums = new int[15];
+        UserInput = new string[15];
 
-        ChangeCol();
+        for(int i = 0; i < 15; i++)
+        {
+            UserInput[i] = "";
+         
+        }
+
+        //inp = GetComponent<InputField>();
+
+        //ChangeCol();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+        if(s.GameMode == 3 && repeatS == 1)
+        {
+            canva.SetActive(true);
+            ChangeCol();
+            repeatS = 0;
+            level = 1;
+        }
 
+        if(s.GameMode != 3)
+        {
+            canva.SetActive(false);
 
+            repeatS = 1;
+        }
 
+        if(Input.GetKeyDown(KeyCode.G) && s.GameMode == 3)
+        {
+            for(int i = 0; i < inp.text.Length; i++)
+            {
+                UserInput[i] = Convert.ToString(inp.text[i]);
+                
+                
+            }
 
+        }
 
+        if (Input.GetKey(KeyCode.Return))
+        {
+           for(int i = 0; i < UserInput.Length; i++)
+            {
+                string temp = Convert.ToString(Nums[i]);
 
+            }
+
+        }
 
 
     }
 
     public void ChangeCol()
     {
-        if(level == 1)
+    
+        if (level == 1)
         {
             if(counter > 5)
             {
                 counter = 0;
+
+                //check user input for win 
                 level = 2;
             }
             popUArr(5);
@@ -65,7 +113,7 @@ public class puzzle_three : MonoBehaviour
             GameObject o = MyObjects[num];
             o.GetComponentInChildren<Renderer>().material = highlightMat;
 
-            Invoke("ChangeBack", 3f);
+            Invoke("ChangeBack", 2f);
             counter += 1;
 
         }
@@ -81,7 +129,7 @@ public class puzzle_three : MonoBehaviour
             GameObject o = MyObjects[num];
             o.GetComponentInChildren<Renderer>().material = highlightMat;
 
-            Invoke("ChangeBack", 3f);
+            Invoke("ChangeBack", 2f);
             counter += 1;
 
         }
@@ -104,6 +152,7 @@ public class puzzle_three : MonoBehaviour
         else
         {
             level = 10;
+            
         }
 
     }

@@ -42,6 +42,7 @@ public class SimpleMovement : MonoBehaviour
     public WinSound wS;
     public LoseSound lS;
 
+
     // Use this for initialization
     void Start()
 	{
@@ -74,6 +75,11 @@ public class SimpleMovement : MonoBehaviour
             if (StartOfGame == 1)             {                 canvasText.SetText("This is your fist day working at the Antarctic research base, your first goal is to read the task list. (Going up to it and pressing space).  " +                    "After that you should feel free to explore the base and do the tasks you are asked of. If you understand press 'c', and good luck!");                  StartOfGame = 0;                 panel.SetActive(true);             }
 
             if (Input.GetKey(KeyCode.C))             {                 panel.SetActive(false);                 canvasText.SetText("");             }
+
+            if (Input.GetKey(KeyCode.J))
+            {
+                GameMode = 3;
+            }
 
             if (Input.GetKey(KeyCode.W))
 				rb.velocity += this.transform.forward * speed * Time.deltaTime;
@@ -135,7 +141,7 @@ public class SimpleMovement : MonoBehaviour
 
             if (StartOfComp == 0)
             {
-                canvasText.SetText("In this puzzle you will use 'A' and 'D' to move between pots. Use the space-bar to get the slider on the green, and the selected pot will stop burning. If you understand press 'c', and good luck!");
+                canvasText.SetText("You have 3 attempts to solve the puzzle.  How the puzzle works is you give input W to go forward, D to rotate the piece right, a to rotate the piece left and tab to attempt to solve.\nIf you don't make it in 3 attempts or hit a black square you will fail the puzzle. If you understand press 'c', and good luck!");
                 panel.SetActive(true);
                 StartOfComp = 1;
             }
@@ -247,6 +253,7 @@ public class SimpleMovement : MonoBehaviour
         }
         else if (GameMode == 3)
         {
+            camswitch.GoToPuzzleThree();
             if (StartOfPuzzT == 0)
             {
                 canvasText.SetText("In this puzzle you will use 'A' and 'D' to move between pots. Use the space-bar to get the slider on the green, and the selected pot will stop burning. If you understand press 'c', and good luck!");
