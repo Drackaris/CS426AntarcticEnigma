@@ -14,15 +14,12 @@ public class puzzle_three : MonoBehaviour
     public GameObject[] MyObjects;
     public int level = 1;
     public int counter = 0;
-    public int[] Nums;
-
-    public string[] UserInput;
+	public List<int> Nums;
 
     public GameObject canva;
     public SimpleMovement s;
     public int repeatS = 1;
-
-    public InputField inp;
+	bool LevelSuccess;
 
 
     // Start is called before the first frame update
@@ -33,20 +30,15 @@ public class puzzle_three : MonoBehaviour
         MyObjects[1] = cube1;
         MyObjects[2] = cube2;
         MyObjects[3] = cube3;
-
+		LevelSuccess = false;
         cube.GetComponentInChildren<Renderer>().material = normalMat;
         cube1.GetComponentInChildren<Renderer>().material = normalMat;
         cube2.GetComponentInChildren<Renderer>().material = normalMat;
         cube3.GetComponentInChildren<Renderer>().material = normalMat;
 
-        Nums = new int[15];
-        UserInput = new string[15];
-
-        for(int i = 0; i < 15; i++)
-        {
-            UserInput[i] = "";
-         
-        }
+		Nums = new List<int>();
+    
+        
 
         //inp = GetComponent<InputField>();
 
@@ -57,56 +49,68 @@ public class puzzle_three : MonoBehaviour
     void Update()
     {
 
-        if(s.GameMode == 3 && repeatS == 1)
-        {
-            canva.SetActive(true);
-            ChangeCol();
-            repeatS = 0;
-            level = 1;
-        }
+		if (s.GameMode == 3 && repeatS == 1)
+		{
+			canva.SetActive(false);	
+			ChangeCol();
+			repeatS = 0;
+			level = 1;
+		}
 
-        if(s.GameMode != 3)
-        {
-            canva.SetActive(false);
+		if (s.GameMode != 3)
+		{
+			canva.SetActive(false);
 
-            repeatS = 1;
-        }
-
-        if(Input.GetKeyDown(KeyCode.G) && s.GameMode == 3)
-        {
-            for(int i = 0; i < inp.text.Length; i++)
-            {
-                UserInput[i] = Convert.ToString(inp.text[i]);
-                
-                
-            }
-
-        }
-
-        if (Input.GetKey(KeyCode.Return))
-        {
-           for(int i = 0; i < UserInput.Length; i++)
-            {
-                string temp = Convert.ToString(Nums[i]);
-
-            }
-
-        }
+			repeatS = 1;
+		}
 
 
-    }
+	}
+	
+	public void WaitForUserInput()
+	{
+		s.CanGiveInput = true;
+		if(s.SecuritySystemArr.Count < 5)
+		{ WaitForUserInput(); }
+	}
+
+	public bool CompareAnswers()
+	{
+		for (int i = 0; i < Nums.Count; i++)
+		{
+			if (Nums[i] == s.SecuritySystemArr[i])
+			{
+
+			}
+			else
+			{
+				return false;
+			}
+			return true;
+		}
+		return false;
+	}
 
     public void ChangeCol()
     {
     
         if (level == 1)
         {
-            if(counter > 5)
+            if(counter > 4)
             {
                 counter = 0;
 
-                //check user input for win 
-                level = 2;
+				WaitForUserInput();
+				if (CompareAnswers())
+				{
+					//level = 2;
+				}
+				if(!CompareAnswers())
+				{
+					Destroy(this.gameObject);
+				}
+			
+               
             }
             popUArr(5);
             int num = Nums[counter];
@@ -177,7 +181,7 @@ public class puzzle_three : MonoBehaviour
             System.Random random = new Random();
             int randomNumber = random.Next(0, 4);
 
-            Nums[i] = randomNumber;
+			Nums.Add(randomNumber);
 
         }
 

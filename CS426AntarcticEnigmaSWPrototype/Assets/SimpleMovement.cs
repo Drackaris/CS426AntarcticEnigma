@@ -25,6 +25,7 @@ public class SimpleMovement : MonoBehaviour
     public bool CanGoToKitchen;
     public bool CanGoToTV;
     public bool CanGetTaskList;
+	public bool CanGiveInput;
 	public int ComputerPuzzleAttempts;
 
     public int chances = 0;
@@ -32,10 +33,17 @@ public class SimpleMovement : MonoBehaviour
     public bool kDone = false;
     public int inK = 0;
 
+	public List<int> SecuritySystemArr;
+
     public AcceptSound acceptS;
     public MissSound missS;
 
-    public TMPro.TextMeshProUGUI canvasText;     public Canvas canvas;     public GameObject panel;      public int StartOfGame;     public int StartOfKitchen;
+    public TMPro.TextMeshProUGUI canvasText;
+    public Canvas canvas;
+    public GameObject panel;
+
+    public int StartOfGame;
+    public int StartOfKitchen;
     public int StartOfComp;
     public int StartOfPuzzT;
 
@@ -53,6 +61,7 @@ public class SimpleMovement : MonoBehaviour
         CanGoToKitchen = false;
 		CanGetTaskList = false;
         CanGoToTV = false;
+		CanGiveInput = false;
         PuzzlePieceDirection = 1;
 		camswitch = GameObject.FindGameObjectWithTag("GameController").GetComponent<CameraSwitch>();
 		PuzzlePiece = GameObject.FindGameObjectWithTag("ComputerStartTag");
@@ -60,9 +69,12 @@ public class SimpleMovement : MonoBehaviour
         SpawnLocation = new Vector3(PuzzlePiece.transform.position.x, PuzzlePiece.transform.position.y, PuzzlePiece.transform.position.z);
 		LevelCommands = new List<string>();
 		TaskList = new List<string>();
+		SecuritySystemArr = new List<int>();
 		ComputerPuzzleAttempts = 1;
 
-        canvasText = canvas.GetComponentInChildren<TMPro.TextMeshProUGUI>();         StartOfGame = 1;         StartOfKitchen = 0;
+        canvasText = canvas.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+        StartOfGame = 1;
+        StartOfKitchen = 0;
         StartOfComp = 0;
         StartOfPuzzT = 0;
     }
@@ -72,9 +84,20 @@ public class SimpleMovement : MonoBehaviour
 	{
 		if (GameMode == 0)
 		{
-            if (StartOfGame == 1)             {                 canvasText.SetText("This is your fist day working at the Antarctic research base, your first goal is to read the task list. (Going up to it and pressing space).  " +                    "After that you should feel free to explore the base and do the tasks you are asked of. If you understand press 'c', and good luck!");                  StartOfGame = 0;                 panel.SetActive(true);             }
+            if (StartOfGame == 1)
+            {
+                canvasText.SetText("This is your fist day working at the Antarctic research base, your first goal is to read the task list. (Going up to it and pressing space).  " +
+                   "After that you should feel free to explore the base and do the tasks you are asked of. If you understand press 'c', and good luck!");
 
-            if (Input.GetKey(KeyCode.C))             {                 panel.SetActive(false);                 canvasText.SetText("");             }
+                StartOfGame = 0;
+                panel.SetActive(true);
+            }
+
+            if (Input.GetKey(KeyCode.C))
+            {
+                panel.SetActive(false);
+                canvasText.SetText("");
+            }
 
             if (Input.GetKey(KeyCode.J))
             {
@@ -115,7 +138,7 @@ public class SimpleMovement : MonoBehaviour
 
                 if (CanGoToTV)
                 {
-                    if (TaskList.Contains("Fix TV"))
+                    if (TaskList.Contains("Fix Security System"))
                     {
                         Debug.Log("Trying to switch camera.");
                         camswitch.GoToPuzzleThree();
@@ -129,7 +152,7 @@ public class SimpleMovement : MonoBehaviour
 					{
 						TaskList.Add("Store Data In The Computer");
 						TaskList.Add("Cook Food In The Kitchen");
-                        TaskList.Add("Fix TV");
+                        TaskList.Add("Fix Security System");
                     }
 				}
             }
@@ -153,20 +176,23 @@ public class SimpleMovement : MonoBehaviour
             }
 
             PuzzlePiece = GameObject.FindGameObjectWithTag("ComputerStartTag");
-			if (Input.GetKeyDown(KeyCode.W))
+			if (CanGiveInput)
 			{
-				LevelCommands.Add("F");
-			
-			}
-			if(Input.GetKeyDown(KeyCode.A))
-			{
-				LevelCommands.Add("L");
+				if (Input.GetKeyDown(KeyCode.W))
+				{
+					LevelCommands.Add("F");
 
-			}
-			if(Input.GetKeyDown(KeyCode.D))
-			{
-				LevelCommands.Add("R");
+				}
+				if (Input.GetKeyDown(KeyCode.A))
+				{
+					LevelCommands.Add("L");
 
+				}
+				if (Input.GetKeyDown(KeyCode.D))
+				{
+					LevelCommands.Add("R");
+
+				}
 			}
 			if (Input.GetKeyDown(KeyCode.Tab))
 			{
@@ -184,7 +210,19 @@ public class SimpleMovement : MonoBehaviour
 		}
         else if (GameMode == 2)
         {
-            if (StartOfKitchen == 0)             {                 canvasText.SetText("In this puzzle you will use 'A' and 'D' to move between pots. Use the space-bar to get the slider on the green, and the selected pot will stop burning. If you understand press 'c', and good luck!");                 panel.SetActive(true);                 StartOfKitchen = 1;             }              if (Input.GetKey(KeyCode.C))             {                 panel.SetActive(false);                 canvasText.SetText("");             } 
+            if (StartOfKitchen == 0)
+            {
+                canvasText.SetText("In this puzzle you will use 'A' and 'D' to move between pots. Use the space-bar to get the slider on the green, and the selected pot will stop burning. If you understand press 'c', and good luck!");
+                panel.SetActive(true);
+                StartOfKitchen = 1;
+            }
+
+            if (Input.GetKey(KeyCode.C))
+            {
+                panel.SetActive(false);
+                canvasText.SetText("");
+            }
+
             inK = 1;
             camswitch.GoToKitchenCamera();
             float pos = Bar.transform.localPosition.z;
@@ -209,7 +247,8 @@ public class SimpleMovement : MonoBehaviour
                         kDone = false;
                         StartOfKitchen = 0;
                         chances = 0;
-                        wS.audioSource.Play(); 
+                        wS.audioSource.Play();
+						TaskList.Remove("Cook Food In The Kitchen");
 
                     }
 
@@ -260,7 +299,22 @@ public class SimpleMovement : MonoBehaviour
                 panel.SetActive(true);
                 StartOfPuzzT = 1;
             }
-
+			if(Input.GetKeyDown(KeyCode.Alpha1))
+			{
+				SecuritySystemArr.Add(1);
+			}
+			if(Input.GetKeyDown(KeyCode.Alpha2))
+			{
+				SecuritySystemArr.Add(2);
+			}
+			if(Input.GetKeyDown(KeyCode.Alpha3))
+			{
+				SecuritySystemArr.Add(3);
+			}
+			if(Input.GetKeyDown(KeyCode.Alpha4))
+			{
+				SecuritySystemArr.Add(4);
+			}
             if (Input.GetKey(KeyCode.C))
             {
                 panel.SetActive(false);
