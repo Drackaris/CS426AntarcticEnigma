@@ -60,7 +60,14 @@ public class NpcMovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetBool("Walk", true);
+		if (Sleeping)
+		{
+			anim.SetBool("Walk", false);
+		}
+		else
+		{
+			anim.SetBool("Walk", true);
+		}
         if (DTScript.hour < 6)
 		{
 			Sleep = true;
@@ -69,7 +76,7 @@ public class NpcMovementScript : MonoBehaviour
 				agent.SetDestination(Bed.position);
             }
         }
-		if (DTScript.hour >= 6 && DTScript.hour < 7)
+		if (DTScript.hour >= 6 && DTScript.hour < 8)
 		{
 			if (Sleep == true)
 			{
