@@ -105,19 +105,20 @@ public class puzzle_three : MonoBehaviour
         //So if we are no longer in the level, user-input is gone, and temp=1 again for the part above 
 		if (s.GameMode != 3)
 		{
-			
 
-			temp = 1;
+            panel.SetActive(false);
+            canvasText.SetText("");
+
+            temp = 1;
 		}
 
         if(level == 10)
         {
-            panel.SetActive(false);
-            canvasText.SetText("");
             s.securityDone = true;
 
             //level = 1;
         }
+
 
 
     }
@@ -338,8 +339,8 @@ public class puzzle_three : MonoBehaviour
                 WaitForUserInput(counter);
                 if (CompareAnswers3())
                 {
-					//  canvasText.SetText("Congratz You did it");
-					//   panel.SetActive(true);
+                    canvasText.SetText("Congratz You did it");
+                    panel.SetActive(true);
 					s.TaskList.Remove("Fix Security System");
                     level = 10;
                     popUArrOnce = 1;
