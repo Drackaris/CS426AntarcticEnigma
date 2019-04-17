@@ -1986,11 +1986,13 @@ MonoBehaviour:
   CanGoToKitchen: 0
   CanGoToTV: 0
   CanGetTaskList: 0
+  CanGiveInput: 0
   ComputerPuzzleAttempts: 0
   chances: 0
   onGreen: 0
   kDone: 0
   inK: 0
+  SecuritySystemArr: 
   acceptS: {fileID: 435547285}
   missS: {fileID: 1390769568}
   canvasText: {fileID: 1445307091}
@@ -3046,6 +3048,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1252153979}
     m_Modifications:
+    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
+        type: 3}
+      propertyPath: m_Name
+      value: WallSegment (25)
+      objectReference: {fileID: 0}
     - target: {fileID: 4610389859128179544, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
         type: 3}
       propertyPath: m_RootOrder
@@ -3080,11 +3087,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
-        type: 3}
-      propertyPath: m_Name
-      value: WallSegment (25)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fae07d95770f5d40ae5b1fb69f0297b, type: 3}
@@ -4839,6 +4841,8 @@ MonoBehaviour:
   Computer: {fileID: 185217480}
   Kitchen: {fileID: 533275245}
   Bed: {fileID: 356528544}
+  Security: {fileID: 0}
+  LoungeArea: {fileID: 1634511236}
 --- !u!136 &773912975
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5756,13 +5760,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965542591}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: -0.7071068}
-  m_LocalPosition: {x: -7.93, y: 2.02, z: 0}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 51.97, y: 2.02, z: -16.41}
   m_LocalScale: {x: 10, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 2011095433}
   m_RootOrder: 46
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 360}
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 360}
 --- !u!65 &965542593
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6611,6 +6615,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1252153979}
     m_Modifications:
+    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
+        type: 3}
+      propertyPath: m_Name
+      value: WallSegment (23)
+      objectReference: {fileID: 0}
     - target: {fileID: 4610389859128179544, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
         type: 3}
       propertyPath: m_RootOrder
@@ -6645,11 +6654,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
-        type: 3}
-      propertyPath: m_Name
-      value: WallSegment (23)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fae07d95770f5d40ae5b1fb69f0297b, type: 3}
@@ -8558,6 +8562,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1252153979}
     m_Modifications:
+    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
+        type: 3}
+      propertyPath: m_Name
+      value: WallSegment (24)
+      objectReference: {fileID: 0}
     - target: {fileID: 4610389859128179544, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
         type: 3}
       propertyPath: m_RootOrder
@@ -8592,11 +8601,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
-        type: 3}
-      propertyPath: m_Name
-      value: WallSegment (24)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fae07d95770f5d40ae5b1fb69f0297b, type: 3}
@@ -10567,6 +10571,36 @@ MonoBehaviour:
   Tasks: {fileID: 77536745}
   SM: {fileID: 0}
   TaskList: []
+--- !u!1 &1634511235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1634511236}
+  m_Layer: 0
+  m_Name: LoungeArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1634511236
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634511235}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 48.156307, y: 0.9449148, z: -28.796}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1636081488
 GameObject:
   m_ObjectHideFlags: 0
@@ -10980,11 +11014,9 @@ MonoBehaviour:
   level: 1
   counter: 0
   Nums: 
-  UserInput: []
   canva: {fileID: 24186612}
   s: {fileID: 319230004}
   repeatS: 1
-  inp: {fileID: 351144025}
 --- !u!1 &1687692036
 GameObject:
   m_ObjectHideFlags: 0
@@ -11374,6 +11406,8 @@ MonoBehaviour:
   Computer: {fileID: 185217480}
   Kitchen: {fileID: 533275245}
   Bed: {fileID: 356528544}
+  Security: {fileID: 142661071}
+  LoungeArea: {fileID: 1634511236}
 --- !u!195 &1712501965
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -13162,7 +13196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: dd1560403fef68a40aff91b914ad7e85, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.026636
+      value: 20.14
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: dd1560403fef68a40aff91b914ad7e85, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13170,7 +13204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: dd1560403fef68a40aff91b914ad7e85, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.363075
+      value: -27.09
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: dd1560403fef68a40aff91b914ad7e85, type: 3}
       propertyPath: m_LocalRotation.x

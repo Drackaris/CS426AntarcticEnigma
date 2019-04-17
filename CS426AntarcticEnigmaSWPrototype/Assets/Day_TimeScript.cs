@@ -13,14 +13,14 @@ public class Day_TimeScript : MonoBehaviour
     void Start()
     {
 		day = 0;
-		hour = 6;
+		hour = 8;
 		minutes = 0;
     }
 
 	// Update is called once per frame
 	void Update()
 	{
-		if (Time.time - lastChange > 1.0)
+		if (Time.time - lastChange > 0.5)
 		{
 			minutes++;
 			if (minutes == 60)

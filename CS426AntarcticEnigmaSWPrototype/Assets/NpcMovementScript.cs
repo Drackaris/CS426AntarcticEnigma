@@ -9,6 +9,8 @@ public class NpcMovementScript : MonoBehaviour
 	public Transform Computer;
 	public Transform Kitchen;
 	public Transform Bed;
+	public Transform Security;
+	public Transform LoungeArea;
 	private bool Sleep;
 	private bool Sleeping;
 	NavMeshAgent agent;
@@ -19,6 +21,7 @@ public class NpcMovementScript : MonoBehaviour
     {
         anim = GetComponent<Animator>();
 		agent = GetComponent<NavMeshAgent>();
+		Sleeping = false;
 		DTScript = GameObject.Find("TimeController").GetComponent<Day_TimeScript>();
     }
 
@@ -68,26 +71,30 @@ public class NpcMovementScript : MonoBehaviour
 		{
 			anim.SetBool("Walk", true);
 		}
-        if (DTScript.hour < 6)
+        if (DTScript.hour < 10)
 		{
 			Sleep = true;
 			if (Sleeping == false)
 			{ 
-				agent.SetDestination(Bed.position);
+				agent.SetDestination(new Vector3(Bed.position.x,Bed.position.y,Bed.position.z));
             }
         }
-		if (DTScript.hour >= 6 && DTScript.hour < 8)
+		if (DTScript.hour >= 10 && DTScript.hour < 12)
 		{
-			if (Sleep == true)
-			{
-				WakeUp();
-                
-            }
-			agent.SetDestination(new Vector3(Computer.position.x,Computer.position.y,Computer.position.z - 2.5f));
+			
+			agent.SetDestination(new Vector3(Security.position.x,Security.position.y, Security.position.z + 2.5f));
         }
-		else if (DTScript.hour >= 7 && DTScript.hour < 14)
+		else if (DTScript.hour >= 14 && DTScript.hour < 16)
 		{
-			agent.SetDestination(new Vector3(Kitchen.position.x, Kitchen.position.y, Kitchen.position.z - 3f));
+			agent.SetDestination(new Vector3(Computer.position.x, Computer.position.y, Computer.position.z - 3f));
         }
-    }
+		else if (DTScript.hour >= 18 && DTScript.hour < 20)
+		{
+			agent.SetDestination(new Vector3(Kitchen.position.x, Kitchen.position.y, Kitchen.position.z + 3f));
+		}
+		else
+		{
+			agent.SetDestination(new Vector3(LoungeArea.position.x, LoungeArea.position.y, LoungeArea.position.z + 3f));
+		}
+	}
 }

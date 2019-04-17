@@ -123,6 +123,7 @@ public class SimpleMovement : MonoBehaviour
 						Debug.Log("Trying to switch camera.");
 						camswitch.GoToComputerCamera();
 						GameMode = 1;
+						CanGiveInput = true;
 					}
 				}
 
