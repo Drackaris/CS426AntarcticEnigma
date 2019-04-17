@@ -82,9 +82,12 @@ public class SimpleMovement : MonoBehaviour
 
                 if (CanGoToKitchen)
                 {
-                    Debug.Log("Trying to switch camera.");
-                    camswitch.GoToKitchenCamera();
-                    GameMode = 2;
+                    if (TaskList.Contains("Cook Food In The Kitchen"))
+                    {
+                        Debug.Log("Trying to switch camera.");
+                        camswitch.GoToKitchenCamera();
+                        GameMode = 2;
+                    }
                 }
 
 				if(CanGetTaskList)
