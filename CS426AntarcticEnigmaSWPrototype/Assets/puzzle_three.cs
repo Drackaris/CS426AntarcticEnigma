@@ -338,8 +338,9 @@ public class puzzle_three : MonoBehaviour
                 WaitForUserInput(counter);
                 if (CompareAnswers3())
                 {
-                    canvasText.SetText("Congratz You did it");
-                    panel.SetActive(true);
+					//  canvasText.SetText("Congratz You did it");
+					//   panel.SetActive(true);
+					s.TaskList.Remove("Fix Security System");
                     level = 10;
                     popUArrOnce = 1;
                 }

@@ -20,7 +20,7 @@ public class Day_TimeScript : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Time.time - lastChange > 0.5)
+		if (Time.time - lastChange > 2)
 		{
 			minutes++;
 			if (minutes == 60)
