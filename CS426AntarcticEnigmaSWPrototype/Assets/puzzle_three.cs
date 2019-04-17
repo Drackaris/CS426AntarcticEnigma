@@ -67,11 +67,11 @@ public class puzzle_three : MonoBehaviour
 
 	}
 	
-	public void WaitForUserInput()
+	public void WaitForUserInput(int i)
 	{
 		s.CanGiveInput = true;
-		if(s.SecuritySystemArr.Count < 5)
-		{ WaitForUserInput(); }
+		if(s.SecuritySystemArr.Count < i)
+		{ WaitForUserInput(i); }
 	}
 
 	public bool CompareAnswers()
@@ -100,7 +100,7 @@ public class puzzle_three : MonoBehaviour
             {
                 counter = 0;
 
-				WaitForUserInput();
+				WaitForUserInput(counter);
 				if (CompareAnswers())
 				{
 					//level = 2;
