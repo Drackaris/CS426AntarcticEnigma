@@ -25,6 +25,9 @@ public class puzzle_three : MonoBehaviour
     public Canvas canvas;
     public GameObject panel;
 
+    public List<int> Nums1;
+    public List<int> Nums2;
+    public List<int> Nums3;
 
     // Start is called before the first frame update
     void Start()
@@ -41,11 +44,33 @@ public class puzzle_three : MonoBehaviour
         cube3.GetComponentInChildren<Renderer>().material = normalMat;
 
 		Nums = new List<int>();
+        Nums1 = new List<int>();
+        Nums2 = new List<int>();
+        Nums3 = new List<int>();
 
         canvasText = canvas.GetComponentInChildren<TMPro.TextMeshProUGUI>();
         panel.SetActive(false);
         canvasText.SetText("");
         //inp = GetComponent<InputField>();
+
+        Nums1.Add(1);
+        Nums1.Add(2);
+        Nums1.Add(1);
+        Nums1.Add(3);
+
+        Nums2.Add(1);
+        Nums2.Add(2);
+        Nums2.Add(1);
+        Nums2.Add(4);
+        Nums2.Add(3);
+        Nums2.Add(4);
+
+        Nums3.Add(4);
+        Nums3.Add(3);
+        Nums3.Add(2);
+        Nums3.Add(4);
+        Nums3.Add(1);
+        Nums3.Add(2);
 
         //ChangeCol();
     }
@@ -89,14 +114,14 @@ public class puzzle_three : MonoBehaviour
 
 	public bool CompareAnswers()
 	{
-        if(s.SecuritySystemArr.Count == 0 || s.SecuritySystemArr.Count < Nums.Count)
+        if(s.SecuritySystemArr.Count == 0 || s.SecuritySystemArr.Count < Nums1.Count)
         {
             return false;
         }
 
-        for (int i = 0; i < Nums.Count; i++)
+        for (int i = 0; i < Nums1.Count; i++)
 		{
-			if (Nums[i] == s.SecuritySystemArr[i])
+			if (Nums1[i] == s.SecuritySystemArr[i])
 			{
 
 			}
@@ -104,10 +129,55 @@ public class puzzle_three : MonoBehaviour
 			{
 				return false;
 			}
-			return true;
+			//return true;
 		}
-		return false;
+
+		return true;
 	}
+
+    public bool CompareAnswers2()
+    {
+        if (s.SecuritySystemArr.Count == 0 || s.SecuritySystemArr.Count < Nums2.Count)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < Nums2.Count; i++)
+        {
+            if (Nums2[i] == s.SecuritySystemArr[i])
+            {
+
+            }
+            else
+            {
+                return false;
+            }
+            //return true;
+        }
+        return true;
+    }
+
+    public bool CompareAnswers3()
+    {
+        if (s.SecuritySystemArr.Count == 0 || s.SecuritySystemArr.Count < Nums3.Count)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < Nums3.Count; i++)
+        {
+            if (Nums3[i] == s.SecuritySystemArr[i])
+            {
+
+            }
+            else
+            {
+                return false;
+            }
+            //return true;
+        }
+        return true;
+    }
 
     public void ChangeCol()
     {
@@ -122,7 +192,7 @@ public class puzzle_three : MonoBehaviour
                 popUArr(4);
                 popUArrOnce = 0;
             }
-            if (counter >= 4)
+            if (counter > 5)
             {
                 counter = 0;
 
@@ -149,17 +219,23 @@ public class puzzle_three : MonoBehaviour
                
             }
 
-            if(counter < 4)
+            if (!panel.activeSelf)
             {
-                int num = Nums[counter];
-                GameObject o = MyObjects[num-1];
-                o.GetComponentInChildren<Renderer>().material = highlightMat;
+                if (counter < 4)
+                {
+                    int num = Nums1[counter];
+                    GameObject o = MyObjects[num - 1];
+                    o.GetComponentInChildren<Renderer>().material = highlightMat;
+
+                }
+
+                counter += 1;
 
             }
 
 
             Invoke("ChangeBack", 2f);
-            counter += 1;
+
 
         }
         else if(level == 2)
@@ -174,19 +250,19 @@ public class puzzle_three : MonoBehaviour
                 popUArrOnce = 0;
                 counter = 0;
             }
-            if (counter >= 6)
+            if (counter > 7)
             {
                 counter = 0;
 
                 WaitForUserInput(counter);
-                if (CompareAnswers())
+                if (CompareAnswers2())
                 {
                     canvasText.SetText("Moving onto next level!");
                     panel.SetActive(true);
                     level = 3;
                     popUArrOnce = 1;
                 }
-                if (!CompareAnswers())
+                if (!CompareAnswers2())
                 {
                     //Destroy(this.gameObject);
                     canvasText.SetText("Nope, clearing your input");
@@ -200,17 +276,22 @@ public class puzzle_three : MonoBehaviour
 
             }
 
+            if (!panel.activeSelf){
 
-            if (counter < 6)
-            {
-                int num = Nums[counter];
-                GameObject o = MyObjects[num-1];
-                o.GetComponentInChildren<Renderer>().material = highlightMat;
+                if (counter < 6)
+                {
+                    int num = Nums2[counter];
+                    GameObject o = MyObjects[num - 1];
+                    o.GetComponentInChildren<Renderer>().material = highlightMat;
+
+                }
+
+
+                counter += 1;
+
 
             }
-
             Invoke("ChangeBack", 2f);
-            counter += 1;
 
         }
         else if(level == 3)
@@ -225,25 +306,25 @@ public class puzzle_three : MonoBehaviour
                 popUArrOnce = 0;
                 counter = 0;
             }
-            if (counter > 6)
+            if (counter > 7)
             {
                 counter = 0;
 
                 WaitForUserInput(counter);
-                if (CompareAnswers())
+                if (CompareAnswers3())
                 {
                     canvasText.SetText("Congratz You did it");
                     panel.SetActive(true);
                     level = 10;
                     popUArrOnce = 1;
                 }
-                if (!CompareAnswers())
+                if (!CompareAnswers3())
                 {
                     //Destroy(this.gameObject);
                     canvasText.SetText("Nope, clearing your input");
                     panel.SetActive(true);
                     counter = 0;
-                    level = 10;
+                    level = 3;
                     s.SecuritySystemArr.Clear();
 
                 }
@@ -251,17 +332,23 @@ public class puzzle_three : MonoBehaviour
 
             }
 
-
-            if (counter < 6)
+            if (!panel.activeSelf)
             {
-                int num = Nums[counter];
-                GameObject o = MyObjects[num - 1];
-                o.GetComponentInChildren<Renderer>().material = highlightMat;
+                if (counter < 6)
+                {
+                    int num = Nums3[counter];
+                    GameObject o = MyObjects[num - 1];
+                    o.GetComponentInChildren<Renderer>().material = highlightMat;
+
+                }
+
+                counter += 1;
 
             }
 
+
             Invoke("ChangeBack", 1f);
-            counter += 1;
+
 
         }
         else
