@@ -192,7 +192,7 @@ public class puzzle_three : MonoBehaviour
                 popUArr(4);
                 popUArrOnce = 0;
             }
-            if (counter > 5)
+            if (counter > 4)
             {
                 counter = 0;
 
@@ -250,7 +250,7 @@ public class puzzle_three : MonoBehaviour
                 popUArrOnce = 0;
                 counter = 0;
             }
-            if (counter > 7)
+            if (counter > 6)
             {
                 counter = 0;
 
@@ -306,7 +306,7 @@ public class puzzle_three : MonoBehaviour
                 popUArrOnce = 0;
                 counter = 0;
             }
-            if (counter > 7)
+            if (counter > 6)
             {
                 counter = 0;
 

@@ -89,7 +89,7 @@ public class SimpleMovement : MonoBehaviour
             if (StartOfGame == 1)
             {
                 canvasText.SetText("This is your fist day working at the Antarctic research base, your first goal is to read the task list. (Going up to it and pressing space).  " +
-                   "After that you should feel free to explore the base and do the tasks you are asked of. If you understand press 'c', and good luck!");
+                   "After that you should feel free to explore the base and do the tasks you are asked of. To start a puzzle, go up to the object and press 'Space-Bar'. If you understand press 'c', and good luck!");
 
                 StartOfGame = 0;
                 panel.SetActive(true);
@@ -298,7 +298,7 @@ public class SimpleMovement : MonoBehaviour
             camswitch.GoToPuzzleThree();
             if (StartOfPuzzT == 0)
             {
-                canvasText.SetText("In this puzzle you will use 'A' and 'D' to move between pots. Use the space-bar to get the slider on the green, and the selected pot will stop burning. If you understand press 'c', and good luck!");
+                canvasText.SetText("In this puzzle you will be using the number 1-4. You want to remember the sequence of the blocks lighting up. Left(1) All the way on Right(4). Enter your input after the sequence ends and wait to see how you did. If you understand press 'c', and good luck!");
                 panel.SetActive(true);
                 StartOfPuzzT = 1;
             }
