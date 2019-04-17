@@ -29,6 +29,15 @@ public class puzzle_three : MonoBehaviour
     public List<int> Nums2;
     public List<int> Nums3;
 
+    public CubeAudio cS;
+    public CubeAudio1 cS1;
+    public CubeAudio2 cS2;
+    public CubeAudio3 cS3;
+
+
+    public List<AudioSource> sound;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +80,12 @@ public class puzzle_three : MonoBehaviour
         Nums3.Add(4);
         Nums3.Add(1);
         Nums3.Add(2);
+
+        sound.Add(cS.audioSource);
+        sound.Add(cS1.audioSource);
+        sound.Add(cS2.audioSource);
+        sound.Add(cS3.audioSource);
+
 
         //ChangeCol();
     }
@@ -227,7 +242,8 @@ public class puzzle_three : MonoBehaviour
                     int num = Nums1[counter];
                     GameObject o = MyObjects[num - 1];
                     o.GetComponentInChildren<Renderer>().material = highlightMat;
-
+                    AudioSource s = sound[num - 1];
+                    s.Play();
                 }
 
                 counter += 1;
@@ -288,7 +304,8 @@ public class puzzle_three : MonoBehaviour
                     int num = Nums2[counter];
                     GameObject o = MyObjects[num - 1];
                     o.GetComponentInChildren<Renderer>().material = highlightMat;
-
+                    AudioSource s = sound[num - 1];
+                    s.Play();
                 }
 
 
@@ -344,7 +361,8 @@ public class puzzle_three : MonoBehaviour
                     int num = Nums3[counter];
                     GameObject o = MyObjects[num - 1];
                     o.GetComponentInChildren<Renderer>().material = highlightMat;
-
+                    AudioSource s = sound[num - 1];
+                    s.Play();
                 }
 
                 counter += 1;
