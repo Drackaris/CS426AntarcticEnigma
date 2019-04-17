@@ -50,6 +50,8 @@ public class SimpleMovement : MonoBehaviour
     public WinSound wS;
     public LoseSound lS;
 
+    public bool securityDone = false;
+
 
     // Use this for initialization
     void Start()
@@ -321,10 +323,12 @@ public class SimpleMovement : MonoBehaviour
                 panel.SetActive(false);
                 canvasText.SetText("");
             }
-            if (Input.GetKey(KeyCode.Escape))
+            if (Input.GetKey(KeyCode.Escape) || securityDone)
             {            
                 camswitch.GoToPlayerCamera();
                 GameMode = 0;
+                StartOfPuzzT = 0;
+                securityDone = false;
             }
         }
 
