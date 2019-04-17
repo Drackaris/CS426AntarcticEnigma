@@ -158,6 +158,7 @@ public class SimpleMovement : MonoBehaviour
                         inK = 0;
                         GameMode = 0;
                         camswitch.GoToPlayerCamera();
+                        kDone = false;
 
 
                     }

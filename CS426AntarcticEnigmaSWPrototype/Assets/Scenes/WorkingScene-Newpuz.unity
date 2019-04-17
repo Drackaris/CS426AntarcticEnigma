@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657856, g: 0.49641234, b: 0.57481724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6085,7 +6085,7 @@ MonoBehaviour:
   PlayerCamera: {fileID: 534669902}
   ComputerCamera: {fileID: 1373580844}
   ComputerUI: {fileID: 982649641}
-  PlayerUI: {fileID: 0}
+  PlayerUI: {fileID: 1632568610}
   KitchenCamera: {fileID: 975420574}
   PuzzleThreeCamera: {fileID: 674184721}
   CamMode: 0
