@@ -79,7 +79,7 @@ public class puzzle_three : MonoBehaviour
     void Update()
     {
         //To make sure Everything inside only happens once, at the beginning of the level
-		if (s.GameMode == 3 && temp == 1)
+		if (s.GameMode == 3 && temp == 1 && !s.panel.activeSelf)
 		{
             	
 			ChangeCol();
@@ -191,6 +191,7 @@ public class puzzle_three : MonoBehaviour
             {
                 popUArr(4);
                 popUArrOnce = 0;
+                counter = 0;
             }
             if (counter > 4)
             {
@@ -219,7 +220,7 @@ public class puzzle_three : MonoBehaviour
                
             }
 
-            if (!panel.activeSelf)
+            if (!panel.activeSelf && !s.panel.activeSelf)
             {
                 if (counter < 4)
                 {
@@ -231,6 +232,10 @@ public class puzzle_three : MonoBehaviour
 
                 counter += 1;
 
+            }
+            else
+            {
+                counter = 0;
             }
 
 
