@@ -23,7 +23,8 @@ public class SimpleMovement : MonoBehaviour
 	public int GameMode; //0 if player controled 1 for computer 2 for kitchen....etc.....
 	public bool CanGoToComputer;
     public bool CanGoToKitchen;
-	public bool CanGetTaskList;
+    public bool CanGoToTV;
+    public bool CanGetTaskList;
 	public int ComputerPuzzleAttempts;
 
     public int chances = 0;
@@ -50,7 +51,8 @@ public class SimpleMovement : MonoBehaviour
 		CanGoToComputer = false;
         CanGoToKitchen = false;
 		CanGetTaskList = false;
-		PuzzlePieceDirection = 1;
+        CanGoToTV = false;
+        PuzzlePieceDirection = 1;
 		camswitch = GameObject.FindGameObjectWithTag("GameController").GetComponent<CameraSwitch>();
 		PuzzlePiece = GameObject.FindGameObjectWithTag("ComputerStartTag");
         Bar = GameObject.FindGameObjectWithTag("Bar");
@@ -105,42 +107,27 @@ public class SimpleMovement : MonoBehaviour
                     }
                 }
 
-				if(CanGetTaskList)
+                if (CanGoToTV)
+                {
+                    if (TaskList.Contains("Fix TV"))
+                    {
+                        Debug.Log("Trying to switch camera.");
+                        camswitch.GoToPuzzleThree();
+                        GameMode = 3;
+                    }
+                }
+
+                if (CanGetTaskList)
 				{
 					if (TaskList.Count == 0)
 					{
 						TaskList.Add("Store Data In The Computer");
 						TaskList.Add("Cook Food In The Kitchen");
-					}
+                        TaskList.Add("Fix TV");
+                    }
 				}
             }
 
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                GameMode = 2;
-            }
-
-            //THIS NEEDS TO BE PUT INTO A GAMEMODE 3
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                camswitch.GoToPuzzleThree();
-
-                if (StartOfPuzzT == 0)
-                {
-                    canvasText.SetText("In this puzzle you will use 'A' and 'D' to move between pots. Use the space-bar to get the slider on the green, and the selected pot will stop burning. If you understand press 'c', and good luck!");
-                    panel.SetActive(true);
-                    StartOfPuzzT = 1;
-                }
-
-                if (Input.GetKey(KeyCode.C))
-                {
-                    panel.SetActive(false);
-                    canvasText.SetText("");
-                }
-
-
-
-            }
 
         }
 		else if (GameMode == 1)
@@ -258,6 +245,26 @@ public class SimpleMovement : MonoBehaviour
                 lS.audioSource.Play();
             }
         }
+        else if (GameMode == 3)
+        {
+            if (StartOfPuzzT == 0)
+            {
+                canvasText.SetText("In this puzzle you will use 'A' and 'D' to move between pots. Use the space-bar to get the slider on the green, and the selected pot will stop burning. If you understand press 'c', and good luck!");
+                panel.SetActive(true);
+                StartOfPuzzT = 1;
+            }
+
+            if (Input.GetKey(KeyCode.C))
+            {
+                panel.SetActive(false);
+                canvasText.SetText("");
+            }
+            if (Input.GetKey(KeyCode.Escape))
+            {            
+                camswitch.GoToPlayerCamera();
+                GameMode = 0;
+            }
+        }
 
     }
 
@@ -330,7 +337,11 @@ public class SimpleMovement : MonoBehaviour
         {
             CanGoToKitchen = true;
         }
-		if(other.tag == "Task")
+        if (other.tag == "TV")
+        {
+            CanGoToTV = true;
+        }
+        if (other.tag == "Task")
 		{
 			CanGetTaskList = true;
 		}
@@ -349,7 +360,12 @@ public class SimpleMovement : MonoBehaviour
             CanGoToKitchen = false;
         }
 
-		if(other.tag == "Task")
+        if (other.tag == "TV")
+        {
+            CanGoToTV = false;
+        }
+
+        if (other.tag == "Task")
 		{
 			CanGetTaskList = false;
 		}

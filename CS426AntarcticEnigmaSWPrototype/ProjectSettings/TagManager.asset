@@ -17,6 +17,8 @@ TagManager:
   - NPC
   - Bed
   - Task
+  - Pizza
+  - TV
   layers:
   - Default
   - TransparentFX
