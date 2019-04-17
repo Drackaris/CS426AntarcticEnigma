@@ -12,10 +12,12 @@ public class NpcMovementScript : MonoBehaviour
 	private bool Sleep;
 	private bool Sleeping;
 	NavMeshAgent agent;
+    static Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
 		agent = GetComponent<NavMeshAgent>();
 		DTScript = GameObject.Find("TimeController").GetComponent<Day_TimeScript>();
     }
@@ -35,7 +37,8 @@ public class NpcMovementScript : MonoBehaviour
 				this.transform.position = new Vector3(15.405f, 2.027f, -26.66f);
 				this.transform.Rotate(90, 270, 0, Space.World);
 				Sleeping = true;
-			}
+                anim.SetBool("Walk", false);
+            }
 		}
 	}
 
@@ -57,25 +60,27 @@ public class NpcMovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (DTScript.hour < 6)
+        anim.SetBool("Walk", true);
+        if (DTScript.hour < 6)
 		{
 			Sleep = true;
 			if (Sleeping == false)
 			{ 
 				agent.SetDestination(Bed.position);
-			}
-		}
+            }
+        }
 		if (DTScript.hour >= 6 && DTScript.hour < 7)
 		{
 			if (Sleep == true)
 			{
 				WakeUp();
-			}
+                
+            }
 			agent.SetDestination(new Vector3(Computer.position.x,Computer.position.y,Computer.position.z - 2.5f));
-		}
+        }
 		else if (DTScript.hour >= 7 && DTScript.hour < 14)
 		{
 			agent.SetDestination(new Vector3(Kitchen.position.x, Kitchen.position.y, Kitchen.position.z - 3f));
-		}
+        }
     }
 }
