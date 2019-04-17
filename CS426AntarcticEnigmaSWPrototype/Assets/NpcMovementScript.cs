@@ -12,7 +12,7 @@ public class NpcMovementScript : MonoBehaviour
 	private bool Sleep;
 	private bool Sleeping;
 	NavMeshAgent agent;
-    static Animator anim;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
