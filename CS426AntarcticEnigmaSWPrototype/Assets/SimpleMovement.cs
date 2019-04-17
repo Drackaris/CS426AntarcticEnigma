@@ -38,6 +38,9 @@ public class SimpleMovement : MonoBehaviour
     public int StartOfComp;
     public int StartOfPuzzT;
 
+    public WinSound wS;
+    public LoseSound lS;
+
     // Use this for initialization
     void Start()
 	{
@@ -212,7 +215,8 @@ public class SimpleMovement : MonoBehaviour
                         camswitch.GoToPlayerCamera();
                         kDone = false;
                         StartOfKitchen = 0;
-
+                        chances = 0;
+                        wS.audioSource.Play(); 
 
                     }
 
@@ -226,6 +230,19 @@ public class SimpleMovement : MonoBehaviour
                     else
                         barSpeed = barSpeed + 2;
 
+                    if(chances == 10)
+                    {
+                        inK = 0;
+                        GameMode = 0;
+                        camswitch.GoToPlayerCamera();
+                        kDone = false;
+                        StartOfKitchen = 0;
+                        chances = 0;
+                        lS.audioSource.Play();
+
+                    }
+
+
                     chances += 1;
                     missS.audioSource.Play();
                 }
@@ -238,6 +255,7 @@ public class SimpleMovement : MonoBehaviour
                 GameMode = 0;
                 inK = 0;
                 StartOfKitchen = 0;
+                lS.audioSource.Play();
             }
         }
 

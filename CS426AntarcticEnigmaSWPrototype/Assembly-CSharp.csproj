@@ -67,6 +67,7 @@
     <Compile Include="Assets\ComputerPuzzleWin.cs" />
     <Compile Include="Assets\Day_TimeScript.cs" />
     <Compile Include="Assets\LightFireAudio.cs" />
+    <Compile Include="Assets\LoseSound.cs" />
     <Compile Include="Assets\MissSound.cs" />
     <Compile Include="Assets\NpcMovementScript.cs" />
     <Compile Include="Assets\OrangeAudio.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Assets\TempScript.cs" />
     <Compile Include="Assets\TimePlayerUIScript.cs" />
     <Compile Include="Assets\TriggerComputerDeath.cs" />
+    <Compile Include="Assets\WinSound.cs" />
     <None Include="Assets\Tableware_For_Your_Kitchen\Pref\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Tableware_For_Your_Kitchen\Pref\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Tableware_For_Your_Kitchen\Flames Of The Phoenix\READ_ME.txt" />
