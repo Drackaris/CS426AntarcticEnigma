@@ -106,17 +106,16 @@ public class puzzle_three : MonoBehaviour
 		if (s.GameMode != 3)
 		{
 
-            panel.SetActive(false);
-            canvasText.SetText("");
+            //panel.SetActive(false);
+            //canvasText.SetText("");
 
             temp = 1;
 		}
 
         if(level == 10)
         {
-            s.securityDone = true;
-
-            //level = 1;
+           s.securityDone = true;
+           //level = -1;
         }
 
 
@@ -200,7 +199,9 @@ public class puzzle_three : MonoBehaviour
 
     public void ChangeCol()
     {
-    
+        panel.SetActive(false);
+        canvasText.SetText("");
+
         if (level == 1)
         {
             panel.SetActive(false);
