@@ -19,6 +19,8 @@ public class SimpleMovement : MonoBehaviour
 	public List<string> TaskList;
 	Rigidbody rb;
 	Transform t;
+	public Day_TimeScript dt;
+
 
 	public int GameMode; //0 if player controled 1 for computer 2 for kitchen....etc.....
 	public bool CanGoToComputer;
@@ -27,6 +29,7 @@ public class SimpleMovement : MonoBehaviour
     public bool CanGetTaskList;
 	public bool CanGiveInput;
 	public int ComputerPuzzleAttempts;
+	public bool CanGoToSleep;
 
     public int chances = 0;
     public int onGreen = 0;
@@ -64,10 +67,12 @@ public class SimpleMovement : MonoBehaviour
 		CanGetTaskList = false;
         CanGoToTV = false;
 		CanGiveInput = false;
+		CanGoToSleep = false;
         PuzzlePieceDirection = 1;
 		camswitch = GameObject.FindGameObjectWithTag("GameController").GetComponent<CameraSwitch>();
 		PuzzlePiece = GameObject.FindGameObjectWithTag("ComputerStartTag");
         Bar = GameObject.FindGameObjectWithTag("Bar");
+		dt = GameObject.Find("TimeController").GetComponent<Day_TimeScript>();
         SpawnLocation = new Vector3(PuzzlePiece.transform.position.x, PuzzlePiece.transform.position.y, PuzzlePiece.transform.position.z);
 		LevelCommands = new List<string>();
 		TaskList = new List<string>();
@@ -148,7 +153,24 @@ public class SimpleMovement : MonoBehaviour
                         GameMode = 3;
                     }
                 }
+				if(CanGoToSleep)
+				{
+					if (TaskList.Count > 0)
+					{
+						if (dt.hour > 22)
+						{
 
+						}
+						else
+						{
+							//TODO: Show a canvas telling them to try to finish the tasks before going to bed
+						}
+					}
+					else
+					{
+						//TODO: Call the script that increments the day 
+					}
+				}
                 if (CanGetTaskList)
 				{
 					if (TaskList.Count == 0)
@@ -407,7 +429,11 @@ public class SimpleMovement : MonoBehaviour
         {
             CanGoToTV = true;
         }
-        if (other.tag == "Task")
+		if (other.tag == "Bed")
+		{
+			CanGoToSleep = true;
+		}
+		if (other.tag == "Task")
 		{
 			CanGetTaskList = true;
 		}
@@ -430,6 +456,11 @@ public class SimpleMovement : MonoBehaviour
         {
             CanGoToTV = false;
         }
+
+		if(other.tag == "Bed")
+		{
+			CanGoToSleep = false;
+		}
 
         if (other.tag == "Task")
 		{

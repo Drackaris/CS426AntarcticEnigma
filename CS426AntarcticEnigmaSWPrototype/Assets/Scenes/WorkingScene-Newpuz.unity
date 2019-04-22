@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2203,7 +2203,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319230003}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.42, y: 1.728, z: -24.29}
+  m_LocalPosition: {x: 43.42, y: 1.63, z: -24.29}
   m_LocalScale: {x: 1, y: 3, z: 1}
   m_Children:
   - {fileID: 534669905}
@@ -3024,6 +3024,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1252153979}
     m_Modifications:
+    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
+        type: 3}
+      propertyPath: m_Name
+      value: WallSegment (25)
+      objectReference: {fileID: 0}
     - target: {fileID: 4610389859128179544, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
         type: 3}
       propertyPath: m_RootOrder
@@ -3058,11 +3063,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
-        type: 3}
-      propertyPath: m_Name
-      value: WallSegment (25)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fae07d95770f5d40ae5b1fb69f0297b, type: 3}
@@ -6244,7 +6244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &982649642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6892,6 +6892,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1252153979}
     m_Modifications:
+    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
+        type: 3}
+      propertyPath: m_Name
+      value: WallSegment (23)
+      objectReference: {fileID: 0}
     - target: {fileID: 4610389859128179544, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
         type: 3}
       propertyPath: m_RootOrder
@@ -6926,11 +6931,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
-        type: 3}
-      propertyPath: m_Name
-      value: WallSegment (23)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fae07d95770f5d40ae5b1fb69f0297b, type: 3}
@@ -8839,6 +8839,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1252153979}
     m_Modifications:
+    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
+        type: 3}
+      propertyPath: m_Name
+      value: WallSegment (24)
+      objectReference: {fileID: 0}
     - target: {fileID: 4610389859128179544, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
         type: 3}
       propertyPath: m_RootOrder
@@ -8873,11 +8878,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
-        type: 3}
-      propertyPath: m_Name
-      value: WallSegment (24)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fae07d95770f5d40ae5b1fb69f0297b, type: 3}
@@ -9965,7 +9965,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1488111716
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10911,7 +10911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1632568611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13251,7 +13251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1956308860
 MonoBehaviour:
   m_ObjectHideFlags: 0
