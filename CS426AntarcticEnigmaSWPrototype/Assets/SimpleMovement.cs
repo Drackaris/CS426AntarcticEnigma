@@ -175,9 +175,7 @@ public class SimpleMovement : MonoBehaviour
 				{
 					if (TaskList.Count == 0)
 					{
-						TaskList.Add("Store Data In The Computer");
-						TaskList.Add("Cook Food In The Kitchen");
-                        TaskList.Add("Fix Security System");
+						GameMode = 4;
                     }
 				}
             }
@@ -353,6 +351,32 @@ public class SimpleMovement : MonoBehaviour
                 securityDone = false;
             }
         }
+		else if (GameMode == 4)
+		{
+			canvasText.SetText("Select Three Tasks (Only one of each)" + "\n1.) Store data in the computer." + "\n2.) Cook food in the kitchen." + "\n3.)Fix the security system.");
+			panel.SetActive(true);
+			if(Input.GetKeyDown(KeyCode.Alpha1))
+			{
+				if(!TaskList.Contains("Store Data In The Computer"))
+				TaskList.Add("Store Data In The Computer");
+			}
+			else if(Input.GetKeyDown(KeyCode.Alpha2))
+			{
+				if(!TaskList.Contains("Cook Food In The Kitchen"))
+				TaskList.Add("Cook Food In The Kitchen");
+			}
+			else if(Input.GetKeyDown(KeyCode.Alpha3))
+			{
+				if(!TaskList.Contains("Fix Security System"))
+				TaskList.Add("Fix Security System");
+			}
+			if(TaskList.Count == 3)
+			{
+				panel.SetActive(false);
+				canvasText.SetText("");
+				GameMode = 0;
+			}
+		}
 
     }
 
