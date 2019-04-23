@@ -33,6 +33,7 @@ public class SimpleMovement : MonoBehaviour
 	public bool LookingAtCanvas;
 
     public int chances = 0;
+    public int counter = 0;
     public int onGreen = 0;
     public bool kDone = false;
     public int inK = 0;
@@ -58,6 +59,9 @@ public class SimpleMovement : MonoBehaviour
 
 	public int TutorialValue;
 
+    public Canvas KitchenC;
+    public TMPro.TextMeshProUGUI kitchenText;
+
     // Use this for initialization
     void Start()
 	{
@@ -82,11 +86,14 @@ public class SimpleMovement : MonoBehaviour
 		ComputerPuzzleAttempts = 1;
 
         canvasText = canvas.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+        kitchenText = KitchenC.GetComponentInChildren<TMPro.TextMeshProUGUI>();
 		TutorialValue = 0;
         StartOfGame = 1;
         StartOfKitchen = 0;
         StartOfComp = 0;
         StartOfPuzzT = 0;
+
+        kitchenText.SetText("");
     }
 
 	// Update is called once per frame
@@ -279,6 +286,8 @@ public class SimpleMovement : MonoBehaviour
                 canvasText.SetText("");
             }
 
+            kitchenText.SetText("Attempts for this fire " + chances + "\n" + "Completed " + counter + " out of 4");
+
             inK = 1;
             camswitch.GoToKitchenCamera();
             float pos = Bar.transform.localPosition.z;
@@ -309,6 +318,8 @@ public class SimpleMovement : MonoBehaviour
                         chances = 0;
                         wS.audioSource.Play();
 						TaskList.Remove("Cook Food In The Kitchen");
+                        kitchenText.SetText("");
+                        //counter = 0;
 
                     }
 
@@ -330,7 +341,9 @@ public class SimpleMovement : MonoBehaviour
                         kDone = false;
                         StartOfKitchen = 0;
                         chances = 0;
+                        //counter = 0;
                         lS.audioSource.Play();
+                        kitchenText.SetText("");
 
                     }
 
