@@ -12,10 +12,32 @@ public class Day_TimeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		day = 0;
+		day = FigureOutDayScript();
 		hour = 8;
 		minutes = 0;
     }
+
+	int FigureOutDayScript()
+	{
+		GameObject obj = GameObject.Find("LevelController");
+		if(obj.tag == "Tutorial")
+		{
+			return 0;
+		}
+		else if (obj.tag == "Day1")
+		{
+			return 1;
+		}
+		else if(obj.tag == "Day2")
+		{
+			return 2;
+		}
+		else if (obj.tag == "Day3")
+		{
+			return 3;
+		}
+		return -999;
+	}
 
 	// Update is called once per frame
 	void Update()

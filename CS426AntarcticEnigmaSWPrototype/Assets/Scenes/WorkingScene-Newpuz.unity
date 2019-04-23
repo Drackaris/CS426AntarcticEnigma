@@ -2097,6 +2097,7 @@ MonoBehaviour:
     type: 3}
   LevelCommands: []
   TaskList: []
+  dt: {fileID: 0}
   GameMode: 0
   CanGoToComputer: 0
   CanGoToKitchen: 0
@@ -2104,6 +2105,8 @@ MonoBehaviour:
   CanGetTaskList: 0
   CanGiveInput: 0
   ComputerPuzzleAttempts: 0
+  CanGoToSleep: 0
+  LookingAtCanvas: 0
   chances: 0
   onGreen: 0
   kDone: 0
@@ -2121,6 +2124,7 @@ MonoBehaviour:
   wS: {fileID: 113238073}
   lS: {fileID: 364086204}
   securityDone: 0
+  TutorialValue: 0
 --- !u!54 &319230005
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3024,11 +3028,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1252153979}
     m_Modifications:
-    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
-        type: 3}
-      propertyPath: m_Name
-      value: WallSegment (25)
-      objectReference: {fileID: 0}
     - target: {fileID: 4610389859128179544, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
         type: 3}
       propertyPath: m_RootOrder
@@ -3063,6 +3062,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
+        type: 3}
+      propertyPath: m_Name
+      value: WallSegment (25)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fae07d95770f5d40ae5b1fb69f0297b, type: 3}
@@ -4731,6 +4735,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &681242922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 681242923}
+  m_Layer: 0
+  m_Name: LevelController
+  m_TagString: Day1
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &681242923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681242922}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 33.089607, y: 1.7481365, z: -33.43545}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &709789822 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 19809366, guid: 9e1ee6f41e17f704db3e1282cd1db0ec,
@@ -6244,7 +6278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &982649642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6892,11 +6926,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1252153979}
     m_Modifications:
-    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
-        type: 3}
-      propertyPath: m_Name
-      value: WallSegment (23)
-      objectReference: {fileID: 0}
     - target: {fileID: 4610389859128179544, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
         type: 3}
       propertyPath: m_RootOrder
@@ -6931,6 +6960,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
+        type: 3}
+      propertyPath: m_Name
+      value: WallSegment (23)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fae07d95770f5d40ae5b1fb69f0297b, type: 3}
@@ -8839,11 +8873,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1252153979}
     m_Modifications:
-    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
-        type: 3}
-      propertyPath: m_Name
-      value: WallSegment (24)
-      objectReference: {fileID: 0}
     - target: {fileID: 4610389859128179544, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
         type: 3}
       propertyPath: m_RootOrder
@@ -8878,6 +8907,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 8718149965021341890, guid: 5fae07d95770f5d40ae5b1fb69f0297b,
+        type: 3}
+      propertyPath: m_Name
+      value: WallSegment (24)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fae07d95770f5d40ae5b1fb69f0297b, type: 3}
@@ -9965,7 +9999,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1488111716
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10911,7 +10945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1632568611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13251,7 +13285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1956308860
 MonoBehaviour:
   m_ObjectHideFlags: 0

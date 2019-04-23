@@ -90,6 +90,7 @@
      <Compile Include="Assets\TempScript.cs" />
      <Compile Include="Assets\TimePlayerUIScript.cs" />
      <Compile Include="Assets\TriggerComputerDeath.cs" />
+     <Compile Include="Assets\TutorialNPCMovement.cs" />
      <Compile Include="Assets\WinSound.cs" />
      <None Include="Assets\Tableware_For_Your_Kitchen\Pref\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\Tableware_For_Your_Kitchen\Pref\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

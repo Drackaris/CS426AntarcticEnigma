@@ -26,6 +26,10 @@ public class ComputerPuzzleWin : MonoBehaviour
 			cs.GoToPlayerCamera();
 		    sm.TaskList.Remove("Store Data In The Computer");
 			sm.GameMode = 0;
+			if(sm.TutorialValue!= 0)
+			{
+				sm.TutorialValue = 2;
+			}
 			sm.wS.audioSource.Play();
 		}
 	}

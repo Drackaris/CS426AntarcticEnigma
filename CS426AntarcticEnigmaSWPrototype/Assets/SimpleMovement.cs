@@ -30,6 +30,7 @@ public class SimpleMovement : MonoBehaviour
 	public bool CanGiveInput;
 	public int ComputerPuzzleAttempts;
 	public bool CanGoToSleep;
+	public bool LookingAtCanvas;
 
     public int chances = 0;
     public int onGreen = 0;
@@ -55,6 +56,7 @@ public class SimpleMovement : MonoBehaviour
 
     public bool securityDone = false;
 
+	public int TutorialValue;
 
     // Use this for initialization
     void Start()
@@ -80,6 +82,7 @@ public class SimpleMovement : MonoBehaviour
 		ComputerPuzzleAttempts = 1;
 
         canvasText = canvas.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+		TutorialValue = 0;
         StartOfGame = 1;
         StartOfKitchen = 0;
         StartOfComp = 0;
@@ -93,17 +96,47 @@ public class SimpleMovement : MonoBehaviour
 		{
             if (StartOfGame == 1)
             {
-                canvasText.SetText("This is your fist day working at the Antarctic research base, your first goal is to read the task list. (Going up to it and pressing space).  " +
-                   "After that you should feel free to explore the base and do the tasks you are asked of. To start a puzzle, go up to the object and press 'Space-Bar'. If you understand press 'c', and good luck!");
-
+				LookingAtCanvas = true;
+				if (dt.day == 0)
+				{
+					canvasText.SetText("This is your fist day working at The Antarctic Resesarch Base. The captain will be showing you around and what your responsibilities are starting with storing data in the computer. To start the task, go up to the computer and press 'Space-Bar'. If you understand press 'c', and good luck!");
+					AddTutorialTasks();
+					TutorialValue = 1;
+				}
+				else if (dt.day == 1)
+				{
+					canvasText.SetText("This is your fist day working at the Antarctic research base, your first goal is to read the task list. (Going up to it and pressing space).  " +
+					   "After that you should feel free to explore the base and do the tasks you are asked of. To start a puzzle, go up to the object and press 'Space-Bar'. If you understand press 'c', and good luck!");
+				}
                 StartOfGame = 0;
                 panel.SetActive(true);
             }
+			if(TutorialValue == 2)
+			{
 
-            if (Input.GetKey(KeyCode.C))
+				canvasText.SetText("Outstanding Job! We will now move on to learning how to prepare food.  Follow me!");
+				panel.SetActive(true);
+			}
+			if(TutorialValue == 3)
+			{
+				canvasText.SetText("Outstanding Job! We will now move on to how to reboot our security system when it goes down.  Follow me!");
+				panel.SetActive(true);
+			}
+			if(TutorialValue == 4)
+			{
+				canvasText.SetText("Outstanding Job! Feel free to explore the base and when you ready for tomorrow just go to bed! (Go to the bed and press space.) Tomorrow is an exciting day!");
+				panel.SetActive(true);
+			}
+
+			if (Input.GetKey(KeyCode.C))
             {
                 panel.SetActive(false);
                 canvasText.SetText("");
+				if(TutorialValue != 0)
+				{
+					TutorialValue = 1;
+				}
+				LookingAtCanvas = false;
             }
 
             if (Input.GetKey(KeyCode.J))
@@ -267,6 +300,10 @@ public class SimpleMovement : MonoBehaviour
                         inK = 0;
                         GameMode = 0;
                         camswitch.GoToPlayerCamera();
+						if(TutorialValue != 0)
+						{
+							TutorialValue = 3;
+						}
                         kDone = false;
                         StartOfKitchen = 0;
                         chances = 0;
@@ -491,6 +528,13 @@ public class SimpleMovement : MonoBehaviour
 			CanGetTaskList = false;
 		}
     }
+
+	public void AddTutorialTasks()
+	{
+		TaskList.Add("Store Data In The Computer");
+		TaskList.Add("Cook Food In The Kitchen");
+		TaskList.Add("Fix Security System");
+	}
 
 	public int GetRotationValue(GameObject PuzzlePiece)
 	{
