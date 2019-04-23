@@ -96,8 +96,7 @@ public class puzzle_three : MonoBehaviour
         //To make sure Everything inside only happens once, at the beginning of the level
 		if (s.GameMode == 3 && temp == 1 && !s.panel.activeSelf)
 		{
-            	
-			ChangeCol();
+            ChangeCol();
 			temp = 0;
 			level = 1;
 		}
@@ -112,7 +111,7 @@ public class puzzle_three : MonoBehaviour
             temp = 1;
 		}
 
-        if(level == 10)
+        if(level == 10 )
         {
            s.securityDone = true;
            //level = -1;
@@ -202,7 +201,7 @@ public class puzzle_three : MonoBehaviour
         panel.SetActive(false);
         canvasText.SetText("");
 
-        if (level == 1)
+        if (level == 1 && !s.puzzThree)
         {
             panel.SetActive(false);
             canvasText.SetText("");
@@ -264,7 +263,7 @@ public class puzzle_three : MonoBehaviour
 
 
         }
-        else if(level == 2)
+        else if(level == 2 && !s.puzzThree)
         {
             panel.SetActive(false);
             canvasText.SetText("");
@@ -321,7 +320,7 @@ public class puzzle_three : MonoBehaviour
             Invoke("ChangeBack", 2f);
 
         }
-        else if(level == 3)
+        else if(level == 3 && !s.puzzThree)
         {
             panel.SetActive(false);
             canvasText.SetText("");

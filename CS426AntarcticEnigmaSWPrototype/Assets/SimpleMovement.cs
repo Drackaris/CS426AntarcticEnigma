@@ -62,6 +62,8 @@ public class SimpleMovement : MonoBehaviour
     public Canvas KitchenC;
     public TMPro.TextMeshProUGUI kitchenText;
 
+    public bool puzzThree = false;
+
     // Use this for initialization
     void Start()
 	{
@@ -361,10 +363,13 @@ public class SimpleMovement : MonoBehaviour
                 inK = 0;
                 StartOfKitchen = 0;
                 lS.audioSource.Play();
+                kitchenText.SetText("");
+                chances = 0;
             }
         }
         else if (GameMode == 3)
         {
+            puzzThree = false;
             camswitch.GoToPuzzleThree();
             if (StartOfPuzzT == 0)
             {
@@ -394,7 +399,8 @@ public class SimpleMovement : MonoBehaviour
                 canvasText.SetText("");
             }
             if (Input.GetKey(KeyCode.Escape) || securityDone)
-            {            
+            {
+                puzzThree = true;      
                 camswitch.GoToPlayerCamera();
                 GameMode = 0;
                 StartOfPuzzT = 0;
