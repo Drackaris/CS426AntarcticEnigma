@@ -22,7 +22,7 @@ public class SaveSystem : MonoBehaviour
         FileStream stream = new FileStream(path, FileMode.Create);
 
         formatter.Serialize(stream, 1);
-        formatter.Serialize(stream, 10);
+        formatter.Serialize(stream, 0);
         stream.Close();
 
         sound.audioSource.Stop();
@@ -70,6 +70,11 @@ public class SaveSystem : MonoBehaviour
 
         //SceneManager.LoadScene(Day);
 
+    }
+
+    public void Tutorial()
+    {
+        SceneManager.LoadScene(2);
     }
 
 
