@@ -26,6 +26,7 @@ public class SimpleMovement : MonoBehaviour
 	public bool CanGoToComputer;
     public bool CanGoToKitchen;
     public bool CanGoToTV;
+    public bool CanGoToRadio;
     public bool CanGetTaskList;
 	public bool CanGiveInput;
 	public int ComputerPuzzleAttempts;
@@ -195,7 +196,17 @@ public class SimpleMovement : MonoBehaviour
                         GameMode = 3;
                     }
                 }
-				if(CanGoToSleep)
+
+                if (CanGoToRadio)
+                {
+                    if (TaskList.Contains("Fix Radio"))
+                    {
+                        Debug.Log("Trying to switch camera.");
+                        camswitch.GoToPuzzleFour();
+                        GameMode = 5;
+                    }
+                }
+                if (CanGoToSleep)
 				{
 					if (TaskList.Count > 0)
 					{
@@ -433,6 +444,16 @@ public class SimpleMovement : MonoBehaviour
 				GameMode = 0;
 			}
 		}
+        else if (GameMode == 5)
+        {
+            camswitch.GoToPuzzleFour();
+
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                GameMode = 0;
+                camswitch.GoToPlayerCamera();
+            }
+        }
 
     }
 
@@ -517,6 +538,10 @@ public class SimpleMovement : MonoBehaviour
 		{
 			CanGetTaskList = true;
 		}
+        if (other.tag == "Radio")
+        {
+            CanGoToRadio = true;
+        }
 
     }
 
@@ -546,6 +571,11 @@ public class SimpleMovement : MonoBehaviour
 		{
 			CanGetTaskList = false;
 		}
+
+        if (other.tag == "Radio")
+        {
+            CanGoToRadio = false;
+        }
     }
 
 	public void AddTutorialTasks()
