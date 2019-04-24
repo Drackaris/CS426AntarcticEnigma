@@ -119,7 +119,12 @@ public class SimpleMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (GameMode == 0)
+        if (Input.GetKey(KeyCode.Equals))
+        {
+            SceneManager.LoadScene(4); //GO back to menu
+        }
+
+        if (GameMode == 0)
 		{
             if (StartOfGame == 1)
             {
