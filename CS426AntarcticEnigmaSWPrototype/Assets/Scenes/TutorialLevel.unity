@@ -2214,6 +2214,10 @@ MonoBehaviour:
   PuzzlePieceDirection: 0
   PuzzleBlock: {fileID: 4732100457487893438, guid: 7a208da768c0b4c48ba606d88d51697d,
     type: 3}
+  Cube: {fileID: 0}
+  Trap1: {fileID: 0}
+  Trap2: {fileID: 0}
+  Trap3: {fileID: 0}
   LevelCommands: []
   TaskList: []
   dt: {fileID: 0}
@@ -2221,6 +2225,7 @@ MonoBehaviour:
   CanGoToComputer: 0
   CanGoToKitchen: 0
   CanGoToTV: 0
+  CanGoToRadio: 0
   CanGetTaskList: 0
   CanGiveInput: 0
   ComputerPuzzleAttempts: 0
@@ -2248,6 +2253,9 @@ MonoBehaviour:
   KitchenC: {fileID: 862419579}
   kitchenText: {fileID: 368088752}
   puzzThree: 0
+  Day: 1
+  fails: 0
+  save: {fileID: 1126153834}
 --- !u!54 &319230005
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2843,11 +2851,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -3627,11 +3635,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -7594,6 +7602,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19599c93f59c1184abd18ccc4cbd4a2a, type: 3}
+--- !u!1 &1126153833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1126153835}
+  - component: {fileID: 1126153834}
+  m_Layer: 0
+  m_Name: GameObject (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1126153834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126153833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b85c721c05d4aceab55220c741e913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 0}
+--- !u!4 &1126153835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126153833}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 71.067825, y: -11.378067, z: 4.591408}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &1159423690 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 19860728, guid: 19599c93f59c1184abd18ccc4cbd4a2a,
@@ -7937,6 +7989,7 @@ MonoBehaviour:
   PlayerUI: {fileID: 41602289}
   KitchenCamera: {fileID: 975420574}
   PuzzleThreeCamera: {fileID: 674184721}
+  PuzzleFourCamera: {fileID: 0}
   CamMode: 0
 --- !u!4 &1233638529
 Transform:
@@ -9747,11 +9800,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
