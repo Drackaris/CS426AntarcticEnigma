@@ -654,7 +654,10 @@ public class SimpleMovement : MonoBehaviour
     {
         Trap1.transform.localPosition = new Vector3(0f, 0f, -2.2f);
         Trap2.transform.localPosition = new Vector3(0f, 0f, 0.5f);
-        Trap3.transform.localPosition = new Vector3(0f, 0f, 3.2f);
+        if (TutorialValue != 1)
+        {
+            Trap3.transform.localPosition = new Vector3(0f, 0f, 3.2f);
+        }
         Cube.transform.localPosition = new Vector3(0f, 0f, -4f);
         GameMode = 0;
         camswitch.GoToPlayerCamera();
