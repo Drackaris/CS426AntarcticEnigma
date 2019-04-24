@@ -29,6 +29,9 @@ TagManager:
   - Trap2
   - Trap3
   - puzzle4
+  - BlueNPC
+  - RedNPC
+  - GreenNPC
   layers:
   - Default
   - TransparentFX

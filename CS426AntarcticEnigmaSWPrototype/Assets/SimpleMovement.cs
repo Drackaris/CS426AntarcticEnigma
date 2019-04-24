@@ -40,6 +40,9 @@ public class SimpleMovement : MonoBehaviour
 	public int ComputerPuzzleAttempts;
 	public bool CanGoToSleep;
 	public bool LookingAtCanvas;
+	public bool CanLookAtSchedule;
+
+	public bool GotTasksToday;
 
     public int chances = 0;
     public int counter = 0;
@@ -91,6 +94,7 @@ public class SimpleMovement : MonoBehaviour
         CanGoToTV = false;
 		CanGiveInput = false;
 		CanGoToSleep = false;
+		GotTasksToday = false;
         PuzzlePieceDirection = 1;
 		camswitch = GameObject.FindGameObjectWithTag("GameController").GetComponent<CameraSwitch>();
 		PuzzlePiece = GameObject.FindGameObjectWithTag("ComputerStartTag");
@@ -105,6 +109,8 @@ public class SimpleMovement : MonoBehaviour
 		TaskList = new List<string>();
 		SecuritySystemArr = new List<int>();
 		ComputerPuzzleAttempts = 1;
+
+		CanLookAtSchedule = false;
 
         canvasText = canvas.GetComponentInChildren<TMPro.TextMeshProUGUI>();
         kitchenText = KitchenC.GetComponentInChildren<TMPro.TextMeshProUGUI>();
@@ -139,7 +145,7 @@ public class SimpleMovement : MonoBehaviour
 				}
 				else if (dt.day == 1)
 				{
-					canvasText.SetText("This is your fist day working at the Antarctic research base, your first goal is to read the task list. (Going up to it and pressing space).  " +
+					canvasText.SetText("This is your fist day working at the Antarctic research base, your first goal is to read the task list. (Going up to it and pressing space).  You can also check everyone's on the wall. (Also pressing space bar) " +
 					   "After that you should feel free to explore the base and do the tasks you are asked of. To start a puzzle, go up to the object and press 'Space-Bar'. If you understand press 'c', and good luck!");
 				}
 				else if (dt.day == 2)
@@ -241,35 +247,46 @@ public class SimpleMovement : MonoBehaviour
                 }
                 if (CanGoToSleep)
 				{
-					if (TaskList.Count > 0)
+					if (GotTasksToday)
 					{
-						if (dt.hour > 22)
+						if (TaskList.Count > 0)
 						{
-							Day++;
-							fails++;
-							save.SaveGame(2, fails);
-							SceneManager.LoadScene(2);
 
+							if (dt.hour > 22)
+							{
+								Day++;
+								fails++;
+								save.SaveGame(2, fails);
+								SceneManager.LoadScene(2);
+
+							}
+							else
+							{
+								canvasText.SetText("You still have time to get your tasks done!  Try to finish. (Press 'c' to close this window)");
+								panel.SetActive(true);
+							}
 						}
+
 						else
 						{
-							//TODO: Show a canvas telling them to try to finish the tasks before going to bed
+							//TODO: Call the script that increments the day
+							if (dt.day == 0)
+							{
+								SceneManager.LoadScene(4);
+							}
+							else
+							{
+								Day++;
+								save.SaveGame(2, fails);
+								SceneManager.LoadScene(2);
+							}
 						}
 					}
 					else
 					{
-						//TODO: Call the script that increments the day
-						if (dt.day == 0)
-						{
-							SceneManager.LoadScene(4);
-						}
-						else
-						{
-							Day++;
-							save.SaveGame(2, fails);
-							SceneManager.LoadScene(2);
-						}
-                    }
+						canvasText.SetText("Got get tasks for the day and attempt to complete them! (Press 'c' to close this window)");
+						panel.SetActive(true);
+					}
 				}
                 if (CanGetTaskList)
 				{
@@ -277,6 +294,10 @@ public class SimpleMovement : MonoBehaviour
 					{
 						GameMode = 4;
                     }
+				}
+				if(CanLookAtSchedule)
+				{
+					GameMode = 6;
 				}
             }
 
@@ -493,6 +514,7 @@ public class SimpleMovement : MonoBehaviour
 			{
 				panel.SetActive(false);
 				canvasText.SetText("");
+				GotTasksToday = true;
 				GameMode = 0;
 			}
 		}
@@ -534,6 +556,35 @@ public class SimpleMovement : MonoBehaviour
 
             Cube.transform.Translate(10f * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, 10f * Input.GetAxis("Vertical") * Time.deltaTime);
         }
+		else if (GameMode == 6)
+		{
+			if (LookingAtCanvas == false)
+			{
+				canvasText.SetText("Select the schedule you would like to look at. \n1.)Blue \n2.)Red \n3.)Green \n(Press 'c' to exit)");
+			}
+			panel.SetActive(true);
+			if (Input.GetKeyDown(KeyCode.Alpha1))
+			{
+				canvasText.SetText("Security: 10:00-12:00 \n Computer: 14:00-16:00 \nKitchen: 18:00-20:00 \nSleeping:24:00-8:00");
+				LookingAtCanvas = true;
+			}
+			if (Input.GetKeyDown(KeyCode.Alpha2))
+			{
+				canvasText.SetText("Sleeping 2:00-11:00 \nRadio 11:00-13:00 \nKitchen 16:00-18:00 \nComputer 18:00-20:00");
+				LookingAtCanvas = true;
+			}
+			 if (Input.GetKeyDown(KeyCode.Alpha3))
+			{
+				canvasText.SetText("Kitchen 8:00-10:00 \nSleeping 10:00-18:00 \nSecurity 18:00-20:00 \nComputer 20:00-22:00");
+				LookingAtCanvas = true;
+			}
+			if(Input.GetKeyDown(KeyCode.C))
+			{
+				panel.SetActive(false);
+				LookingAtCanvas = false;
+				GameMode = 0;
+			}
+		}
 
     }
 
@@ -622,6 +673,10 @@ public class SimpleMovement : MonoBehaviour
         {
             CanGoToRadio = true;
         }
+		if(other.tag == "Schedule")
+		{
+			CanLookAtSchedule = true;
+		}
 
     }
 
@@ -655,8 +710,12 @@ public class SimpleMovement : MonoBehaviour
         if (other.tag == "Radio")
         {
             CanGoToRadio = false;
-        }
-    }
+		}
+		if (other.tag == "Schedule")
+		{
+			CanLookAtSchedule = false;
+		}
+	}
 
 	public void AddTutorialTasks()
 	{
