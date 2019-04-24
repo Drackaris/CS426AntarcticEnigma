@@ -448,7 +448,12 @@ public class SimpleMovement : MonoBehaviour
 				if(!TaskList.Contains("Fix Security System"))
 				TaskList.Add("Fix Security System");
 			}
-			if(TaskList.Count == 3)
+            else if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                if (!TaskList.Contains("Fix Radio"))
+                    TaskList.Add("Fix Radio");
+            }
+            if (TaskList.Count == 4)
 			{
 				panel.SetActive(false);
 				canvasText.SetText("");
