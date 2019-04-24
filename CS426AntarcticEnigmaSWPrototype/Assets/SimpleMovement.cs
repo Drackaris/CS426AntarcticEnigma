@@ -431,7 +431,7 @@ public class SimpleMovement : MonoBehaviour
         }
 		else if (GameMode == 4)
 		{
-			canvasText.SetText("Select Three Tasks (Only one of each)" + "\n1.) Store data in the computer." + "\n2.) Cook food in the kitchen." + "\n3.)Fix the security system.");
+			canvasText.SetText("Select Three Tasks (Only one of each)" + "\n1.) Store data in the computer." + "\n2.) Cook food in the kitchen." + "\n3.)Fix the security system." + "\n4.)Fix the Radio.");
 			panel.SetActive(true);
 			if(Input.GetKeyDown(KeyCode.Alpha1))
 			{
