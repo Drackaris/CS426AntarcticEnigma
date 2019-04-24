@@ -24,6 +24,11 @@ TagManager:
   - Day2
   - Day3
   - Radio
+  - Line
+  - Trap1
+  - Trap2
+  - Trap3
+  - puzzle4
   layers:
   - Default
   - TransparentFX

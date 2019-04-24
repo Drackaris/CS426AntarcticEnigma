@@ -9,11 +9,18 @@ public class SimpleMovement : MonoBehaviour
 	public float rotationSpeed = 90;
 	public float force = 700f;
     private float barSpeed = 10;
+    private float speed1 = 20;
+    private float speed2 = 40;
+    private float speed3 = 50;
     public int PuzzlePieceDirection;
 	private CameraSwitch camswitch;
 	public GameObject PuzzleBlock;
 	private GameObject PuzzlePiece;
     private GameObject Bar;
+    private GameObject Cube;
+    private GameObject Trap1;
+    private GameObject Trap2;
+    private GameObject Trap3;
     private Vector3 SpawnLocation;
 	public List<string> LevelCommands;
 	public List<string> TaskList;
@@ -81,7 +88,11 @@ public class SimpleMovement : MonoBehaviour
 		camswitch = GameObject.FindGameObjectWithTag("GameController").GetComponent<CameraSwitch>();
 		PuzzlePiece = GameObject.FindGameObjectWithTag("ComputerStartTag");
         Bar = GameObject.FindGameObjectWithTag("Bar");
-		dt = GameObject.Find("TimeController").GetComponent<Day_TimeScript>();
+        Cube = GameObject.FindGameObjectWithTag("puzzle4");
+        Trap1 = GameObject.FindGameObjectWithTag("Trap1");
+        Trap2 = GameObject.FindGameObjectWithTag("Trap2");
+        Trap3 = GameObject.FindGameObjectWithTag("Trap3");
+        dt = GameObject.Find("TimeController").GetComponent<Day_TimeScript>();
         SpawnLocation = new Vector3(PuzzlePiece.transform.position.x, PuzzlePiece.transform.position.y, PuzzlePiece.transform.position.z);
 		LevelCommands = new List<string>();
 		TaskList = new List<string>();
@@ -447,9 +458,29 @@ public class SimpleMovement : MonoBehaviour
         else if (GameMode == 5)
         {
             camswitch.GoToPuzzleFour();
+            float pos1 = Trap1.transform.localPosition.x;
+            float pos2 = Trap2.transform.localPosition.x;
+            float pos3 = Trap3.transform.localPosition.x;
+            if (pos1 >= 4 || pos1 <= -4)
+                speed1 = -1 * speed1;
+            if (pos2 >= 4 || pos2 <= -4)
+                speed2 = -1 * speed2;
+            if (pos3 >= 4 || pos3 <= -4)
+                speed3 = -1 * speed3;
+
+
+            Trap1.transform.Translate(speed1 * Time.deltaTime, 0f, 0f);
+            Trap2.transform.Translate(speed2 * Time.deltaTime, 0f, 0f);
+            Trap3.transform.Translate(speed3 * Time.deltaTime, 0f, 0f);
+
+            Cube.transform.Translate(10f * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, 10f * Input.GetAxis("Vertical") * Time.deltaTime);
 
             if (Input.GetKey(KeyCode.Escape))
             {
+                Trap1.transform.Translate(0f, 0f, -2.2f);
+                Trap2.transform.Translate(0f, 0f, 0.5f);
+                Trap3.transform.Translate(0f, 0f, 3.2f);
+                Cube.transform.Translate(0f, 0f, -4f);
                 GameMode = 0;
                 camswitch.GoToPlayerCamera();
             }
