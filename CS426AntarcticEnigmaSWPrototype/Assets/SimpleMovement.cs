@@ -453,7 +453,7 @@ public class SimpleMovement : MonoBehaviour
                 if (!TaskList.Contains("Fix Radio"))
                     TaskList.Add("Fix Radio");
             }
-            if (TaskList.Count == 3)
+            if (TaskList.Count == 4)
 			{
 				panel.SetActive(false);
 				canvasText.SetText("");
