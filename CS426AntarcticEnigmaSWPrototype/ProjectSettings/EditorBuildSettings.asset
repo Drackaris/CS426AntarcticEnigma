@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WorkingScene-Newpuz.unity
     guid: 950b1d6a266cd4363aa976f4fc08b1ec
+  - enabled: 1
+    path: Assets/Scenes/TutorialLevel.unity
+    guid: aff1bb17232f31f44b9f1b1e7725b0b9
   m_configObjects: {}
