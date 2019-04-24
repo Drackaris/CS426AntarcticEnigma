@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SimpleMovement : MonoBehaviour
 {
@@ -71,6 +72,11 @@ public class SimpleMovement : MonoBehaviour
     public TMPro.TextMeshProUGUI kitchenText;
 
     public bool puzzThree = false;
+
+    public int Day = 1;
+    public int fails = 0;
+
+    public SaveSystem save;
 
     // Use this for initialization
     void Start()
@@ -223,8 +229,12 @@ public class SimpleMovement : MonoBehaviour
 					{
 						if (dt.hour > 22)
 						{
+                            Day++;
+                            fails++;
+                            save.SaveGame(2, fails);
+                            SceneManager.LoadScene(2);
 
-						}
+                        }
 						else
 						{
 							//TODO: Show a canvas telling them to try to finish the tasks before going to bed
@@ -232,8 +242,11 @@ public class SimpleMovement : MonoBehaviour
 					}
 					else
 					{
-						//TODO: Call the script that increments the day 
-					}
+                        //TODO: Call the script that increments the day
+                        Day++;
+                        save.SaveGame(2, fails);
+                        SceneManager.LoadScene(2);
+                    }
 				}
                 if (CanGetTaskList)
 				{
