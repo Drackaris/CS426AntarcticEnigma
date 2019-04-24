@@ -91,6 +91,8 @@
     <Compile Include="Assets\OrangeHelperAudio.cs" />
     <Compile Include="Assets\panSelector.cs" />
     <Compile Include="Assets\puzzle_three.cs" />
+    <Compile Include="Assets\Puzzle4Trap.cs" />
+    <Compile Include="Assets\Puzzle4Win.cs" />
     <Compile Include="Assets\SaveSystem.cs" />
     <Compile Include="Assets\SceneSwitcher.cs" />
     <Compile Include="Assets\SimpleMovement.cs" />

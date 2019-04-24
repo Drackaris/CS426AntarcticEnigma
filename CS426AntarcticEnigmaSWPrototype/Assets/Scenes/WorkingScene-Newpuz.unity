@@ -2732,6 +2732,10 @@ MonoBehaviour:
   PuzzlePieceDirection: 0
   PuzzleBlock: {fileID: 4732100457487893438, guid: 7a208da768c0b4c48ba606d88d51697d,
     type: 3}
+  Cube: {fileID: 0}
+  Trap1: {fileID: 0}
+  Trap2: {fileID: 0}
+  Trap3: {fileID: 0}
   LevelCommands: []
   TaskList: []
   dt: {fileID: 0}
@@ -4080,6 +4084,7 @@ GameObject:
   - component: {fileID: 441489874}
   - component: {fileID: 441489873}
   - component: {fileID: 441489872}
+  - component: {fileID: 441489875}
   m_Layer: 0
   m_Name: Trap (2)
   m_TagString: Trap3
@@ -4109,7 +4114,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441489870}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -4159,6 +4164,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441489870}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &441489875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441489870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 745dc919c44da39419f569a8151bc74a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sm: {fileID: 0}
 --- !u!1 &460745403 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: c7a99fb65da55bf4eafc4302281d478b,
@@ -10216,6 +10234,7 @@ GameObject:
   - component: {fileID: 1254751037}
   - component: {fileID: 1254751036}
   - component: {fileID: 1254751035}
+  - component: {fileID: 1254751038}
   m_Layer: 0
   m_Name: Trap (1)
   m_TagString: Trap2
@@ -10245,7 +10264,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254751033}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -10295,6 +10314,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254751033}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1254751038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254751033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 745dc919c44da39419f569a8151bc74a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sm: {fileID: 0}
 --- !u!1 &1283392968
 GameObject:
   m_ObjectHideFlags: 0
@@ -10639,8 +10671,9 @@ GameObject:
   - component: {fileID: 1302780087}
   - component: {fileID: 1302780086}
   - component: {fileID: 1302780085}
+  - component: {fileID: 1302780088}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Puzzle4
   m_TagString: puzzle4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10718,6 +10751,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302780083}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1302780088
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302780083}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
 --- !u!1 &1305608651
 GameObject:
   m_ObjectHideFlags: 0
@@ -11298,6 +11347,7 @@ GameObject:
   - component: {fileID: 1354762516}
   - component: {fileID: 1354762515}
   - component: {fileID: 1354762514}
+  - component: {fileID: 1354762517}
   m_Layer: 0
   m_Name: Line
   m_TagString: Line
@@ -11327,7 +11377,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354762512}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -11377,6 +11427,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354762512}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1354762517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354762512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df45b647f90f5fd41a5a5ae972ee8a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sm: {fileID: 0}
 --- !u!1 &1357114131
 GameObject:
   m_ObjectHideFlags: 0
@@ -14354,6 +14417,7 @@ GameObject:
   - component: {fileID: 1551716724}
   - component: {fileID: 1551716723}
   - component: {fileID: 1551716722}
+  - component: {fileID: 1551716725}
   m_Layer: 0
   m_Name: Trap
   m_TagString: Trap1
@@ -14383,7 +14447,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551716720}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -14433,6 +14497,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551716720}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1551716725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551716720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 745dc919c44da39419f569a8151bc74a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sm: {fileID: 0}
 --- !u!1 &1579922536
 GameObject:
   m_ObjectHideFlags: 0

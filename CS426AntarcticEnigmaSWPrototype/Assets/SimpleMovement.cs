@@ -17,10 +17,10 @@ public class SimpleMovement : MonoBehaviour
 	public GameObject PuzzleBlock;
 	private GameObject PuzzlePiece;
     private GameObject Bar;
-    private GameObject Cube;
-    private GameObject Trap1;
-    private GameObject Trap2;
-    private GameObject Trap3;
+    public GameObject Cube;
+    public GameObject Trap1;
+    public GameObject Trap2;
+    public GameObject Trap3;
     private Vector3 SpawnLocation;
 	public List<string> LevelCommands;
 	public List<string> TaskList;
@@ -479,16 +479,6 @@ public class SimpleMovement : MonoBehaviour
             Trap3.transform.Translate(speed3 * Time.deltaTime, 0f, 0f);
 
             Cube.transform.Translate(10f * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, 10f * Input.GetAxis("Vertical") * Time.deltaTime);
-
-            if (Input.GetKey(KeyCode.Escape))
-            {
-                Trap1.transform.localPosition = new Vector3(0f, 0f, -2.2f);
-                Trap2.transform.localPosition = new Vector3(0f, 0f, 0.5f);
-                Trap3.transform.localPosition = new Vector3(0f, 0f, 3.2f);
-                Cube.transform.localPosition = new Vector3(0f, 0f, -4f);
-                GameMode = 0;
-                camswitch.GoToPlayerCamera();
-            }
         }
 
     }
@@ -642,4 +632,14 @@ public class SimpleMovement : MonoBehaviour
 		}
 		return val;
 	}
+
+    public void EndPuzzleFour()
+    {
+        Trap1.transform.localPosition = new Vector3(0f, 0f, -2.2f);
+        Trap2.transform.localPosition = new Vector3(0f, 0f, 0.5f);
+        Trap3.transform.localPosition = new Vector3(0f, 0f, 3.2f);
+        Cube.transform.localPosition = new Vector3(0f, 0f, -4f);
+        GameMode = 0;
+        camswitch.GoToPlayerCamera();
+    }
 }
