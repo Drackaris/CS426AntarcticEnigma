@@ -60,6 +60,7 @@ public class SimpleMovement : MonoBehaviour
     public int StartOfKitchen;
     public int StartOfComp;
     public int StartOfPuzzT;
+	public int StartOfRadio;
 
     public WinSound wS;
     public LoseSound lS;
@@ -112,6 +113,7 @@ public class SimpleMovement : MonoBehaviour
         StartOfKitchen = 0;
         StartOfComp = 0;
         StartOfPuzzT = 0;
+		StartOfRadio = 0;
 
         kitchenText.SetText("");
     }
@@ -140,12 +142,16 @@ public class SimpleMovement : MonoBehaviour
 					canvasText.SetText("This is your fist day working at the Antarctic research base, your first goal is to read the task list. (Going up to it and pressing space).  " +
 					   "After that you should feel free to explore the base and do the tasks you are asked of. To start a puzzle, go up to the object and press 'Space-Bar'. If you understand press 'c', and good luck!");
 				}
+				else if (dt.day == 2)
+				{
+					canvasText.SetText("Another team member has gone missing during the night, we will need to continue the functioning of the base for us all to survive but we must keep a more watchful eye on each team member.");
+				}
                 StartOfGame = 0;
                 panel.SetActive(true);
             }
 			if(TutorialValue == 2)
 			{
-
+					
 				canvasText.SetText("Outstanding Job! We will now move on to learning how to prepare food.  Follow me!");
 				panel.SetActive(true);
 			}
@@ -155,6 +161,11 @@ public class SimpleMovement : MonoBehaviour
 				panel.SetActive(true);
 			}
 			if(TutorialValue == 4)
+			{
+				canvasText.SetText("Outstanding Job! We will now move on to fixing the radio system when it goes down. Follow me!");
+				panel.SetActive(true);
+			}
+			if (TutorialValue == 5)
 			{
 				canvasText.SetText("Outstanding Job! Feel free to explore the base and when you ready for tomorrow just go to bed! (Go to the bed and press space.) Tomorrow is an exciting day!");
 				panel.SetActive(true);
@@ -234,12 +245,12 @@ public class SimpleMovement : MonoBehaviour
 					{
 						if (dt.hour > 22)
 						{
-                            Day++;
-                            fails++;
-                            save.SaveGame(2, fails);
-                            SceneManager.LoadScene(2);
+							Day++;
+							fails++;
+							save.SaveGame(2, fails);
+							SceneManager.LoadScene(2);
 
-                        }
+						}
 						else
 						{
 							//TODO: Show a canvas telling them to try to finish the tasks before going to bed
@@ -247,10 +258,17 @@ public class SimpleMovement : MonoBehaviour
 					}
 					else
 					{
-                        //TODO: Call the script that increments the day
-                        Day++;
-                        save.SaveGame(2, fails);
-                        SceneManager.LoadScene(2);
+						//TODO: Call the script that increments the day
+						if (dt.day == 0)
+						{
+							SceneManager.LoadScene(4);
+						}
+						else
+						{
+							Day++;
+							save.SaveGame(2, fails);
+							SceneManager.LoadScene(2);
+						}
                     }
 				}
                 if (CanGetTaskList)
@@ -471,7 +489,7 @@ public class SimpleMovement : MonoBehaviour
                 if (!TaskList.Contains("Fix Radio"))
                     TaskList.Add("Fix Radio");
             }
-            if (TaskList.Count == 4)
+            if (TaskList.Count == 3)
 			{
 				panel.SetActive(false);
 				canvasText.SetText("");
@@ -480,8 +498,23 @@ public class SimpleMovement : MonoBehaviour
 		}
         else if (GameMode == 5)
         {
+
             camswitch.GoToPuzzleFour();
-            float pos1 = Trap1.transform.localPosition.x;
+
+			if (StartOfRadio == 0)
+			{
+				canvasText.SetText("For this puzzle you will have to get over to the green bar on the opposite side.  You can move left or right with 'A' and 'D', move forward with 'W' and backwards with 'S', but try not to hit the moving bars. If you understand press 'c', and good luck!");
+				panel.SetActive(true);
+				StartOfComp = 1;
+			}
+
+			if (Input.GetKey(KeyCode.C))
+			{
+				panel.SetActive(false);
+				canvasText.SetText("");
+			}
+
+			float pos1 = Trap1.transform.localPosition.x;
             float pos2 = Trap2.transform.localPosition.x;
             
             if (pos1 >= 4 || pos1 <= -4)
@@ -665,6 +698,11 @@ public class SimpleMovement : MonoBehaviour
         }
         Cube.transform.localPosition = new Vector3(0f, 0f, -4f);
         GameMode = 0;
+		if(dt.day == 0)
+		{
+			TutorialValue = 5;
+		}
+		TaskList.Remove("Fix Radio");
         camswitch.GoToPlayerCamera();
     }
 }
