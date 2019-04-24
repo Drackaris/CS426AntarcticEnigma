@@ -465,18 +465,21 @@ public class SimpleMovement : MonoBehaviour
             camswitch.GoToPuzzleFour();
             float pos1 = Trap1.transform.localPosition.x;
             float pos2 = Trap2.transform.localPosition.x;
-            float pos3 = Trap3.transform.localPosition.x;
+            
             if (pos1 >= 4 || pos1 <= -4)
                 speed1 = -1 * speed1;
             if (pos2 >= 4 || pos2 <= -4)
                 speed2 = -1 * speed2;
-            if (pos3 >= 4 || pos3 <= -4)
-                speed3 = -1 * speed3;
-
 
             Trap1.transform.Translate(speed1 * Time.deltaTime, 0f, 0f);
             Trap2.transform.Translate(speed2 * Time.deltaTime, 0f, 0f);
-            Trap3.transform.Translate(speed3 * Time.deltaTime, 0f, 0f);
+            if (TutorialValue != 1)
+            {
+                float pos3 = Trap3.transform.localPosition.x;
+                if (pos3 >= 4 || pos3 <= -4)
+                    speed3 = -1 * speed3;
+                Trap3.transform.Translate(speed3 * Time.deltaTime, 0f, 0f);
+            }
 
             Cube.transform.Translate(10f * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, 10f * Input.GetAxis("Vertical") * Time.deltaTime);
         }
@@ -609,7 +612,8 @@ public class SimpleMovement : MonoBehaviour
 		TaskList.Add("Store Data In The Computer");
 		TaskList.Add("Cook Food In The Kitchen");
 		TaskList.Add("Fix Security System");
-	}
+        TaskList.Add("Fix Radio");
+    }
 
 	public int GetRotationValue(GameObject PuzzlePiece)
 	{

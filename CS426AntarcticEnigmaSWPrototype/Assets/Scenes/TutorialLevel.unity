@@ -8669,7 +8669,7 @@ MonoBehaviour:
   PlayerUI: {fileID: 41602289}
   KitchenCamera: {fileID: 975420574}
   PuzzleThreeCamera: {fileID: 674184721}
-  PuzzleFourCamera: {fileID: 0}
+  PuzzleFourCamera: {fileID: 1148716543}
   CamMode: 0
 --- !u!4 &1233638529
 Transform:
