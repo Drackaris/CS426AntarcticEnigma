@@ -79,7 +79,7 @@ public class SaveSystem : MonoBehaviour
 
     public void Creditss()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(6);
     }
 
 

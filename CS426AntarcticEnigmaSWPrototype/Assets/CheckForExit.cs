@@ -16,7 +16,7 @@ public class CheckForExit : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Equals))
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(5);
         }
     }
 }

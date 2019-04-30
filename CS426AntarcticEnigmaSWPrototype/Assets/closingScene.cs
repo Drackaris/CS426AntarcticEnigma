@@ -19,12 +19,12 @@ public class closingScene : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Escape))
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(5);
         }
 
         if (!VideoPlayer.isPlaying)
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(5);
         }
     }
 }
