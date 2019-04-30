@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
+using System.Diagnostics;
 
 public class puzzle_three : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class puzzle_three : MonoBehaviour
 
     public List<AudioSource> sound;
 
+    Stopwatch stopwatch = new Stopwatch();
 
     // Start is called before the first frame update
     void Start()
@@ -127,7 +129,8 @@ public class puzzle_three : MonoBehaviour
 		s.CanGiveInput = true;
 		if(s.SecuritySystemArr.Count < i)
 		{ WaitForUserInput(i); }
-	}
+
+    }
 
 	public bool CompareAnswers()
 	{
@@ -208,7 +211,7 @@ public class puzzle_three : MonoBehaviour
             //This makes sure the Array is populated only once.
             if (popUArrOnce == 1)
             {
-                popUArr(4);
+                //popUArr(4);
                 popUArrOnce = 0;
                 counter = 0;
             }
@@ -217,7 +220,11 @@ public class puzzle_three : MonoBehaviour
                 counter = 0;
 
 				WaitForUserInput(counter);
-				if (CompareAnswers())
+
+                System.Threading.Thread.Sleep(10000);
+
+
+                if (CompareAnswers())
 				{
                     canvasText.SetText("Moving onto next level!");
                     panel.SetActive(true);
@@ -271,7 +278,7 @@ public class puzzle_three : MonoBehaviour
             {
                 s.SecuritySystemArr.Clear();
                 Nums.Clear();
-                popUArr(6);
+                //popUArr(6);
                 popUArrOnce = 0;
                 counter = 0;
             }
@@ -280,6 +287,7 @@ public class puzzle_three : MonoBehaviour
                 counter = 0;
 
                 WaitForUserInput(counter);
+                System.Threading.Thread.Sleep(10000);
                 if (CompareAnswers2())
                 {
                     canvasText.SetText("Moving onto next level!");
@@ -328,7 +336,7 @@ public class puzzle_three : MonoBehaviour
             {
                 s.SecuritySystemArr.Clear();
                 Nums.Clear();
-                popUArr(6);
+                //popUArr(6);
                 popUArrOnce = 0;
                 counter = 0;
             }
@@ -337,6 +345,7 @@ public class puzzle_three : MonoBehaviour
                 counter = 0;
 
                 WaitForUserInput(counter);
+                System.Threading.Thread.Sleep(10000);
                 if (CompareAnswers3())
                 {
                     canvasText.SetText("Congratz You did it");
@@ -400,18 +409,6 @@ public class puzzle_three : MonoBehaviour
 
     }
 
-    public void popUArr(int num)
-    {
-        for(int i = 0; i < num; ++i)
-        {
-            System.Random random = new Random();
-            int randomNumber = random.Next(1, 4);
-
-			Nums.Add(randomNumber);
-
-        }
-
-    }
 
 
 }
