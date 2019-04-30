@@ -63,10 +63,12 @@ public class NpcMovementScript : MonoBehaviour
 		if (Sleeping)
 		{
 			anim.SetBool("Walk", false);
+            anim.SetBool("Sleep", true);
 		}
 		else
 		{
 			anim.SetBool("Walk", true);
+            anim.SetBool("Sleep", false);
         }
 		if (this.tag == "BlueNPC")
 		{
