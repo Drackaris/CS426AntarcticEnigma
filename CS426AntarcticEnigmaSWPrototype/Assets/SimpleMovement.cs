@@ -588,7 +588,7 @@ public class SimpleMovement : MonoBehaviour
 			{
 				canvasText.SetText("For this puzzle you will have to get over to the green bar on the opposite side.  You can move left or right with 'A' and 'D', move forward with 'W' and backwards with 'S', but try not to hit the moving bars. If you understand press 'c', and good luck!");
 				panel.SetActive(true);
-				StartOfComp = 1;
+				StartOfRadio = 1;
 			}
 
 			if (Input.GetKey(KeyCode.C))
