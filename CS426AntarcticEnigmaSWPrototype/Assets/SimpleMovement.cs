@@ -41,6 +41,9 @@ public class SimpleMovement : MonoBehaviour
 	public bool CanGoToSleep;
 	public bool LookingAtCanvas;
 	public bool CanLookAtSchedule;
+	public bool CanKillEnemy;
+
+	private bool CorrectEnemy;
 
 	public bool GotTasksToday;
 
@@ -99,6 +102,8 @@ public class SimpleMovement : MonoBehaviour
 		CanGiveInput = false;
 		CanGoToSleep = false;
 		GotTasksToday = false;
+		CanKillEnemy = false;
+		CorrectEnemy = false;
         PuzzlePieceDirection = 1;
 		camswitch = GameObject.FindGameObjectWithTag("GameController").GetComponent<CameraSwitch>();
 		PuzzlePiece = GameObject.FindGameObjectWithTag("ComputerStartTag");
@@ -207,6 +212,22 @@ public class SimpleMovement : MonoBehaviour
 				rb.rotation *= Quaternion.Euler(0, rotationSpeed * Time.deltaTime, 0);
 			else if (Input.GetKey(KeyCode.A))
 				rb.rotation *= Quaternion.Euler(0, -rotationSpeed * Time.deltaTime, 0);
+
+			if (Input.GetKeyDown(KeyCode.X))
+			{
+				if(CorrectEnemy)
+				{
+					GameMode = 7;
+					canvasText.SetText("Congrats you have killed the correct enemy.  Press 'c' to continue");
+					panel.SetActive(true);
+				}
+				else
+				{
+					GameMode = 7;
+					canvasText.SetText("You have failed, you killed the wrong enemy.  Press 'c' to continue");
+					panel.SetActive(true);
+				}
+			}
 
 			if (Input.GetKeyDown(KeyCode.Space))
 			{
@@ -605,6 +626,14 @@ public class SimpleMovement : MonoBehaviour
 				GameMode = 0;
 			}
 		}
+		else if (GameMode == 7)
+		{
+			if(Input.GetKey(KeyCode.C))
+			{
+				save.SaveGame(1, fails);
+				SceneManager.LoadScene(5);
+			}
+		}
 
     }
 
@@ -697,6 +726,18 @@ public class SimpleMovement : MonoBehaviour
 		{
 			CanLookAtSchedule = true;
 		}
+		if(other.tag.Contains("NPC"))
+		{
+			CanKillEnemy = true;
+			if(other.tag == "RedNPC")
+			{
+				CorrectEnemy = true;
+			}
+			else
+			{
+				CorrectEnemy = false;
+			}
+		}
 
     }
 
@@ -734,6 +775,11 @@ public class SimpleMovement : MonoBehaviour
 		if (other.tag == "Schedule")
 		{
 			CanLookAtSchedule = false;
+		}
+		if(other.tag.Contains("NPC"))
+		{
+			CanKillEnemy = false;
+			CorrectEnemy = false;
 		}
 	}
 
