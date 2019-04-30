@@ -67,7 +67,7 @@ public class NpcMovementScript : MonoBehaviour
 		else
 		{
 			anim.SetBool("Walk", true);
-		}
+        }
 		if (this.tag == "BlueNPC")
 		{
 			if (DTScript.hour < 10)
