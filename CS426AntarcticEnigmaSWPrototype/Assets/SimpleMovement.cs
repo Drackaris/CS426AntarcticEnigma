@@ -74,6 +74,10 @@ public class SimpleMovement : MonoBehaviour
 
     public Canvas KitchenC;
     public TMPro.TextMeshProUGUI kitchenText;
+    public TMPro.TextMeshProUGUI puzzThreeText;
+
+    public string input = "";
+    public int switchingIReset = 0;
 
     public bool puzzThree = false;
 
@@ -122,6 +126,7 @@ public class SimpleMovement : MonoBehaviour
 		StartOfRadio = 0;
 
         kitchenText.SetText("");
+        puzzThreeText.SetText("");
     }
 
 	// Update is called once per frame
@@ -450,6 +455,12 @@ public class SimpleMovement : MonoBehaviour
         {
             puzzThree = false;
             camswitch.GoToPuzzleThree();
+
+            if(switchingIReset == 1)
+            {
+                input = " ";
+                switchingIReset = 0;
+            }
             if (StartOfPuzzT == 0)
             {
                 canvasText.SetText("In this puzzle you will be using the number 1-4. You want to remember the sequence of the blocks lighting up. Left(1) All the way on Right(4). Enter your input after the sequence ends and wait to see how you did. If you understand press 'c', and good luck!");
@@ -459,19 +470,27 @@ public class SimpleMovement : MonoBehaviour
 			if(Input.GetKeyDown(KeyCode.Alpha1))
 			{
 				SecuritySystemArr.Add(1);
+                input += "1, ";
+                puzzThreeText.SetText(input);
 			}
 			if(Input.GetKeyDown(KeyCode.Alpha2))
 			{
 				SecuritySystemArr.Add(2);
-			}
+                input += "2, ";
+                puzzThreeText.SetText(input);
+            }
 			if(Input.GetKeyDown(KeyCode.Alpha3))
 			{
 				SecuritySystemArr.Add(3);
-			}
+                input += "3, ";
+                puzzThreeText.SetText(input);
+            }
 			if(Input.GetKeyDown(KeyCode.Alpha4))
 			{
 				SecuritySystemArr.Add(4);
-			}
+                input += "4, ";
+                puzzThreeText.SetText(input);
+            }
             if (Input.GetKey(KeyCode.C))
             {
                 panel.SetActive(false);
@@ -484,6 +503,7 @@ public class SimpleMovement : MonoBehaviour
                 GameMode = 0;
                 StartOfPuzzT = 0;
                 securityDone = false;
+                puzzThreeText.SetText("");
             }
         }
 		else if (GameMode == 4)

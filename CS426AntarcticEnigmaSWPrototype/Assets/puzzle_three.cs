@@ -23,6 +23,7 @@ public class puzzle_three : MonoBehaviour
     int popUArrOnce = 1;
 
     public TMPro.TextMeshProUGUI canvasText;
+    public TMPro.TextMeshProUGUI InGameText;
     public Canvas canvas;
     public GameObject panel;
 
@@ -88,6 +89,7 @@ public class puzzle_three : MonoBehaviour
         sound.Add(cS2.audioSource);
         sound.Add(cS3.audioSource);
 
+        InGameText.SetText("");
 
         //ChangeCol();
     }
@@ -101,6 +103,7 @@ public class puzzle_three : MonoBehaviour
             ChangeCol();
 			temp = 0;
 			level = 1;
+
 		}
 
         //So if we are no longer in the level, user-input is gone, and temp=1 again for the part above 
@@ -116,6 +119,7 @@ public class puzzle_three : MonoBehaviour
         if(level == 10 )
         {
            s.securityDone = true;
+            InGameText.SetText("");
            //level = -1;
         }
 
@@ -126,7 +130,7 @@ public class puzzle_three : MonoBehaviour
 
 	public void WaitForUserInput(int i)
 	{
-		s.CanGiveInput = true;
+        s.CanGiveInput = true;
 		if(s.SecuritySystemArr.Count < i)
 		{ WaitForUserInput(i); }
 
@@ -206,22 +210,22 @@ public class puzzle_three : MonoBehaviour
 
         if (level == 1 && !s.puzzThree)
         {
+            InGameText.SetText("Please wait till sequence finishes");
             panel.SetActive(false);
             canvasText.SetText("");
             //This makes sure the Array is populated only once.
-            if (popUArrOnce == 1)
+            if (counter == 4)
             {
-                //popUArr(4);
-                popUArrOnce = 0;
-                counter = 0;
+                InGameText.SetText("Ok, you have 10 seconds to input!");
             }
+
             if (counter > 4)
             {
                 counter = 0;
 
 				WaitForUserInput(counter);
 
-                System.Threading.Thread.Sleep(10000);
+                System.Threading.Thread.Sleep(7000);
 
 
                 if (CompareAnswers())
@@ -231,6 +235,8 @@ public class puzzle_three : MonoBehaviour
                     level = 2;
                     popUArrOnce = 1;
                     counter = 0;
+                    s.puzzThreeText.SetText("");
+                    s.input = "";
                 }
 				if(!CompareAnswers())
 				{
@@ -240,6 +246,8 @@ public class puzzle_three : MonoBehaviour
                     counter = 0;
                     level = 1;
                     s.SecuritySystemArr.Clear();
+                    s.puzzThreeText.SetText("");
+                    s.input = "";
 
                 }
 			
@@ -272,28 +280,34 @@ public class puzzle_three : MonoBehaviour
         }
         else if(level == 2 && !s.puzzThree)
         {
+            InGameText.SetText("Please wait till sequence finishes");
             panel.SetActive(false);
             canvasText.SetText("");
-            if (popUArrOnce == 1)
+            if (counter == 6)
+            {
+                InGameText.SetText("Ok, you have 10 seconds to input!");
+            }
+
+            if (counter == 1)
             {
                 s.SecuritySystemArr.Clear();
-                Nums.Clear();
-                //popUArr(6);
-                popUArrOnce = 0;
-                counter = 0;
+                //counter = 0;
             }
             if (counter > 6)
             {
                 counter = 0;
 
+
                 WaitForUserInput(counter);
-                System.Threading.Thread.Sleep(10000);
+                System.Threading.Thread.Sleep(7000);
                 if (CompareAnswers2())
                 {
                     canvasText.SetText("Moving onto next level!");
                     panel.SetActive(true);
                     level = 3;
                     popUArrOnce = 1;
+                    s.puzzThreeText.SetText("");
+                    s.input = "";
                 }
                 if (!CompareAnswers2())
                 {
@@ -303,6 +317,8 @@ public class puzzle_three : MonoBehaviour
                     counter = 0;
                     level = 2;
                     s.SecuritySystemArr.Clear();
+                    s.puzzThreeText.SetText("");
+                    s.input = "";
 
                 }
 
@@ -330,29 +346,34 @@ public class puzzle_three : MonoBehaviour
         }
         else if(level == 3 && !s.puzzThree)
         {
+            InGameText.SetText("Please wait till sequence finishes");
             panel.SetActive(false);
             canvasText.SetText("");
-            if (popUArrOnce == 1)
+            if (counter == 1)
             {
                 s.SecuritySystemArr.Clear();
-                Nums.Clear();
-                //popUArr(6);
-                popUArrOnce = 0;
-                counter = 0;
+                //counter = 0;
+            }
+            if (counter == 6)
+            {
+                InGameText.SetText("Ok, you have 10 seconds to input!");
             }
             if (counter > 6)
             {
                 counter = 0;
-
+                InGameText.SetText("Ok, you have 10 seconds to input!");
                 WaitForUserInput(counter);
-                System.Threading.Thread.Sleep(10000);
+                System.Threading.Thread.Sleep(7000);
                 if (CompareAnswers3())
                 {
+                    InGameText.SetText("");
                     canvasText.SetText("Congratz You did it");
                     panel.SetActive(true);
 					s.TaskList.Remove("Fix Security System");
                     level = 10;
                     popUArrOnce = 1;
+                    s.puzzThreeText.SetText("");
+                    s.input = "";
                 }
                 if (!CompareAnswers3())
                 {
@@ -362,6 +383,8 @@ public class puzzle_three : MonoBehaviour
                     counter = 0;
                     level = 3;
                     s.SecuritySystemArr.Clear();
+                    s.puzzThreeText.SetText("");
+                    s.input = "";
 
                 }
 
