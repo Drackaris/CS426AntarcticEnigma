@@ -85,7 +85,7 @@ public class SimpleMovement : MonoBehaviour
     public bool puzzThree = false;
 
     public int Day = 1;
-    public int fails = 0;
+    public static int fails = 0;
 
     public SaveSystem save;
 
@@ -233,7 +233,12 @@ public class SimpleMovement : MonoBehaviour
 			{
 				if (CanGoToComputer)
 				{
-					if (TaskList.Contains("Store Data In The Computer"))
+					if(dt.hour>=22)
+					{
+						canvasText.SetText("You are feeling too tired to do this task, you must sleep.  Press 'c' to continue");
+						panel.SetActive(true);
+					}
+					else if (TaskList.Contains("Store Data In The Computer"))
 					{
 						Debug.Log("Trying to switch camera.");
 						camswitch.GoToComputerCamera();
@@ -244,7 +249,12 @@ public class SimpleMovement : MonoBehaviour
 
                 if (CanGoToKitchen)
                 {
-                    if (TaskList.Contains("Cook Food In The Kitchen"))
+					if (dt.hour >= 22)
+					{
+						canvasText.SetText("You are feeling too tired to do this task, you must sleep.  Press 'c' to continue");
+						panel.SetActive(true);
+					}
+					else if (TaskList.Contains("Cook Food In The Kitchen"))
                     {
                         Debug.Log("Trying to switch camera.");
                         camswitch.GoToKitchenCamera();
@@ -254,7 +264,12 @@ public class SimpleMovement : MonoBehaviour
 
                 if (CanGoToTV)
                 {
-                    if (TaskList.Contains("Fix Security System"))
+					if (dt.hour >= 22)
+					{
+						canvasText.SetText("You are feeling too tired to do this task, you must sleep.  Press 'c' to continue");
+						panel.SetActive(true);
+					}
+					else if (TaskList.Contains("Fix Security System"))
                     {
                         Debug.Log("Trying to switch camera.");
                         camswitch.GoToPuzzleThree();
@@ -264,7 +279,12 @@ public class SimpleMovement : MonoBehaviour
 
                 if (CanGoToRadio)
                 {
-                    if (TaskList.Contains("Fix Radio"))
+					if (dt.hour >= 22)
+					{
+						canvasText.SetText("You are feeling too tired to do this task, you must sleep.  Press 'c' to continue");
+						panel.SetActive(true);
+					}
+					else if (TaskList.Contains("Fix Radio"))
                     {
                         Debug.Log("Trying to switch camera.");
                         camswitch.GoToPuzzleFour();

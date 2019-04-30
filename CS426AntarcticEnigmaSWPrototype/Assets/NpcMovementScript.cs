@@ -123,7 +123,10 @@ public class NpcMovementScript : MonoBehaviour
 			{
 				if (Sleep)
 				{
-					agent.SetDestination(new Vector3(Bed.position.x, Bed.position.y, Bed.position.z));
+					if (!Sleeping)
+					{
+						agent.SetDestination(new Vector3(Bed.position.x, Bed.position.y, Bed.position.z));
+					}
 				}
 				else if (!Sleep)
 				{

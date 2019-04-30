@@ -55,8 +55,6 @@ public class Day_TimeScript : MonoBehaviour
 
 				}
 			}
-			lastChange = Time.time;
-			Debug.Log(hour.ToString() + ":" + minutes.ToString());
-		}
+			lastChange = Time.time;		}
 	}
 }
