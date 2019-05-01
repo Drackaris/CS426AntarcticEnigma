@@ -34,6 +34,7 @@ TagManager:
   - GreenNPC
   - Schedule
   - OrangeNPC
+  - Chair
   layers:
   - Default
   - TransparentFX
