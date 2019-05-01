@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using Random = System.Random;
 using System.Diagnostics;
 
-public class puzzle_threeD2 : MonoBehaviour
+public class puzzle_threeD3 : MonoBehaviour
 {
 
     public Material highlightMat;

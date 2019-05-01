@@ -74,7 +74,7 @@ public class SaveSystem : MonoBehaviour
 
     public void Tutorial()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 
     public void Creditss()

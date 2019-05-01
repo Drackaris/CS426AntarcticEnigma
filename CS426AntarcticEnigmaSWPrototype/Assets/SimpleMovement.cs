@@ -139,7 +139,7 @@ public class SimpleMovement : MonoBehaviour
 	{
         if (Input.GetKey(KeyCode.Equals))
         {
-            SceneManager.LoadScene(4); //GO back to menu
+            SceneManager.LoadScene(5); //GO back to menu
         }
 
         if (GameMode == 0)
