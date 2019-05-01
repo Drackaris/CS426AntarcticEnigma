@@ -137,6 +137,7 @@ public class SimpleMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+        //Debug.Log(dt.day);
         if (Input.GetKey(KeyCode.Equals))
         {
             SceneManager.LoadScene(5); //GO back to menu
@@ -311,7 +312,7 @@ public class SimpleMovement : MonoBehaviour
 
 							if (dt.hour >= 22)
 							{
-								Day++;
+								//Day++;
 								fails++;
 								if (fails == 2)
 								{
@@ -321,8 +322,10 @@ public class SimpleMovement : MonoBehaviour
 								}
 								else
 								{
-									save.SaveGame(2, fails);
-									SceneManager.LoadScene(2);
+                                    int n = dt.day;
+                                    n += 1;
+									save.SaveGame(n, fails);
+									SceneManager.LoadScene(n);
 								}
 							}
 							else
@@ -337,13 +340,15 @@ public class SimpleMovement : MonoBehaviour
 							//TODO: Call the script that increments the day
 							if (dt.day == 0)
 							{
-								SceneManager.LoadScene(4);
+								SceneManager.LoadScene(5);
 							}
 							else
 							{
 								Day++;
-								save.SaveGame(2, fails);
-								SceneManager.LoadScene(2);
+                                int n = dt.day;
+                                n += 1;
+                                save.SaveGame(n, fails);
+								SceneManager.LoadScene(n);
 							}
 						}
 					}
