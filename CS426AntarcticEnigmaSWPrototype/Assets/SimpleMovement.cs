@@ -424,20 +424,6 @@ public class SimpleMovement : MonoBehaviour
 		}
         else if (GameMode == 2)
         {
-
-            if(StartOfKitchen == 0 && dt.day == 1)
-            {
-                barSpeed = 10;
-            }
-            if (StartOfKitchen == 0 && dt.day == 2)
-            {
-                barSpeed = 15;
-            }
-            if (StartOfKitchen == 0 && dt.day == 3)
-            {
-                barSpeed = 20;
-            }
-
             if (StartOfKitchen == 0)
             {
                 canvasText.SetText("In this puzzle you will use 'A' and 'D' to move between pots. Use the space-bar to get the slider on the green, and the selected pot will stop burning. If you understand press 'c', and good luck!");
@@ -451,15 +437,7 @@ public class SimpleMovement : MonoBehaviour
                 canvasText.SetText("");
             }
 
-            if(dt.day == 1)
-                kitchenText.SetText("Out of 10 you used: " + chances + "\n" + "Completed " + counter + " out of 4");
-
-            if (dt.day == 2)
-                kitchenText.SetText("Out of 7 you used: " + chances + "\n" + "Completed " + counter + " out of 4");
-
-            if (dt.day == 3)
-                kitchenText.SetText("Out of 5 you used: " + chances + "\n" + "Completed " + counter + " out of 4");
-
+            kitchenText.SetText("Attempts for this fire " + chances + "\n" + "Completed " + counter + " out of 4");
 
             inK = 1;
             camswitch.GoToKitchenCamera();
@@ -473,20 +451,7 @@ public class SimpleMovement : MonoBehaviour
                 {
                     Bar.transform.Translate(0, 0, 0);
 
-
-                    if (dt.day == 1)
-                    {
-                        barSpeed = 10;
-                    }
-                    if (dt.day == 2)
-                    {
-                        barSpeed = 15;
-                    }
-                    if (dt.day == 3)
-                    {
-                        barSpeed = 17;
-                    }
-
+                    barSpeed = 15;
                     chances  = 0;
                     onGreen = 1;
 
@@ -519,35 +484,7 @@ public class SimpleMovement : MonoBehaviour
                     else
                         barSpeed = barSpeed + 2;
 
-                    if(chances == 10 && dt.day == 1)
-                    {
-                        inK = 0;
-                        GameMode = 0;
-                        camswitch.GoToPlayerCamera();
-                        kDone = false;
-                        StartOfKitchen = 0;
-                        chances = 0;
-                        //counter = 0;
-                        lS.audioSource.Play();
-                        kitchenText.SetText("");
-
-                    }
-
-                    if (chances == 9 && dt.day == 2)
-                    {
-                        inK = 0;
-                        GameMode = 0;
-                        camswitch.GoToPlayerCamera();
-                        kDone = false;
-                        StartOfKitchen = 0;
-                        chances = 0;
-                        //counter = 0;
-                        lS.audioSource.Play();
-                        kitchenText.SetText("");
-
-                    }
-
-                    if (chances == 8 && dt.day == 3)
+                    if(chances == 10)
                     {
                         inK = 0;
                         GameMode = 0;
@@ -708,25 +645,49 @@ public class SimpleMovement : MonoBehaviour
 		{
 			if (LookingAtCanvas == false)
 			{
-				canvasText.SetText("Select the schedule you would like to look at. \n1.)Blue \n2.)Red \n3.)Green \n(Press 'c' to exit)");
+				if (dt.day == 1)
+				{
+					canvasText.SetText("Select the schedule you would like to look at. \n1.)Blue \n2.)Red \n3.)Orange \n4.)Green \n(Press 'c' to exit)");
+				}
+				if(dt.day == 2)
+				{
+					canvasText.SetText("Select the schedule you would like to look at. \n1.)Blue \n2.)Red \n3.)Orange \n(Press 'c' to exit)");
+				}
+				if(dt.day == 3)
+				{
+					canvasText.SetText("Select the schedule you would like to look at. \n1.)Blue \n2.)Red \n(Press 'c' to exit)");
+				}
 			}
 			panel.SetActive(true);
 			if (Input.GetKeyDown(KeyCode.Alpha1))
 			{
-				canvasText.SetText("Security: 10:00-12:00 \n Computer: 14:00-16:00 \nKitchen: 18:00-20:00 \nSleeping:24:00-8:00");
+				canvasText.SetText("Security: 10:00-12:00 \n Computer: 14:00-16:00 \nKitchen: 18:00-20:00 \nSleeping:20:00-6:00");
 				LookingAtCanvas = true;
 			}
 			if (Input.GetKeyDown(KeyCode.Alpha2))
 			{
-				canvasText.SetText("Sleeping 2:00-11:00 \nRadio 11:00-13:00 \nKitchen 16:00-18:00 \nComputer 18:00-20:00");
+				canvasText.SetText("Kitchen 8:00-11:00 \nComputer 10:00-12:00 \nSleeping 12:00-20:00 Radio 20:00-24:00");
 				LookingAtCanvas = true;
 			}
 			 if (Input.GetKeyDown(KeyCode.Alpha3))
 			{
-				canvasText.SetText("Kitchen 8:00-10:00 \nSleeping 10:00-18:00 \nSecurity 18:00-20:00 \nComputer 20:00-22:00");
-				LookingAtCanvas = true;
+				if (dt.day != 3)
+				{
+					LookingAtCanvas = true;
+					canvasText.SetText("Sleeping 3:00-11:00 \nRadio 11:00-16:00 \nKitchen 16:00-18:00 \nComputer 18:00-24:00");
+
+				}
 			}
-			if(Input.GetKeyDown(KeyCode.C))
+			 if(Input.GetKeyDown(KeyCode.Alpha4))
+			{
+				if (dt.day == 1)
+				{
+					canvasText.SetText("Kitchen 8:00-10:00 \nSleeping 10:00-18:00 \nSecurity 18:00-20:00 \nComputer 20:00-22:00");
+					LookingAtCanvas = true;
+				}
+
+			}
+			if (Input.GetKeyDown(KeyCode.C))
 			{
 				panel.SetActive(false);
 				LookingAtCanvas = false;
