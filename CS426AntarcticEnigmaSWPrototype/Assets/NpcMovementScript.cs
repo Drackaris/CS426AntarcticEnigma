@@ -34,8 +34,7 @@ public class NpcMovementScript : MonoBehaviour
 			if(Sleep == true)
 			{
 				SetSleepVariables();
-				this.transform.position = new Vector3(15.405f, 2.027f, -26.66f);
-				this.transform.Rotate(90, 270, 0, Space.World);
+				this.transform.position = new Vector3(15.405f, -0.5f, -26.66f);
 				Sleeping = true;
                 anim.SetBool("Walk", false);
             }
