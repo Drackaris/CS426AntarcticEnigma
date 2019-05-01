@@ -39,9 +39,21 @@ public class NpcMovementScript : MonoBehaviour
                 anim.SetBool("Walk", false);
             }
 		}
-	}
+        if (other.tag == "Chair")
+        {
+            anim.SetBool("Sit", true);
+        }
+    }
 
-	void SetSleepVariables ()
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Chair")
+        {
+            anim.SetBool("Sit", false);
+        }
+    }
+
+    void SetSleepVariables ()
 	{
 		this.GetComponent<NavMeshAgent>().enabled = false;
 		this.GetComponent<Rigidbody>().isKinematic = true;
