@@ -69,20 +69,20 @@ public class puzzle_threeD3 : MonoBehaviour
         Nums1.Add(1);
         Nums1.Add(4);
         Nums1.Add(2);
+        Nums1.Add(4);
 
-        Nums2.Add(4);
         Nums2.Add(2);
         Nums2.Add(3);
         Nums2.Add(4);
         Nums2.Add(3);
         Nums2.Add(1);
 
+        Nums3.Add(3);
         Nums3.Add(2);
         Nums3.Add(1);
         Nums3.Add(2);
-        Nums3.Add(3);
         Nums3.Add(1);
-        Nums3.Add(3);
+
 
         sound.Add(cS.audioSource);
         sound.Add(cS1.audioSource);
@@ -214,12 +214,12 @@ public class puzzle_threeD3 : MonoBehaviour
             panel.SetActive(false);
             canvasText.SetText("");
             //This makes sure the Array is populated only once.
-            if (counter == 4)
+            if (counter == 5)
             {
                 InGameText.SetText("Ok, you have 10 seconds to input!");
             }
 
-            if (counter > 4)
+            if (counter > 5)
             {
                 counter = 0;
 
@@ -256,7 +256,7 @@ public class puzzle_threeD3 : MonoBehaviour
 
             if (!panel.activeSelf && !s.panel.activeSelf)
             {
-                if (counter < 4)
+                if (counter < 5)
                 {
                     int num = Nums1[counter];
                     GameObject o = MyObjects[num - 1];
@@ -283,7 +283,7 @@ public class puzzle_threeD3 : MonoBehaviour
             InGameText.SetText("Please wait till sequence finishes");
             panel.SetActive(false);
             canvasText.SetText("");
-            if (counter == 6)
+            if (counter == 5)
             {
                 InGameText.SetText("Ok, you have 10 seconds to input!");
             }
@@ -293,7 +293,7 @@ public class puzzle_threeD3 : MonoBehaviour
                 s.SecuritySystemArr.Clear();
                 //counter = 0;
             }
-            if (counter > 6)
+            if (counter > 5)
             {
                 counter = 0;
 
@@ -327,7 +327,7 @@ public class puzzle_threeD3 : MonoBehaviour
 
             if (!panel.activeSelf){
 
-                if (counter < 6)
+                if (counter < 5)
                 {
                     int num = Nums2[counter];
                     GameObject o = MyObjects[num - 1];
@@ -354,11 +354,11 @@ public class puzzle_threeD3 : MonoBehaviour
                 s.SecuritySystemArr.Clear();
                 //counter = 0;
             }
-            if (counter == 6)
+            if (counter == 5)
             {
                 InGameText.SetText("Ok, you have 10 seconds to input!");
             }
-            if (counter > 6)
+            if (counter > 5)
             {
                 counter = 0;
                 InGameText.SetText("Ok, you have 10 seconds to input!");
@@ -393,7 +393,7 @@ public class puzzle_threeD3 : MonoBehaviour
 
             if (!panel.activeSelf)
             {
-                if (counter < 6)
+                if (counter < 5)
                 {
                     int num = Nums3[counter];
                     GameObject o = MyObjects[num - 1];
