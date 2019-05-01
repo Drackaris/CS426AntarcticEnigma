@@ -160,9 +160,17 @@ public class SimpleMovement : MonoBehaviour
 				}
 				else if (dt.day == 2)
 				{
-					canvasText.SetText("Another team member has gone missing during the night, we will need to continue the functioning of the base for us all to survive but we must keep a more watchful eye on each team member.");
+					if (fails == 1)
+						canvasText.SetText("You have failed to do all your tasks, if you fail again the base may fall apart and you all will die! Another team member has gone missing during the night, we will need to continue the functioning of the base for us all to survive but we must keep a more watchful eye on each team member. (If you think you have figured out who the enemy is, you can go up to them and hit X to attack them)");
+					else
+						canvasText.SetText("Another team member has gone missing during the night, we will need to continue the functioning of the base for us all to survive but we must keep a more watchful eye on each team member. (If you think you have figured out who the enemy is, you can go up to them and hit X to attack them)");
 				}
-                StartOfGame = 0;
+				else if (dt.day == 3)
+				{
+					canvasText.SetText("Another team member has gone missing during the night, you will need to upkeep the base but as there are only two others besides you, you must make a decision on who to take out. (Remember approach and hit X, if you are wrong you will lose");
+
+				}
+				StartOfGame = 0;
                 panel.SetActive(true);
             }
 			if(TutorialValue == 2)
@@ -215,17 +223,20 @@ public class SimpleMovement : MonoBehaviour
 
 			if (Input.GetKeyDown(KeyCode.X))
 			{
-				if(CorrectEnemy)
+				if (CanKillEnemy)
 				{
-					GameMode = 7;
-					canvasText.SetText("Congrats you have killed the correct enemy.  Press 'c' to continue");
-					panel.SetActive(true);
-				}
-				else
-				{
-					GameMode = 7;
-					canvasText.SetText("You have failed, you killed the wrong enemy.  Press 'c' to continue");
-					panel.SetActive(true);
+					if (CorrectEnemy)
+					{
+						GameMode = 7;
+						canvasText.SetText("Congrats you have found the enemy and taken them out!  You have not established a line of communication out yet, but no one else will die and you have weeks worth of supplies to keep the base going. Congratulations!  Press 'c' to continue");
+						panel.SetActive(true);
+					}
+					else
+					{
+						GameMode = 7;
+						canvasText.SetText("You have failed, you killed the wrong enemy and because of this there are not enough people to keep the base operational. You can not live with the guilt of taking an innocent life. Press 'c' to continue");
+						panel.SetActive(true);
+					}
 				}
 			}
 
@@ -298,13 +309,21 @@ public class SimpleMovement : MonoBehaviour
 						if (TaskList.Count > 0)
 						{
 
-							if (dt.hour > 22)
+							if (dt.hour >= 22)
 							{
 								Day++;
 								fails++;
-								save.SaveGame(2, fails);
-								SceneManager.LoadScene(2);
-
+								if (fails == 2)
+								{
+									GameMode = 7;
+									canvasText.SetText("The Base has fallen into disarray and because of this everyone in the base has died!  You have lost the game.");
+									panel.SetActive(true);
+								}
+								else
+								{
+									save.SaveGame(2, fails);
+									SceneManager.LoadScene(2);
+								}
 							}
 							else
 							{
