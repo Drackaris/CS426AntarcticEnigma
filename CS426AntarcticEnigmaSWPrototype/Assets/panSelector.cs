@@ -8,18 +8,25 @@
             //sA.audioSource.Play();
             //oA.audioSource.Play();             Stat = 0; 
         }          if(s.inK == 0)
-        {
-            sA.audioSource.loop = false;             lfA.audioSource.loop = false;             sA.audioSource.Stop();             oA.audioSource.Stop();             lfA.audioSource.Stop();             Stat = 1;         }           if (s.counter == 3)
+        {             ohA.audioSource.loop = false;
+            sA.audioSource.loop = false;             lfA.audioSource.loop = false;             sA.audioSource.Stop();             oA.audioSource.Stop();             lfA.audioSource.Stop();             ohA.audioSource.Stop();             Stat = 1;         }           if (s.counter == 3)
         {
             //wS.audioSource.Play(); 
             s.kDone = true;             lfA.audioSource.Stop();             lfA.audioSource.loop = false;             //lfA.audioSource.loop = true;             //lfA.audioSource.Play();             //s.counter = 0;             Stat = 1;             totalT = 0;
-        }          if(s.chances == 10)
+        }          if(s.chances == 10 && s.dt.day == 1)
         {
-            sA.audioSource.loop = false;             lfA.audioSource.loop = false;             sA.audioSource.Stop();             oA.audioSource.Stop();             lfA.audioSource.Stop();
+            sA.audioSource.loop = false;             lfA.audioSource.loop = false;             ohA.audioSource.loop = false;             sA.audioSource.Stop();             oA.audioSource.Stop();             lfA.audioSource.Stop();             ohA.audioSource.Stop();               ParticleSystem[] tOffF = dict[MyObjects[1]];             tOffF[2].Stop();             tOffF[3].Stop();              tOffF = dict[MyObjects[2]];             tOffF[2].Play();             tOffF[3].Stop();              tOffF = dict[MyObjects[3]];             tOffF[2].Stop();             tOffF[3].Stop();              secondOn = false; 
+        }
 
-            ohA.audioSource.loop = false;
-            ohA.audioSource.Stop();
-        } 
+        if (s.chances == 9 && s.dt.day == 2)         {             sA.audioSource.loop = false;             lfA.audioSource.loop = false;             ohA.audioSource.loop = false;             sA.audioSource.Stop();             oA.audioSource.Stop();             lfA.audioSource.Stop();             ohA.audioSource.Stop();               ParticleSystem[] tOffF = dict[MyObjects[1]];             tOffF[2].Stop();             tOffF[3].Stop();              tOffF = dict[MyObjects[2]];             tOffF[2].Play();             tOffF[3].Stop();              tOffF = dict[MyObjects[3]];             tOffF[2].Stop();             tOffF[3].Stop();              secondOn = false;         }
+
+        if (s.chances == 8 && s.dt.day == 3)         {             sA.audioSource.loop = false;             lfA.audioSource.loop = false;             ohA.audioSource.loop = false;             sA.audioSource.Stop();             oA.audioSource.Stop();             lfA.audioSource.Stop();             ohA.audioSource.Stop();
+
+
+            ParticleSystem[] tOffF = dict[MyObjects[1]];             tOffF[2].Stop();             tOffF[3].Stop();              tOffF = dict[MyObjects[2]];
+            tOffF[2].Play();             tOffF[3].Stop();
+
+            tOffF = dict[MyObjects[3]];             tOffF[2].Stop();             tOffF[3].Stop();              secondOn = false;             } 
         if (Input.GetKeyDown(KeyCode.D))         {             if((highlighted - 1) == 0)             {                 highlighted = 3;                 GameObject o = MyObjects[1];                 o.GetComponentInChildren<Renderer>().material = normalMat;                  GameObject p = MyObjects[highlighted];                 p.GetComponentInChildren<Renderer>().material = highlightMat;             }             else             {                 GameObject o = MyObjects[highlighted];                 o.GetComponentInChildren<Renderer>().material = normalMat;                  highlighted -= 1;                 GameObject p = MyObjects[highlighted];                 p.GetComponentInChildren<Renderer>().material = highlightMat;              }           }         else if (Input.GetKeyDown(KeyCode.A))         {             if ((highlighted + 1) == 4)             {                 highlighted = 1;                 GameObject o = MyObjects[3];                 o.GetComponentInChildren<Renderer>().material = normalMat;                  GameObject p = MyObjects[highlighted];                 p.GetComponentInChildren<Renderer>().material = highlightMat;             }             else             {                 GameObject o = MyObjects[highlighted];                 o.GetComponentInChildren<Renderer>().material = normalMat;                  highlighted += 1;                 GameObject p = MyObjects[highlighted];                 p.GetComponentInChildren<Renderer>().material = highlightMat;              }          }          ParticleSystem[] checkIfON = dict[MyObjects[highlighted]];         if (s.onGreen == 1 &&  (checkIfON[2].isPlaying || checkIfON[3].isPlaying))
         {
             ParticleSystem[] part = dict[MyObjects[highlighted]];             if(secondOn)
