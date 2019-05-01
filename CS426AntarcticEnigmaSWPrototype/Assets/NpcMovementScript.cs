@@ -71,14 +71,6 @@ public class NpcMovementScript : MonoBehaviour
         }
 		if (this.tag == "BlueNPC")
 		{
-			if (DTScript.hour < 10)
-			{
-				Sleep = true;
-				if (Sleeping == false)
-				{
-					agent.SetDestination(new Vector3(Bed.position.x, Bed.position.y, Bed.position.z));
-				}
-			}
 			if (DTScript.hour >= 10 && DTScript.hour < 12)
 			{
 
@@ -92,21 +84,35 @@ public class NpcMovementScript : MonoBehaviour
 			{
 				agent.SetDestination(new Vector3(Kitchen.position.x, Kitchen.position.y, Kitchen.position.z + 3f));
 			}
+			else if (DTScript.hour == 20 && DTScript.minutes == 1)
+			{
+				Sleep = true;
+			}
 			else
 			{
-				agent.SetDestination(new Vector3(LoungeArea.position.x, LoungeArea.position.y, LoungeArea.position.z));
+				if (Sleep)
+				{
+					if (!Sleeping)
+					{
+						agent.SetDestination(new Vector3(Bed.position.x, Bed.position.y, Bed.position.z));
+					}
+				}
+				else if (!Sleep)
+				{
+					agent.SetDestination(new Vector3(LoungeArea.position.x, LoungeArea.position.y, LoungeArea.position.z));
+				}
 			}
 		}
-		else if(this.tag == "GreenNPC")
+		else if (this.tag == "GreenNPC")
 		{
 			if (DTScript.hour < 10)
 			{
 				Sleep = true;
-						
+
 			}
-			if (DTScript.hour >= 11 && DTScript.hour < 13)
+			if (DTScript.hour >= 11 && DTScript.hour < 16)
 			{
-				if(Sleeping == true)
+				if (Sleeping == true)
 				{
 					WakeUp();
 				}
@@ -117,6 +123,10 @@ public class NpcMovementScript : MonoBehaviour
 				agent.SetDestination(new Vector3(Kitchen.position.x, Kitchen.position.y, Kitchen.position.z + 3f));
 			}
 			else if (DTScript.hour >= 18 && DTScript.hour < 20)
+			{
+				agent.SetDestination(new Vector3(Computer.position.x, Computer.position.y, Computer.position.z - 3f));
+			}
+			else if (DTScript.hour >= 20 && DTScript.hour < 24)
 			{
 				agent.SetDestination(new Vector3(Computer.position.x, Computer.position.y, Computer.position.z - 3f));
 			}
@@ -136,28 +146,32 @@ public class NpcMovementScript : MonoBehaviour
 			}
 
 		}
-		else if(this.tag == "RedNPC")
+		else if (this.tag == "RedNPC")
 		{
-			
+
 			if (DTScript.hour >= 8 && DTScript.hour < 10)
 			{
 				agent.SetDestination(new Vector3(Kitchen.position.x, Kitchen.position.y, Kitchen.position.z + 2.5f));
 			}
 			else if (DTScript.hour >= 10 && DTScript.hour < 12)
 			{
-				agent.SetDestination(new Vector3(Computer.position.x, Computer.position.y, Computer.position.z + 3f));
+				agent.SetDestination(new Vector3(Computer.position.x, Computer.position.y, Computer.position.z - 3f));
 			}
 			else if (DTScript.hour == 12 && DTScript.minutes == 1)
 			{
 				Sleep = true;
 			}
-			else if(DTScript.hour == 14 && DTScript.minutes == 1)
+			else if (DTScript.hour == 14 && DTScript.minutes == 1)
 			{
 				WakeUp();
 			}
-			else if(DTScript.hour >= 14 && DTScript.hour < 16)
+			else if (DTScript.hour >= 14 && DTScript.hour < 18)
 			{
 				agent.SetDestination(new Vector3(Security.position.x, Security.position.y, Security.position.z - 3f));
+			}
+			else if(DTScript.hour >= 20)
+			{
+				agent.SetDestination(new Vector3(Radio.position.x, Radio.position.y, Radio.position.z - 2.5f));
 			}
 			else
 			{
@@ -171,5 +185,41 @@ public class NpcMovementScript : MonoBehaviour
 				}
 			}
 		}
+		else if (this.tag == "OrangeNPC")
+		{
+			
+			if (DTScript.hour >= 8 && DTScript.hour < 10)
+			{
+				agent.SetDestination(new Vector3(Computer.position.x, Computer.position.y, Computer.position.z - 3f));
+			}
+			else if (DTScript.hour >= 12 && DTScript.hour < 14)
+			{
+				agent.SetDestination(new Vector3(Kitchen.position.x, Kitchen.position.y, Kitchen.position.z + 3f));
+			}
+			else if (DTScript.hour >= 16 && DTScript.hour < 18)
+			{
+				agent.SetDestination(new Vector3(Radio.position.x, Radio.position.y, Radio.position.z - 3f));
+			}
+			else if (DTScript.hour >= 18 && DTScript.hour <20 )
+			{
+				agent.SetDestination(new Vector3(Kitchen.position.x, Kitchen.position.y, Kitchen.position.z + 3f));
+			}
+			else
+			{
+				if (Sleep)
+				{
+					if (!Sleeping)
+					{
+						agent.SetDestination(new Vector3(Bed.position.x, Bed.position.y, Bed.position.z));
+					}
+				}
+				else if (!Sleep)
+				{
+					agent.SetDestination(new Vector3(LoungeArea.position.x, LoungeArea.position.y, LoungeArea.position.z));
+				}
+			}
+
+		}
+
 	}
 }

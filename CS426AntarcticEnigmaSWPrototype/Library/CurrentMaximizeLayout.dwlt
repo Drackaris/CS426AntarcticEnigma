@@ -23,10 +23,10 @@ MonoBehaviour:
     y: 30
     width: 1449
     height: 661
-  m_MinSize: {x: 917, y: 424}
-  m_MaxSize: {x: 22012, y: 10024}
+  m_MinSize: {x: 909, y: 424}
+  m_MaxSize: {x: 22004, y: 10000}
   vertical: 0
-  controlID: 2450
+  controlID: 135
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 424}
   m_MaxSize: {x: 4002, y: 8024}
   vertical: 1
-  controlID: 2430
+  controlID: 136
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -151,8 +151,8 @@ MonoBehaviour:
     y: 0
     width: 706
     height: 330
-  m_MinSize: {x: 202, y: 224}
-  m_MaxSize: {x: 4002, y: 4024}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 5}
   m_Panes:
   - {fileID: 5}
@@ -320,7 +320,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: a8eefeffcaf7feff72fbfeffe87dffffdca1ffffe6aaffff
+      m_ExpandedIDs: 4ca6ffff74a7ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -409,20 +409,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scenes
+  - Assets
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: /Users/Moe/Desktop/CS426_FinalProj/CS426AntarcticEnigma/CS426AntarcticEnigmaSWPrototype
+  m_LastProjectPath: C:\Users\Steve\CodingProjects\CS426AntarcticEnigma\CS426AntarcticEnigmaSWPrototype
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 544f0000
-    m_LastClickedID: 20308
-    m_ExpandedIDs: 000000008a4c0000be4c0000944e0000ca4e0000004f0000464f0000544f0000664f00000c500000fe5a000000ca9a3b
+    m_SelectedIDs: 304e0000
+    m_LastClickedID: 20016
+    m_ExpandedIDs: 00000000304e0000644e00003a50000070500000a6500000ec500000fa5000000c510000b2510000bc52000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -450,7 +450,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008a4c0000be4c0000944e0000ca4e0000004f0000464f0000544f0000664f00000c500000fe5a000000ca9a3b
+    m_ExpandedIDs: 00000000304e0000644e00003a50000070500000a6500000ec500000fa5000000c510000b2510000bc520000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -475,9 +475,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 26500000
-    m_LastClickedInstanceID: 20518
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 4c0b0000
+    m_LastClickedInstanceID: 2892
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: b24300005a0c000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -502,7 +502,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 300}
     m_GridSize: 16
   m_DirectoriesAreaWidth: 123
 --- !u!114 &11
@@ -550,8 +550,8 @@ MonoBehaviour:
     y: 0
     width: 277
     height: 661
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 74}
+  m_MaxSize: {x: 4002, y: 4024}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
