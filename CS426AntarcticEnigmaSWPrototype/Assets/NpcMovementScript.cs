@@ -42,6 +42,14 @@ public class NpcMovementScript : MonoBehaviour
         if (other.tag == "Chair")
         {
             anim.SetBool("Sit", true);
+            agent.angularSpeed = 0;
+            this.transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        if (other.tag == "Chair1")
+        {
+            anim.SetBool("Sit", true);
+            agent.angularSpeed = 0;
+            this.transform.eulerAngles = new Vector3(0, 180, 0);
         }
     }
 
@@ -50,6 +58,12 @@ public class NpcMovementScript : MonoBehaviour
         if (other.tag == "Chair")
         {
             anim.SetBool("Sit", false);
+            agent.angularSpeed = 120;
+        }
+        if (other.tag == "Chair1")
+        {
+            anim.SetBool("Sit", false);
+            agent.angularSpeed = 120;
         }
     }
 
