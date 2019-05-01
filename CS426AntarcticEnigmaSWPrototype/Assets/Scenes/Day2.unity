@@ -7322,7 +7322,7 @@ MonoBehaviour:
   Kitchen: {fileID: 533275245}
   Bed: {fileID: 356528544}
   Security: {fileID: 142661071}
-  Radio: {fileID: 397433825}
+  Radio: {fileID: 938788731}
   LoungeArea: {fileID: 394596250}
   Sleep: 0
 --- !u!195 &758768162
@@ -18504,7 +18504,7 @@ MonoBehaviour:
   Kitchen: {fileID: 533275245}
   Bed: {fileID: 356528544}
   Security: {fileID: 142661071}
-  Radio: {fileID: 397433825}
+  Radio: {fileID: 938788731}
   LoungeArea: {fileID: 394596250}
   Sleep: 0
 --- !u!195 &1712501965
@@ -20137,7 +20137,7 @@ MonoBehaviour:
   Kitchen: {fileID: 533275245}
   Bed: {fileID: 356528544}
   Security: {fileID: 142661071}
-  Radio: {fileID: 397433825}
+  Radio: {fileID: 938788731}
   LoungeArea: {fileID: 394596250}
   Sleep: 0
 --- !u!136 &1862269800
