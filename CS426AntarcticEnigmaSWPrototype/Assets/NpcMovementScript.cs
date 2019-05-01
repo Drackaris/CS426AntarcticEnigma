@@ -94,7 +94,7 @@ public class NpcMovementScript : MonoBehaviour
 			}
 			else
 			{
-				agent.SetDestination(new Vector3(LoungeArea.position.x, LoungeArea.position.y, LoungeArea.position.z + 3f));
+				agent.SetDestination(new Vector3(LoungeArea.position.x, LoungeArea.position.y, LoungeArea.position.z));
 			}
 		}
 		else if(this.tag == "GreenNPC")
@@ -131,7 +131,7 @@ public class NpcMovementScript : MonoBehaviour
 				}
 				else if (!Sleep)
 				{
-					agent.SetDestination(new Vector3(LoungeArea.position.x, LoungeArea.position.y, LoungeArea.position.z + 3f));
+					agent.SetDestination(new Vector3(LoungeArea.position.x, LoungeArea.position.y, LoungeArea.position.z));
 				}
 			}
 
@@ -167,7 +167,7 @@ public class NpcMovementScript : MonoBehaviour
 				}
 				else if (!Sleep)
 				{
-					agent.SetDestination(new Vector3(LoungeArea.position.x, LoungeArea.position.y, LoungeArea.position.z + 3f));
+					agent.SetDestination(new Vector3(LoungeArea.position.x, LoungeArea.position.y, LoungeArea.position.z));
 				}
 			}
 		}
