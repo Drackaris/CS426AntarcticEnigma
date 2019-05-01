@@ -424,6 +424,16 @@ public class SimpleMovement : MonoBehaviour
 		}
         else if (GameMode == 2)
         {
+            if (dt.day == 1 && StartOfKitchen == 0)
+                barSpeed = 10;
+
+            if (dt.day == 2 && StartOfKitchen == 0)
+                barSpeed = 15;
+
+            if (dt.day == 3 && StartOfKitchen == 0)
+                barSpeed = 17;
+
+
             if (StartOfKitchen == 0)
             {
                 canvasText.SetText("In this puzzle you will use 'A' and 'D' to move between pots. Use the space-bar to get the slider on the green, and the selected pot will stop burning. If you understand press 'c', and good luck!");
@@ -437,7 +447,15 @@ public class SimpleMovement : MonoBehaviour
                 canvasText.SetText("");
             }
 
-            kitchenText.SetText("Attempts for this fire " + chances + "\n" + "Completed " + counter + " out of 4");
+            if(dt.day == 1)
+                kitchenText.SetText("Out of 10 you used: " + chances + "\n" + "Completed " + counter + " out of 4");
+
+            if (dt.day == 2)
+                kitchenText.SetText("Out of 9 you used: " + chances + "\n" + "Completed " + counter + " out of 4");
+
+            if (dt.day == 3)
+                kitchenText.SetText("Out of 8 you used: " + chances + "\n" + "Completed " + counter + " out of 4");
+
 
             inK = 1;
             camswitch.GoToKitchenCamera();
@@ -451,8 +469,17 @@ public class SimpleMovement : MonoBehaviour
                 {
                     Bar.transform.Translate(0, 0, 0);
 
-                    barSpeed = 15;
-                    chances  = 0;
+                    if (dt.day == 1)
+                        barSpeed = 10;
+
+                    if (dt.day == 2)
+                        barSpeed = 15;
+
+                    if (dt.day == 3)
+                        barSpeed = 17;
+
+
+                    chances = 0;
                     onGreen = 1;
 
                     if(kDone)
@@ -484,7 +511,35 @@ public class SimpleMovement : MonoBehaviour
                     else
                         barSpeed = barSpeed + 2;
 
-                    if(chances == 10)
+                    if(chances == 10 && dt.day == 1)
+                    {
+                        inK = 0;
+                        GameMode = 0;
+                        camswitch.GoToPlayerCamera();
+                        kDone = false;
+                        StartOfKitchen = 0;
+                        chances = 0;
+                        //counter = 0;
+                        lS.audioSource.Play();
+                        kitchenText.SetText("");
+
+                    }
+
+                    if (chances == 9 && dt.day == 2)
+                    {
+                        inK = 0;
+                        GameMode = 0;
+                        camswitch.GoToPlayerCamera();
+                        kDone = false;
+                        StartOfKitchen = 0;
+                        chances = 0;
+                        //counter = 0;
+                        lS.audioSource.Play();
+                        kitchenText.SetText("");
+
+                    }
+
+                    if (chances == 8 && dt.day == 3)
                     {
                         inK = 0;
                         GameMode = 0;
