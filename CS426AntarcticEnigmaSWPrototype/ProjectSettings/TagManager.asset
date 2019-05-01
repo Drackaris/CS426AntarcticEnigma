@@ -33,6 +33,7 @@ TagManager:
   - RedNPC
   - GreenNPC
   - Schedule
+  - OrangeNPC
   layers:
   - Default
   - TransparentFX
